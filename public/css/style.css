@@ -1,0 +1,43 @@
+input[type=search]{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+ }
+
+.header {
+	padding: 12px 0px;
+	width: 100vw;
+	border-bottom: 1px solid grey;
+	display: flex;
+	justify-content: center;
+}
+
+.header .holder {
+	height: 40px;
+	width: 60vw;
+	display: flex;
+	justify-content: center;
+}
+
+.holder div {
+	width: 33%;
+}
+
+.logo {
+	background: url("https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png");
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+
+.search input {
+	height: 24px;
+	border-radius: 10px;
+	padding: 2px 10px;
+	margin: 8px 0px;
+	width: 77%;
+}
+
+.actions button {
+	height: 30px;
+}
+
