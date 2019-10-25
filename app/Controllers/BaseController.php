@@ -21,6 +21,14 @@ class BaseController
 	public function default()
 	{
 		// Render default View here
+		$data = [
+			"user" => [
+				"name" => "gwasserf"
+			],
+			"posts" => [
+				
+			]
+		];
 		include_once dirname(__DIR__) . "/Views/VisitorHome.php";
 	}
 }

@@ -57,4 +57,4 @@ class UserModel extends BaseModel
 	}
 }
 
-Bus route and campus location to Nix!!
+// Bus route and campus location to Nix!!
