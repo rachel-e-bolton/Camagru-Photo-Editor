@@ -33,7 +33,7 @@ class Router {
 	    if (method_exists($dispatch, $action)) {
 	        call_user_func_array(array($dispatch, $action), $query_string);
 	    } else {
-	        echo "<br>Error Here!<br>";
+	        echo "<br>Error Loading the correct Controller!<br>";
 	    }
 	}
 	

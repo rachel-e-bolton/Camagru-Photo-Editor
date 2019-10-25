@@ -6,6 +6,7 @@ class BaseModel
 
 	public function __construct()
 	{
-		$file_db = new PDO('sqlite:messaging.sqlite3');
+		$file_db = new PDO('sqlite:' . ROOT . '/dev.db');
+		$this->db = $file_db;
 	}
 }

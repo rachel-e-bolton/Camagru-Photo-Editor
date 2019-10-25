@@ -1,4 +1,4 @@
-<?php require_once dirname(__DIR__) . "/Views/Components/Header.php"; ?>
+<?= Component::load("Header") ?>
 
 <div class="container">
 	<div class="row">

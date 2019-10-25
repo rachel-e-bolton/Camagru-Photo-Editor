@@ -25,7 +25,7 @@ class UsersController extends BaseProtectedController
     public function get($id = NULL)
     {
         // Need a model
-        echo "Method called boooi $id";
+        echo "get method called on UsersController $id";
     }
 }
 
