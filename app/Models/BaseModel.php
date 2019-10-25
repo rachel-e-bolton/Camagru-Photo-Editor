@@ -9,4 +9,9 @@ class BaseModel
 		$file_db = new PDO('sqlite:' . ROOT . '/dev.db');
 		$this->db = $file_db;
 	}
+
+	public function getDB()
+	{
+		return $this->db;
+	}
 }

@@ -19,10 +19,6 @@ require_once "BaseModel.php";
 
 class UserModel extends BaseModel
 {
-	private $columns = [
-		
-	];
-
 	private function setOrNull($value)
 	{
 		if ($value)
@@ -45,7 +41,13 @@ class UserModel extends BaseModel
 				(:first_name, :last_name, :handle, :email, 
 			     :password_hash, :dob, :profile_img)";
 
-		$stmt = $this->db->prepare($insert);
+		
+		print_r($this);
+		$db = $this->getDb();
+
+		
+
+		$stmt = $db->prepare($insert);
 		$stmt->bindParam(":first_name",    $this->setOrNull($user["first_name"]));
 		$stmt->bindParam(":last_name",     $this->setOrNull($user["last_name"]));
 		$stmt->bindParam(":handle",        $this->setOrNull($user["handle"]));
@@ -53,8 +55,6 @@ class UserModel extends BaseModel
 		$stmt->bindParam(":password_hash",  $this->hashPass($user["password"]));
 		$stmt->bindParam(":dob",           $this->setOrNull($user["dob"]));
 		$stmt->bindParam(":profile_img",   $this->setOrNull($user["profile_img"]));
-		$stmt->execute();
+		return $stmt->execute();
 	}
 }
-
-// Bus route and campus location to Nix!!
