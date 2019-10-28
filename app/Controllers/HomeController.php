@@ -1,6 +1,8 @@
 <?php
 
-class HomeController extends BaseController
+//require_once "./BaseProtectedController.php";
+
+class HomeController extends BaseProtectedController
 {
 	function default()
 	{

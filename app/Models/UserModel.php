@@ -12,6 +12,7 @@ require_once "BaseModel.php";
 		email TEXT,
 		password_hash TEXT,
 		dob TEXT,
+		is_verified INT,
 		profile_img TEXT
 	)
 */
@@ -42,10 +43,7 @@ class UserModel extends BaseModel
 			     :password_hash, :dob, :profile_img)";
 
 		
-		print_r($this);
 		$db = $this->getDb();
-
-		
 
 		$stmt = $db->prepare($insert);
 		$stmt->bindParam(":first_name",    $this->setOrNull($user["first_name"]));
@@ -56,5 +54,21 @@ class UserModel extends BaseModel
 		$stmt->bindParam(":dob",           $this->setOrNull($user["dob"]));
 		$stmt->bindParam(":profile_img",   $this->setOrNull($user["profile_img"]));
 		return $stmt->execute();
+	}
+
+	public function authenticate($username, $password)
+	{
+		$db = $this->getDb();
+
+		$stmt = $db->prepare("SELECT * FROM users WHERE handle=:user LIMIT 1");
+
+		$stmt->bindParam(":user", $username);
+		$stmt->execute();
+		$result = $stmt->fetch();
+
+		if ($result)
+			return (hash("sha512", $password) === $result["password_hash"]);
+		else
+			return false;
 	}
 }

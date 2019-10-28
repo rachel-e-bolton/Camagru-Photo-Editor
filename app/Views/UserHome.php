@@ -1,4 +1,4 @@
-<?php require_once dirname(__DIR__) . "/Views/Components/Header.php"; ?>
+<?php Component::load("GlobalHeader") ?>
 
 <div class="container">
 	<div class="row">
@@ -8,4 +8,4 @@
 	</div>
 </div>
 
-<?php require_once dirname(__DIR__) . "/Views/Components/Footer.php"; ?>
+<?php Component::load("GlobalFooter") ?>

@@ -9,14 +9,16 @@ class UsersController extends BaseController
         include_once dirname(__DIR__) . "/Views/UserHome.php";
     }
 
-
-    public function login()
+    public function authenticate()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST")
         {   
             $data = json_decode(file_get_contents('php://input'), true);
-            if ($this->model->authenticate($user, $pass))
-                $response = new ApiResonse($data, 200);
+            if ($this->model->authenticate($data["username"], $data["password"]))
+            {
+                $_SESSION["logged_in_uid"] = $data["username"];
+                $response = new ApiResonse(["session_id" => session_id()], 200);
+            }
             else
                 $response = new ApiResonse("Failed", 500);
             $response->send();
@@ -26,6 +28,13 @@ class UsersController extends BaseController
             $response = new ApiResonse(["error" => "method {$_SERVER['REQUEST_METHOD']} not allowed"], 500);
             $response->send();
         }
+    }
+
+    public function logout()
+    {
+        $_SESSION = array();
+        header("Location: /");
+        die();
     }
 
     // JSON endpoint
@@ -75,7 +84,7 @@ class ApiResonse
     function send()
     {
         $response = [
-            "status" => true,
+            "status" => ($this->status_code < 299) ? true : false,
             "data" => $this->data
         ];
 

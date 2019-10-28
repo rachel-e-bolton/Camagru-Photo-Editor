@@ -7,6 +7,9 @@ class BaseModel
 	public function __construct()
 	{
 		$file_db = new PDO('sqlite:' . ROOT . '/dev.db');
+
+		$file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 		$this->db = $file_db;
 	}
 
