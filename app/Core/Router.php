@@ -28,7 +28,7 @@ class Router {
 	    $controller_name = $controller;
 	    $controller = ucwords($controller) . "Controller";
 
-      $dispatch = new $controller($controller_name,$action);
+      	$dispatch = new $controller($controller_name, $action);
 	 
 	    if (method_exists($dispatch, $action)) {
 	        call_user_func_array(array($dispatch, $action), $query_string);

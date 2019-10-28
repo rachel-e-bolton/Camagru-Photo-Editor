@@ -3,7 +3,7 @@
 class BaseController 
 {
 	private $args;
-	private $db;
+	public $model;
 
 	public function __construct($name, $args)
 	{
@@ -13,22 +13,14 @@ class BaseController
 		$potentialModelName = ucwords(rtrim($name, "s")) . "Model";
 
 		if (class_exists($potentialModelName))
-			$this->db = new $potentialModelName();
+			$this->model = new $potentialModelName();
 		else
-			$this->db = new BaseModel();
+			$this->model = new BaseModel();
 	}
 
 	public function default()
 	{
 		// Render default View here
-		$data = [
-			"user" => [
-				"name" => "gwasserf"
-			],
-			"posts" => [
-				
-			]
-		];
 		include_once dirname(__DIR__) . "/Views/VisitorHome.php";
 	}
 }
