@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script src="/js/api.js"></script>
+	<link rel="stylesheet" href="/css/mystyles.css">
 	<title>Development Console</title>
 </head>
-<body>
-
-	<h2>Create new User</h2>
+<body class="has-navbar-fixed-top">
+<?= Component::load("GenericHeader") ?>
+<div>
+	<h1 class="is-primary" style="padding-top: 1rem;">Create new User</h1>
 	<form id="new_user">
 		First Name 		<input name="first_name" type="text"><br>
 		Last Name 		<input name="last_name" type="text"><br>
@@ -20,7 +22,7 @@
 		Profile Image 	<input name="profile_img" type="text"><br>
 	</form>
 
-	<button onclick="createUser('new_user')">Add</button>
+	<button class="button is-primary" onclick="createUser('new_user')">Add</button>
 
 	<h2>All Users</h2>
 	<pre id="result"></pre>
@@ -47,11 +49,8 @@
 				})
 			})
 		}
-
-
-		
-
 	</script>
-
+</div>
+<?= Component::load("GenericFooter") ?>
 </body>
 </html>
