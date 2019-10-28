@@ -6,3 +6,7 @@ define("DATABASE_PASS", "localhost");
 
 define("ROOT", dirname(__DIR__));
 define("HOME_PAGE", "/");
+
+
+// Set some headers
+header('X-Frame-Options: SAMEORIGIN');

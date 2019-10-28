@@ -7,6 +7,10 @@
 Session Info Here
 <? print_r($_SESSION) ?>
 
+<?php 
+
+?>
+
 </pre>
 
 
