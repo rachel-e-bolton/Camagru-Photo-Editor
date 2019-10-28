@@ -8,8 +8,8 @@
 	<link rel="stylesheet" href="/css/mystyles.css">
 	<title>Development Console</title>
 </head>
-<body class="has-navbar-fixed-top">
-<?= Component::load("GenericHeader") ?>
+<body class="has-navbar-fixed-top has-navbar-fixed-bottom">
+<?= Component::load("SignedInHeader") ?>
 <div>
 	<h1 class="is-primary" style="padding-top: 1rem;">Create new User</h1>
 	<form id="new_user">
@@ -51,6 +51,6 @@
 		}
 	</script>
 </div>
-<?= Component::load("GenericFooter") ?>
+<?= Component::load("SignedInFooter") ?>
 </body>
 </html>

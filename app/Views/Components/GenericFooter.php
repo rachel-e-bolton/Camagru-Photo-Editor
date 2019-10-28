@@ -1,9 +1,9 @@
-<nav class="navbar is-light is-fixed-bottom" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
+<nav class="level navbar is-light is-fixed-bottom" role="navigation" aria-label="main navigation">
+  <div class="level-left navbar-brand">
     <a class="navbar-item" href="/home">
-      <img src="img/Camagru-transp-long2.png" alt="Home">
+      <img src="img/Camagru-transp-long5.png" alt="Home">
     </a>
-
+<!-- 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -30,54 +30,46 @@
     }
     });
     </script>
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
-  </div>
+  </div> -->
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Home
+  <div id="navbarMenu" class="level-right navbar-menu">
+    <div class="level-item navbar-start">
+      <a class="level-item navbar-item">
+        Contact Us
       </a>
 
-      <a class="navbar-item">
-        Documentation
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
+      <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
+        <a class="level-item navbar-link">
+          Help
         </a>
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            About
+            Privacy Policy
           </a>
           <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
+            Terms of Use
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item">
             Report an issue
           </a>
-        </div>
       </div>
     </div>
-
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
+          <a href="https://github.com/gwasserfall/camagru" class="button is-light is-family-code" style="font-size: 12px">
+            <span style="font-soze: 20px;">&copy</span> 2019 gwasserfall & rachel-e-bolton 2019
+          </a>
           <a class="button is-primary">
             <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
           </a>
         </div>
       </div>
