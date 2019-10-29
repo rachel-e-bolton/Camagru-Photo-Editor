@@ -1,6 +1,8 @@
 <?= Component::load("GlobalHeader") ?>
 <body>
 <?= Component::load("PageHeader") ?>
+
+
 <div class="container">
 	<div class="row">
 		<div class="col-12">
@@ -8,10 +10,6 @@
 		</div>
 	</div>
 </div>
-
-<?php foreach($data["posts"] as $post): ?>
-
-	<?= $post->delete() ?>
-<?= Component::load("PageFooter") ?>
+asdasdasd
+<?= Component::load("PageFooter"); ?>
 </body>
-<?= Component::load("GlobalFooter") ?>

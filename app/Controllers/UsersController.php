@@ -30,6 +30,14 @@ class UsersController extends BaseController
         }
     }
 
+    public function handleExists($handle)
+    {
+        if ($this->model->handleExists($handle))
+            (new ApiResonse("", 200))->send();
+        else
+            (new ApiResonse("", 500))->send();
+    }
+
     public function logout()
     {
         $_SESSION = array();

@@ -56,6 +56,18 @@ class UserModel extends BaseModel
 		return $stmt->execute();
 	}
 
+	public function handleExists($handle)
+	{
+		$db = $this->getDb();
+
+		$stmt = $db->prepare("SELECT * FROM users WHERE handle=:handle LIMIT 1");
+		$stmt->bindParam(":handle", $handle);
+		$stmt->execute();
+		$result = $stmt->fetch();
+		
+		return ((bool)$result);
+	}
+
 	public function authenticate($username, $password)
 	{
 		$db = $this->getDb();
