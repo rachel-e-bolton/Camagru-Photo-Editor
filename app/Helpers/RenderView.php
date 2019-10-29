@@ -21,6 +21,12 @@ class RenderView
 	 */
 	public static function json($data, $status_code)
 	{
-		echo "Render some JSON";
+		$response = [
+            "success" => ($status_code < 299) ? true : false,
+			"data"    => $data,
+			"message" => ""
+        ];
+		header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 }
