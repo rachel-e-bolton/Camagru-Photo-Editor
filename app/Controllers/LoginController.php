@@ -1,6 +1,6 @@
 <?php 
 
-class SignupController extends BaseController
+class LoginController extends BaseController
 {
 
 	public function __construct($name, $args)
