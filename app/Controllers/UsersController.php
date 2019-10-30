@@ -46,26 +46,6 @@ class UsersController extends BaseController
     }
 
     // JSON endpoint
-    public function create()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == "POST")
-        {
-            
-            $data = json_decode(file_get_contents('php://input'), true);
-            if ($this->model->create($data))
-                $response = new ApiResonse($data, 200);
-            else        
-                $response = new ApiResonse("Failed", 500);
-            $response->send();
-        }
-        else
-        {
-            $response = new ApiResonse(["error" => "method {$_SERVER['REQUEST_METHOD']} not allowed"], 500);
-            $response->send();
-        }
-    }
-
-    // JSON endpoint
     public function get($id = NULL)
     {
         $db = $this->model->getDB();

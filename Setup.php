@@ -10,7 +10,7 @@ $sql = <<<EOD
 CREATE TABLE IF NOT EXISTS users (
 	first_name TEXT,
 	last_name TEXT,
-	handle TEXT,
+	handle TEXT UNIQUE,
 	email TEXT,
 	password_hash TEXT,
 	dob TEXT,

@@ -48,11 +48,17 @@ function createUser(form)
 {
 	ApiClient.createUser(form)
 	.then(data => {
-		ApiClient.getUsers()
-		.then(data => {
-			data.forEach(user => {
-				document.getElementById("result").innerHTML += `${JSON.stringify(user)}<br>`;
-			})
-		})
+		if (data.success)
+		{
+			console.log(data);
+			console.log("Created User")
+		}
+		else
+		{
+			console.log("Failed")
+		}
+	})
+	.error(err => {
+		console.log("git the error")
 	})
 }
