@@ -4876,6 +4876,12 @@ a.navbar-item,
   html.has-navbar-fixed-bottom-touch,
   body.has-navbar-fixed-bottom-touch {
     padding-bottom: 3.25rem; } }
+  .navbar-item.has-dropdown .navbar-dropdown {
+    display: none;
+  }
+  .navbar-item.has-dropdown.is-active .navbar-dropdown {
+    display: block;
+  }
 
 @media screen and (min-width: 1024px) {
   .navbar,

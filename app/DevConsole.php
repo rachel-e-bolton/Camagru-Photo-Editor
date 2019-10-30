@@ -9,7 +9,7 @@
 	<title>Development Console</title>
 </head>
 <body class="has-navbar-fixed-top has-navbar-fixed-bottom">
-<?= Component::load("SignedInHeader") ?>
+<?= Component::load("Desktop/SignedInHeader-desktop") ?>
 <div>
 	<h1 class="is-primary" style="padding-top: 1rem;">Create new User</h1>
 	<form id="new_user">
@@ -51,6 +51,6 @@
 		}
 	</script>
 </div>
-<?= Component::load("SignedInFooter") ?>
+<?= Component::load("Desktop/SignedInFooter-desktop") ?>
 </body>
 </html>
