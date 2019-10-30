@@ -27,7 +27,7 @@ document.getElementById("handle").addEventListener("keypress", event => {
 })
 
 
-document.getElementById("handle").addEventListener("input", event => {
+document.getElementById("handle").addEventListener("blur", event => {
 	var val = event.target.value;
 
 
@@ -38,8 +38,8 @@ document.getElementById("handle").addEventListener("input", event => {
 			.then(data => {
 				if (data.status)
 					event.target.classList.remove("is-danger")
-				// else
-				// 	event.target.classList.add("is-danger")
+				else
+					event.target.classList.add("is-success")
 			})
 	}
 })

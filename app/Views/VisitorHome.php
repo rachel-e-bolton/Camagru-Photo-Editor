@@ -1,8 +1,9 @@
-<?= Component::load("GlobalHeader") ?>
+<?php Component::load("GlobalHeader") ?>
+
+
+<?php Component::load("Desktop/GenericHeader-desktop") ?>
+
 <body>
-<?= Component::load("PageHeader") ?>
-
-
 <div class="container">
 	<div class="row">
 		<div class="col-12">
@@ -10,6 +11,8 @@
 		</div>
 	</div>
 </div>
-asdasdasd
-<?= Component::load("PageFooter"); ?>
 </body>
+<?php Component::load("Desktop/GenericFooter-desktop") ?>
+
+
+<?php Component::load("GlobalFooter") ?>
