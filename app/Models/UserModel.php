@@ -46,14 +46,20 @@ class UserModel extends BaseModel
 		$db = $this->getDb();
 
 		$stmt = $db->prepare($insert);
-		$stmt->bindParam(":first_name",    $this->setOrNull($user["first_name"]));
-		$stmt->bindParam(":last_name",     $this->setOrNull($user["last_name"]));
-		$stmt->bindParam(":handle",        $this->setOrNull($user["handle"]));
-		$stmt->bindParam(":email",         $this->setOrNull($user["email"]));
-		$stmt->bindParam(":password_hash",  $this->hashPass($user["password"]));
-		$stmt->bindParam(":dob",           $this->setOrNull($user["dob"]));
-		$stmt->bindParam(":profile_img",   $this->setOrNull($user["profile_img"]));
-		return $stmt->execute();
+		$stmt->bindValue(":first_name",    $this->setOrNull($user["first_name"]));
+		$stmt->bindValue(":last_name",     $this->setOrNull($user["last_name"]));
+		$stmt->bindValue(":handle",        $this->setOrNull($user["handle"]));
+		$stmt->bindValue(":email",         $this->setOrNull($user["email"]));
+		$stmt->bindValue(":password_hash",  $this->hashPass($user["password"]));
+
+		try
+		{    
+			return $stmt->execute();
+		}
+		catch (PDOException $e)
+		{
+			return false;
+		}
 	}
 
 	public function handleExists($handle)

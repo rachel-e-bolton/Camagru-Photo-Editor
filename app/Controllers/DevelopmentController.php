@@ -11,4 +11,9 @@ class DevelopmentController extends BaseController
 	{
 		RenderView::file($args["params"][0]);
 	}
+
+	public function views($args)
+	{
+		RenderView::file($args["params"][0]);
+	}
 }

@@ -11,6 +11,6 @@
 	</div>
 </div>
 </body>
-<?php Component::load("Desktop/GenericFooter-desktop") ?>
+<?php Component::load("Tablet/GenericFooter-tablet") ?>
 
 <?php Component::load("GlobalFooter") ?>

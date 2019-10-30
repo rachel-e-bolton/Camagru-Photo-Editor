@@ -32,7 +32,7 @@
 								<a class="button is-static">@</a>
 							</p>
 							<p class="control is-expanded">
-								<input id="handle" class="input" type="text">
+								<input name="handle" id="handle" class="input" type="text">
 							</p>
 						</div>
 					</div>
@@ -45,7 +45,7 @@
 					<div class="field-body">
 						<div class="field">
 							<p class="control is-expanded">
-								<input class="input" type="password">
+								<input name="password" class="input" type="password">
 							</p>
 						</div>
 					</div>
@@ -78,7 +78,7 @@
 					<div class="field-body">
 						<div class="field">
 						<p class="control is-expanded">
-							<input class="input" type="text" name="first_name">
+							<input name="first_name" class="input" type="text" name="first_name">
 						</p>
 						</div>
 					</div>
@@ -91,7 +91,7 @@
 					<div class="field-body">
 						<div class="field">
 						<p class="control is-expanded">
-							<input class="input" type="text">
+							<input name="last_name" class="input" type="text">
 						</p>
 						</div>
 					</div>
@@ -104,7 +104,7 @@
 					<div class="field-body">
 						<div class="field">
 							<p class="control is-expanded">
-								<input class="input" type="email">
+								<input name="email" class="input" type="email">
 							</p>
 						</div>
 					</div>
