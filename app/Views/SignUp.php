@@ -1,9 +1,11 @@
 <?= Component::load("GlobalHeader", ["title" => "Sign Up"]) ?>
 
+<?php Component::load("Desktop/GenericHeader-desktop") ?>
+
 <link rel="stylesheet" href="/css/signup.css">
 
-<div class="columns is-centered">
-	<div class="column is-4">
+<div class="columns is-centered" style="margin-top: 3rem">
+	<div class="column is-6">
 
 		<!-- <form id="new_user">
 			First Name 		<input name="first_name" type="text"><br>
@@ -20,10 +22,10 @@
 
 
 		<div class="slide-container">
-			<div class="slide center">
+			<div class="box has-background-darker slide center">
 				<form id="new_user">
 				<div class="field is-horizontal">
-					<div class="field-label is-normal">
+					<div class="field-label grow-1 is-normal">
 						<label class="label">Handle</label>
 					</div>
 					<div class="field-body">
@@ -39,7 +41,7 @@
 				</div>
 
 				<div class="field is-horizontal">
-					<div class="field-label is-normal">
+					<div class="field-label grow-1 is-normal">
 						<label class="label">Password</label>
 					</div>
 					<div class="field-body">
@@ -52,8 +54,8 @@
 				</div>
 
 				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Repeat Password</label>
+					<div class="field-label grow-1 is-normal">
+						<label class="label">Repeat</label>
 					</div>
 					<div class="field-body">
 						<div class="field">
@@ -64,15 +66,21 @@
 					</div>
 				</div>
 
+				<div class="box has-background-warning has-text-centered">
+				A password should be <strong>at least 8 characters</strong> in length and <strong>contain at least</strong>:<br/> 
+				a <strong>special character</strong>,
+				a <strong>number</strong> and a <strong>capital letter</strong>.
+				</div>
+
 				<div class="buttons">
 					<div class="spacer"></div>
 					<button type="button" class="button is-primary" onclick="nextSlide()">Next</button>
 				</div>
 
 			</div>
-			<div class="slide right">
+			<div class="box slide right">
 				<div class="field is-horizontal">
-					<div class="field-label is-normal">
+					<div class="field-label grow-1 is-normal">
 						<label class="label">First Name</label>
 					</div>
 					<div class="field-body">
@@ -85,7 +93,7 @@
 				</div>
 
 				<div class="field is-horizontal">
-					<div class="field-label is-normal">
+					<div class="field-label grow-1 is-normal">
 						<label class="label">Last Name</label>
 					</div>
 					<div class="field-body">
@@ -98,7 +106,7 @@
 				</div>
 
 				<div class="field is-horizontal">
-					<div class="field-label is-normal">
+					<div class="field-label grow-1 is-normal">
 						<label class="label">Email</label>
 					</div>
 					<div class="field-body">
@@ -112,7 +120,7 @@
 
 
 				<div class="buttons">
-					<button type="button" class="button" onclick="previousSlide()">Back</button>
+					<button type="button" class="button is-light" onclick="previousSlide()">Back</button>
 					<button type="button" class="button is-primary" onclick="createUser('new_user')">Sign Up</button>
 				</div>
 				</form>
@@ -132,5 +140,7 @@
 
 <script src="/js/api.js"></script>
 <script src="/js/signup.js"></script>
+
+<?php Component::load("Desktop/GenericFooter-desktop") ?>
 
 <?= Component::load("GlobalFooter") ?>
