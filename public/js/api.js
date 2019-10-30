@@ -20,7 +20,7 @@ class ApiClient
 		let myForm = document.getElementById(formId);
 		let formData = new FormData(myForm);
 
-		let response = await fetch(`/users/authenticate`, {
+		let response = await fetch(`/login/authenticate`, {
 				method: 'POST', 
 				body: JSON.stringify(Object.fromEntries(formData))
 			}
