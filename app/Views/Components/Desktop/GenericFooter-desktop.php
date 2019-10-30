@@ -23,7 +23,7 @@
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item">
-            Report an issue
+            Report an Issue
           </a>
         </div>
       </div>
@@ -34,10 +34,10 @@
           <a href="https://github.com/gwasserfall/camagru" class="button is-light" style="margin-left: -.25rem; font-size: 14px;">
           © 2019 - gwasserfall & rachel-e-bolton          
           </a>
-          <a class="button is-primary" >
+          <a class="button is-primary" href="/signup">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light" >
+          <a class="button is-light" href="/login">
             Log in
           </a>
         </div>

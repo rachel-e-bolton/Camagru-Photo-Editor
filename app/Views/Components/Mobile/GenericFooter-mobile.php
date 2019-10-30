@@ -14,7 +14,7 @@
           Terms of Use
         </a>
         <a class="navbar-item">
-          Report an issue
+          Report an Issue
         </a>
     </div>
     </div>

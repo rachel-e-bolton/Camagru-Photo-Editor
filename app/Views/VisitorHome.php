@@ -1,6 +1,5 @@
 <?php Component::load("GlobalHeader") ?>
 
-
 <?php Component::load("Desktop/GenericHeader-desktop") ?>
 
 <body>
@@ -13,6 +12,5 @@
 </div>
 </body>
 <?php Component::load("Desktop/GenericFooter-desktop") ?>
-
 
 <?php Component::load("GlobalFooter") ?>

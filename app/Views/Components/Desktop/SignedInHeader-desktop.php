@@ -22,11 +22,11 @@
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            Edit my account
+            Edit my Account
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item">
-            Report a user
+            Report a User
           </a>
         </div>
       </div>

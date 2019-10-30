@@ -20,10 +20,10 @@
       <input class="navbar-item button is-primary" type="submit" name="search" value="Search" style="color: white; font-weight: bolder; margin: .5rem;" />
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary" style="margin-left: -.25rem">
+          <a class="button is-primary" href="/signup" style="margin-left: -.25rem">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light" >
+          <a class="button is-light" href="/login">
             Log in
           </a>
         </div>

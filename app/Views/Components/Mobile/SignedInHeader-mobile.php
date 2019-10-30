@@ -24,10 +24,10 @@
         Add a Post
       </a>
       <a class="navbar-item">
-        Edit my account
+        Edit my Account
       </a>
       <a class="navbar-item">
-        Report a user
+        Report a User
       </a>
     </div>
     <div class="navbar-end">
