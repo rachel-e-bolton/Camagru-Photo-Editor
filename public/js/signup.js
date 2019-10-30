@@ -44,21 +44,21 @@ document.getElementById("handle").addEventListener("blur", event => {
 	}
 })
 
-function createUser(form)
+
+function handleErrors(response) {
+	if (!response.ok) {
+		throw Error(response.statusText);
+	}
+	return response;
+}
+
+function createUser(formId)
 {
-	ApiClient.createUser(form)
+	ApiClient.createUser(formId)
 	.then(data => {
-		if (data.success)
-		{
-			console.log(data);
-			console.log("Created User")
-		}
-		else
-		{
-			console.log("Failed")
-		}
+		console.log(data.json())
 	})
-	.error(err => {
-		console.log("git the error")
-	})
+	.catch(err => {
+		console.log(err.message)
+    })
 }

@@ -133,4 +133,5 @@
 <script src="/js/api.js"></script>
 <script src="/js/signup.js"></script>
 
+
 <?= Component::load("GlobalFooter") ?>

@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
 	email TEXT,
 	password_hash TEXT,
 	dob TEXT,
-	is_verified INT,
+	is_verified INT DEFAULT 0,
 	profile_img TEXT
 )
 EOD;

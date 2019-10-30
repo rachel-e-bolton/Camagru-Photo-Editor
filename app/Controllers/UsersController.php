@@ -32,10 +32,12 @@ class UsersController extends BaseController
 
     public function handleExists($handle)
     {
+        $handle = $handle["params"][0];
+
         if ($this->model->handleExists($handle))
-            (new ApiResonse("", 200))->send();
+            RenderView::json([], 200, "Handle aavailable");
         else
-            (new ApiResonse("", 500))->send();
+            RenderView::json([], 400, "Handle exists");
     }
 
     public function logout()
@@ -56,27 +58,3 @@ class UsersController extends BaseController
         echo json_encode($users);
     }
 }
-
-
-class ApiResonse
-{
-    public $data;
-    public $status_code;
-
-    function __construct($data, $status_code)
-    {
-        $this->data = $data;
-        $this->status_code = $status_code;
-    }
-
-    function send()
-    {
-        $response = [
-            "status" => ($this->status_code < 299) ? true : false,
-            "data" => $this->data
-        ];
-
-        echo json_encode($response);
-    }
-}
-

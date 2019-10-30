@@ -2,7 +2,6 @@ class ApiClient
 {
 	static async createUser(formId)
 	{
-
 		let myForm = document.getElementById(formId);
 		let formData = new FormData(myForm);
 		let response = await fetch(`/signup/create`, {
@@ -10,8 +9,10 @@ class ApiClient
 				body: JSON.stringify(Object.fromEntries(formData))
 			}
 		);
-		let data = await response.json()
-		return data
+		if (!response.ok)
+			throw await response.json()
+		else
+			return await response.json()
 	}
 
 	static async loginUser(formId)
@@ -24,8 +25,7 @@ class ApiClient
 				body: JSON.stringify(Object.fromEntries(formData))
 			}
 		);
-		let data = await response.json()
-		return data.status
+		return await response.json()
 	}
 
 	static async getUsers()
