@@ -1,8 +1,11 @@
 <?= Component::load("GlobalHeader", ["title" => "Sign Up"]) ?>
 
-<?php Component::load("Desktop/GenericHeader-desktop") ?>
-
 <link rel="stylesheet" href="/css/signup.css">
+
+<body>
+<?php Component::load("Tablet/GenericHeader-tablet") ?>
+
+
 
 <div class="columns is-centered" style="margin-top: 3rem">
 	<div class="column is-6">
@@ -141,6 +144,6 @@
 <script src="/js/api.js"></script>
 <script src="/js/signup.js"></script>
 
-<?php Component::load("Desktop/GenericFooter-desktop") ?>
-
+<?php Component::load("Tablet/GenericFooter-tablet") ?>
+</body>
 <?= Component::load("GlobalFooter") ?>
