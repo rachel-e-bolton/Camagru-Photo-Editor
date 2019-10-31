@@ -1,4 +1,4 @@
-<?= Component::load("GlobalHeader", ["title" => "Edit My Account"]) ?>
+<?= Component::load("GlobalHeader", ["title" => "Add a Post"]) ?>
 <body>
 <?php Component::load("Desktop/SignedInHeader-desktop") ?>
 

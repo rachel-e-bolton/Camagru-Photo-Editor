@@ -1,11 +1,6 @@
 <?= Component::load("GlobalHeader", ["title" => "Sign Up"]) ?>
-
-<link rel="stylesheet" href="/css/signup.css">
-
 <body>
-<?php Component::load("Tablet/GenericHeader-tablet") ?>
-
-
+<?php Component::load("Desktop/GenericHeader-desktop") ?>
 
 <div class="columns is-centered" style="margin-top: 3rem">
 	<div class="column is-6">
@@ -22,10 +17,8 @@
 
 		<button class="button is-primary" onclick="createUser('new_user')">Add</button> -->
 
-
-
 		<div class="slide-container">
-			<div class="box has-background-darker slide center">
+			<div class="box slide center">
 				<form id="new_user">
 				<div class="field is-horizontal">
 					<div class="field-label grow-1 is-normal">
@@ -144,6 +137,6 @@
 <script src="/js/api.js"></script>
 <script src="/js/signup.js"></script>
 
-<?php Component::load("Tablet/GenericFooter-tablet") ?>
+<?php Component::load("Desktop/GenericFooter-desktop") ?>
 </body>
 <?= Component::load("GlobalFooter") ?>

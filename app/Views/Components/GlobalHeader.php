@@ -6,5 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script src="/js/header+footer.js"></script>
 	<link rel="stylesheet" href="/css/mystyles.css">
+	<link rel="stylesheet" href="/css/signup.css">
+	<link rel="stylesheet" href="/css/gallery-grid.css">
 	<title><?= $data["title"] ?></title>
 </head>

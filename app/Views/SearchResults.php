@@ -1,7 +1,6 @@
-<?php Component::load("GlobalHeader", ["title" => "Welcome to Camagru."]) ?>
+<?= Component::load("GlobalHeader", ["title" => "Results"]) ?>
 <body>
 <?php Component::load("Desktop/GenericHeader-desktop") ?>
-
 
 <div class="container">
 	<div class="row">
