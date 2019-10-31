@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Base Controller class, the father of all controllers
+ */
 class BaseController 
 {
 	protected $args;

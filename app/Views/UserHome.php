@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			main content here should be centered
+			<img src="https://via.placeholder.com/300"></img>
 		</div>
 	</div>
 </div>

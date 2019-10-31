@@ -12,7 +12,7 @@ class RenderView
 	{
 		if (!strstr($viewFile, ".php"))
 			$viewFile = $viewFile . ".php";
-		
+
 		if (file_exists(VIEWS . $viewFile))
 			include_once VIEWS . $viewFile;
 		else
