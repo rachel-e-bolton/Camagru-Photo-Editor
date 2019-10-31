@@ -9,27 +9,6 @@ class UsersController extends BaseController
         include_once dirname(__DIR__) . "/Views/UserHome.php";
     }
 
-    public function authenticate()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == "POST")
-        {   
-            $data = json_decode(file_get_contents('php://input'), true);
-            if ($this->model->authenticate($data["username"], $data["password"]))
-            {
-                $_SESSION["logged_in_uid"] = $data["username"];
-                $response = new ApiResonse(["session_id" => session_id()], 200);
-            }
-            else
-                $response = new ApiResonse("Failed", 500);
-            $response->send();
-        }
-        else
-        {
-            $response = new ApiResonse(["error" => "method {$_SERVER['REQUEST_METHOD']} not allowed"], 500);
-            $response->send();
-        }
-    }
-
     public function handleExists($handle)
     {
         $handle = $handle["params"][0];

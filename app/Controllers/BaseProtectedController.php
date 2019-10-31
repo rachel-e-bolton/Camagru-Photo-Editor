@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Protected Controller class, requires a user to be logged in.
+ * Redirect to login otherwise
+ */
 class BaseProtectedController extends BaseController
 {
 	public function __construct($name, $args)
