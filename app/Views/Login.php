@@ -2,99 +2,81 @@
 <body>
 <?php Component::load("Desktop/GenericHeader-desktop") ?>
 
-<!-- Development login form with sessions     -->
-
-<!-- <pre>
-Session Info Here
-<? print_r($_SESSION) ?>
-
-<?php 
-
-?>
-
-</pre>
- -->
-
-<!-- <div class="section login-form">
-    <div id="errors"></div>
-    <form id="login-form">
-        Username <input name="username" class="input" required type="email"><br>
-        Password <input name="password" class="input" required type="password"><br>
-        <button class="button" id="login" type="button">Login</button>
-    </form>
-    <a href="/users/logout" class="button primary">Logout</a>
-</div> -->
-
-<!-- 
-
-<video autoplay></video> -->
-
-</body>
-
-
 <div class="columns slide-container" style="margin-top: 3rem">
-    <div id="login-form" class="column is-offset-3 is-half box" style="padding: 1.5rem">
+    <div  class="column is-offset-3 is-half box" style="padding: 1.5rem">
+    <form id="login-form">
         <div style="width: 50%; margin-right: auto; margin-left:auto; padding-left: 1.5rem">
             <img src="/img/camagru..png">
         </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label grow-1 is-normal">
-                <label class="label">Email</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                <p class="control is-expanded">
-                    <input name="email" class="input" required type="email">
-                </p>
+        <div class="login-fields">
+            <div class="field is-horizontal">
+                <div class="field-label grow-1 is-normal">
+                    <label class="label">Email</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                    <p class="control is-expanded">
+                        <input id="email" name="email" class="input" required type="email">
+                    </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label grow-1 is-normal">
-                <label class="label">Password</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                <p class="control is-expanded">
-                    <input name="password" class="input" required type="password">
-                </p>
+            <div class="field is-horizontal">
+                <div class="field-label grow-1 is-normal">
+                    <label class="label">Password</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                    <p class="control is-expanded">
+                        <input id="password" name="password" class="input" required type="password">
+                    </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="buttons">
-            <button type="button" class="button is-light" onclick="previousSlide()">Back</button>
-            <button type="button" class="button is-primary" onclick="loginUser('email')">Log in</button>
+            <div class="buttons">
+                <button type="button" class="button is-light" onclick="previousSlide()">Back</button>
+                <button id="login" class="button is-primary">Log in</button>
+            </div>
         </div>
+        <div id="errors"></div>
         </form>
     </div>
 </div>
 
 <script src="/js/api.js"></script>
-<script src="/js/errors.js"></script>
+<!-- <script src="/js/errors.js"></script> -->
 <script>
 
 let errors = document.getElementById("errors")
 
-document.getElementById("login").addEventListener("click", event => {
-
-    var username = document.getElementsByName("username")[0]
-
-    if (username.value.length < 1)
-       errors.innerHTML = "Username cannot be blank"
-    else
+function login(event)
+{
+    var form = document.getElementById("login-form");
+    if (form.reportValidity())
     {
-        ApiClient.loginUser("login-form")
-        .then(result => {
-            if (result)
-                return window.location.href='/';
-            else
-                errors.innerHTML = "Login Failed"
-        })
+        var email = document.getElementsByName("email")[0]
+    
+        if (email.value.length < 1)
+           errors.innerHTML = "Email cannot be blank"
+        else
+        {
+            ApiClient.loginUser("login-form")
+            .then(result => {
+                if (result.success)
+                    return window.location.href='/';
+                else
+                    errors.innerHTML = "Login Failed"
+            })
+        }
     }
-})
+
+    event.preventDefault()
+
+}
+
+document.getElementById("login-form").addEventListener("submit", login)
 
 
 

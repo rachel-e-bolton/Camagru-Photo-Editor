@@ -70,21 +70,28 @@
 </div>
 
 
+<div class="modal is-active">
+	<div class="modal-background"></div>
+	<div class="modal-content">
+		<!-- Any other Bulma elements you want -->
+		<div class="columns is-centered">
+			<div class="column">
+				<div class="content" style="background: white; border-radius: 5px; width: 50vw; height: 50vh;">
+					<iframe src="/development/view/TermsOfUse" frameborder="0"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+
 
 <link rel="stylesheet" href="/css/dev.css">
 <script src="/js/dev.js"></script>
 
 
 
-
-
-
-
-
 <?php Component::load("Desktop/GenericFooter-desktop") ?>
 </body>
 <?php Component::load("GlobalFooter") ?>
-
-
-GBS SHit
-//msiexec /X {BA027281-13E6-4DB7-80C6-792642B8B67D}

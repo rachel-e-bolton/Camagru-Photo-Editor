@@ -20,17 +20,15 @@
 		<div class="slide-container">
 			<div class="box slide center">
 				<form id="new_user">
+				
 				<div class="field is-horizontal">
 					<div class="field-label grow-1 is-normal">
-						<label class="label">Handle</label>
+						<label class="label">Email</label>
 					</div>
 					<div class="field-body">
-						<div class="field has-addons">
-							<p class="control">
-								<a class="button is-static">@</a>
-							</p>
+						<div class="field">
 							<p class="control is-expanded">
-								<input name="handle" id="handle" class="input" type="text">
+								<input name="email" class="input" type="email">
 							</p>
 						</div>
 					</div>
@@ -75,6 +73,24 @@
 
 			</div>
 			<div class="box slide right">
+
+				<div class="field is-horizontal">
+					<div class="field-label grow-1 is-normal">
+						<label class="label">Handle</label>
+					</div>
+					<div class="field-body">
+						<div class="field has-addons">
+							<p class="control">
+								<a class="button is-static">@</a>
+							</p>
+							<p class="control is-expanded">
+								<input name="handle" id="handle" class="input" type="text">
+							</p>
+						</div>
+					</div>
+				</div>
+
+
 				<div class="field is-horizontal">
 					<div class="field-label grow-1 is-normal">
 						<label class="label">First Name</label>
@@ -100,20 +116,6 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label grow-1 is-normal">
-						<label class="label">Email</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<p class="control is-expanded">
-								<input name="email" class="input" type="email">
-							</p>
-						</div>
-					</div>
-				</div>
-
 
 				<div class="buttons">
 					<button type="button" class="button is-light" onclick="previousSlide()">Back</button>

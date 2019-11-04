@@ -5,3 +5,7 @@
 	transition: all 3s;
 	margin: 10px;
 }
+
+.modal {
+	transition: all 5s;
+}

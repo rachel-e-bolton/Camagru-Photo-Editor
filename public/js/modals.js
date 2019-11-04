@@ -14,3 +14,26 @@ function toggleModal() {
         element.className = classes.join(" "); 
     }
 }
+
+function closeAllModals()
+{
+  document.querySelectorAll(".modal").forEach(modal => {
+    if (modal.classList.contains("is-active"))
+      modal.classList.remove("is-active")
+  })
+}
+
+
+window.addEventListener("load", function(){
+  document.querySelectorAll(".modal-background").forEach(bkg => {
+    bkg.addEventListener("click", closeAllModals)
+  })
+
+  document.querySelectorAll(".modal-close").forEach(bkg => {
+    bkg.addEventListener("click", closeAllModals)
+  })
+});
+
+
+
+

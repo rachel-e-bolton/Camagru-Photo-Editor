@@ -47,13 +47,18 @@ class Router {
 		];
 
 	    $controller_name = $controller;
-	    $controller = ucwords($controller) . "Controller";
-      	$dispatch = new $controller($controller_name, $action);
-	 
+		
+		$controller = ucwords($controller) . "Controller";
+
+		if (class_exists($controller))
+			$dispatch = new $controller($controller_name, $action);
+		else
+			$dispatch = null;
+
 	    if (method_exists($dispatch, $action)) {
 	        call_user_func_array(array($dispatch, $action), array($arguments));
 	    } else {
-	        echo "<br>Error Loading the correct Controller! $action<br>";
+			RenderView::file("404");
 	    }
 	}
 	

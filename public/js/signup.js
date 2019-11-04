@@ -30,7 +30,6 @@ document.getElementById("handle").addEventListener("keypress", event => {
 document.getElementById("handle").addEventListener("blur", event => {
 	var val = event.target.value;
 
-
 	if (val.length > 3)
 	{
 		fetch(`/users/handleExists/${val}`)
@@ -56,9 +55,9 @@ function createUser(formId)
 {
 	ApiClient.createUser(formId)
 	.then(data => {
-		console.log(data.json())
+		console.log(data)
 	})
 	.catch(err => {
-		console.log(err.message)
+		console.log(err)
     })
 }

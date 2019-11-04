@@ -19,17 +19,22 @@ class LoginController extends BaseController
         if ($_SERVER['REQUEST_METHOD'] == "POST")
         {   
             $data = json_decode(file_get_contents('php://input'), true);
-            if ($this->model->authenticate($data["username"], $data["password"]))
+            if ($this->model->authenticate($data["email"], $data["password"]))
             {
-                $_SESSION["logged_in_uid"] = $data["username"];
+                $_SESSION["logged_in_uid"] = $data["email"];
+                error_log("User {$data["email"]} authenticated");
 				RenderView::json(["session_id" => session_id()], 200);
             }
             else
-				RenderView::json([], 400);
+            {
+                error_log("User {$data["email"]} failed to authenticate");
+				RenderView::json([], 401);
+            }
         }
         else
         {
-			RenderView::json([], 400, "Method not allowed");
+            error_log("Method not allowed!");
+			RenderView::json([], 405, "Method not allowed");
         }
     }
 }

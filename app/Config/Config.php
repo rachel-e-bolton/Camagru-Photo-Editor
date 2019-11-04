@@ -11,3 +11,5 @@ define("HOME_PAGE", "/");
 
 // Set some headers
 header('X-Frame-Options: SAMEORIGIN');
+
+// Delete moosend account

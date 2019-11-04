@@ -8,5 +8,6 @@
 	<link rel="stylesheet" href="/css/mystyles.css">
 	<link rel="stylesheet" href="/css/signup.css">
 	<link rel="stylesheet" href="/css/gallery-grid.css">
+	<script src="/js/modals.js"></script>
 	<title><?= $data["title"] ?></title>
 </head>

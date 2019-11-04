@@ -7,7 +7,7 @@
 		<div class="col-12">
 			<div class="posts">
 
-			<?php foreach(range(0, 100) as $_): ?>
+			<?php foreach(range(0, 40) as $_): ?>
 			
 				<div class="post-container">
 				<div class="post">

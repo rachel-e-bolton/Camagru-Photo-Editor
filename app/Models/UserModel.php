@@ -74,13 +74,13 @@ class UserModel extends BaseModel
 		return ((bool)$result);
 	}
 
-	public function authenticate($username, $password)
+	public function authenticate($email, $password)
 	{
 		$db = $this->getDb();
 
-		$stmt = $db->prepare("SELECT * FROM users WHERE handle=:user LIMIT 1");
+		$stmt = $db->prepare("SELECT * FROM users WHERE email=:email LIMIT 1");
 
-		$stmt->bindParam(":user", $username);
+		$stmt->bindParam(":email", $email);
 		$stmt->execute();
 		$result = $stmt->fetch();
 

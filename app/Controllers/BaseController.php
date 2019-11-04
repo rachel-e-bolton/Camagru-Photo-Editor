@@ -26,4 +26,9 @@ class BaseController
 		// Render default View here
 		include_once dirname(__DIR__) . "/Views/VisitorHome.php";
 	}
+
+	public function notFound()
+	{
+		RenderView::file("404");
+	}
 }

@@ -36,7 +36,7 @@
       <input class="navbar-item button is-primary" type="submit" name="search" value="Search" style="color: white; font-weight: bolder; margin: .5rem; margin-left: -.25rem" />
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary" style="margin-left: -.75rem">
+          <a class="button is-primary" href="/users/logout" style="margin-left: -.75rem">
             <strong>Log out</strong>
           </a>
         </div>
