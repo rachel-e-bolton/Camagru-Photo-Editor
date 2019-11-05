@@ -35,6 +35,10 @@
                 </div>
             </div>
 
+            <div>
+                <a onclick="loadSnippet('ResetPassword')" class="class">Oops... I forgot my password. Help!</a>
+            </div>
+
             <div class="buttons">
                 <button type="button" class="button is-light" onclick="previousSlide()">Back</button>
                 <button id="login" class="button is-primary">Log in</button>
@@ -58,18 +62,15 @@ function login(event)
     {
         var email = document.getElementsByName("email")[0]
     
-        if (email.value.length < 1)
-           errors.innerHTML = "Email cannot be blank"
-        else
-        {
-            ApiClient.loginUser("login-form")
-            .then(result => {
-                if (result.success)
-                    return window.location.href='/';
-                else
-                    errors.innerHTML = "Login Failed"
-            })
-        }
+
+        ApiClient.loginUser("login-form")
+        .then(result => {
+            if (result.success)
+                return window.location.href='/';
+            else
+                errors.innerHTML = "Login Failed"
+        })
+
     }
 
     event.preventDefault()
@@ -77,8 +78,6 @@ function login(event)
 }
 
 document.getElementById("login-form").addEventListener("submit", login)
-
-
 
 </script>
 
