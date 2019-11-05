@@ -2,6 +2,7 @@
 
 define("ROOT", dirname(__DIR__));
 define("VIEWS", ROOT . "/Views/");
+define("SNIPS", ROOT . "/Views/Snippets/");
 
 define("DATABASE_URI", "127.0.0.1");
 define("DATABASE_USER", "camagru");

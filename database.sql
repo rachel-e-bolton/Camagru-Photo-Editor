@@ -2,10 +2,10 @@ CREATE TABLE IF NOT EXISTS users(
 	id				INT 			AUTO_INCREMENT PRIMARY KEY,
 	first_name		varchar(255) 	NOT NULL,
 	last_name		varchar(255),
-	handle			varchar(255) 	NOT NULL,
-	email			varchar(255) 	NOT NULL,
+	handle			varchar(255) 	UNIQUE NOT NULL,
+	email			varchar(255) 	UNIQUE NOT NULL,
 	password_hash	longtext 		NOT NULL,
-	verified		boolean 			DEFAULT false,
+	verified		boolean 		DEFAULT false,
 	profile_img		longtext
 );
 

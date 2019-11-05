@@ -18,7 +18,7 @@
           <a class="navbar-item">
             Privacy Policy
           </a>
-          <a class="navbar-item">
+          <a onclick="loadSnippet('TermsOfUse')" class="navbar-item">
             Terms of Use
           </a>
           <hr class="navbar-divider">

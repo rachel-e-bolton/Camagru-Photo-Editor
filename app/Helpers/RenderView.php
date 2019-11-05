@@ -36,4 +36,20 @@ class RenderView
 		http_response_code($status_code);
         echo json_encode($response);
 	}
+
+	/**
+	 * Set headers to application/json and send serialised $data to browser.
+	 *
+	 * @param string $snippetFile Name of snippet file.
+	 */
+	public static function snippet($snippetFile)
+	{
+		if (!strstr($snippetFile, ".php"))
+			$snippetFile = $snippetFile . ".php";
+
+		if (file_exists(SNIPS . $snippetFile))
+			include_once SNIPS . $snippetFile;
+		else
+			include_once SNIPS . "404.php";
+	}
 }

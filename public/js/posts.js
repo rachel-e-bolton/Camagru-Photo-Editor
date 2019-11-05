@@ -50,18 +50,13 @@ function getPosts(handle = null, order = null)
 	posts = []
 	ApiClient.getPosts(handle, order)
 		.then(json => {
-			console.log(json);
 			Array.from(json).forEach(post => {
 				posts.push(new Post(post))
 			})
-			console.log(posts)
-
-			// Need a count here to add blank posts
 			posts.forEach(post => {
 				post.render(container)
 			})
 		})
 }
-
 
 document.addEventListener("DOMContentLoaded", getPosts());

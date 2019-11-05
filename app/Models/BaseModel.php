@@ -6,9 +6,6 @@ class BaseModel
 
 	public function __construct()
 	{
-		$file_db = new PDO('sqlite:' . ROOT . '/dev.db');
-		$file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 		try 
 		{
 			$conn = new PDO("mysql:host=" . DATABASE_URI . ";dbname=camagru;charset=utf8", DATABASE_USER, DATABASE_PASS);

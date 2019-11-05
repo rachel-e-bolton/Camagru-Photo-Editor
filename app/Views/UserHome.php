@@ -36,25 +36,7 @@
 
 			?>
 
-			<div class="modal is-active">
-				<div class="modal-background"></div>
-				<div class="modal-content">
-					<!-- Any other Bulma elements you want -->
-					
-					<header class="modal-card-head">
-						<p class="modal-card-title">Make a new layer</p>
-					</header>
-					<section class="modal-card-body">
-					<!-- Content ... -->
-					<form action="/posts/add" method="POST" id="add-post">
-						<textarea class="textarea"  name="comment" placeholder="Comment"></textarea>
-						<button class="button" type="submit">Add</button>
-					</form>
-					</section>
-
-				</div>
-				<button class="modal-close is-large" aria-label="close"></button>
-			</div>
+			
 
 			</div>
 		</div>

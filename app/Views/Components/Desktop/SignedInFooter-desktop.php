@@ -7,10 +7,10 @@
   <div id="navbarMenu" class="level-right navbar-menu">
     <div class="level-item navbar-start">
       <a class="level-item navbar-item">
-        Contact us
+        Contact Us
       </a>
       <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
-        <a class="level-item navbar-link">
+        <a id="help" class="level-item navbar-link">
           Help
         </a>
 
