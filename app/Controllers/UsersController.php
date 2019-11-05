@@ -26,14 +26,28 @@ class UsersController extends BaseController
         die();
     }
 
-    // JSON endpoint
-    public function get($id = NULL)
+    
+    public function verify($kwargs)
     {
-        $db = $this->model->getDB();
-        $stmt = $db->prepare("SELECT * from users");
-        $stmt->execute();
-        $users = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $user_id = $kwargs["params"][0];
+        $hash = $kwargs["params"][1];
+        $user = $this->model->getUserById($user_id);
 
-        echo json_encode($users);
+        if ($user)
+        {
+            if (hash("sha256", $user["email"] . SALT) == $hash)
+            {
+                $this->model->verifyUserById($user["id"]);
+                header("Location: /");
+                die();
+            }
+            RenderView::file("404");
+        }
+        else
+        {
+            RenderView::file("404");
+        }
+
     }
+
 }
