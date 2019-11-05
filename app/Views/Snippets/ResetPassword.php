@@ -3,8 +3,8 @@
       <p class="modal-card-title">Reset my Password...</p>
     </header>
     <section class="modal-card-body">
-    <form id="reset-password-form">
-        <div class="reset-password-fields">
+    <form id="reset-password-modal">
+        <div class="reset-password-modal-fields">
             <div class="field is-horizontal">
                 <div class="field-label grow-1 is-normal">
                     <label class="label">Email</label>
