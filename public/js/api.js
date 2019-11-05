@@ -34,4 +34,16 @@ class ApiClient
 		let data = await response.json()
 		return data
 	}
+
+	static async getPosts(handle, order)
+	{
+		//let response = await fetch(`/posts/get?handle=${handle}&order=${order}`)
+		let response = await fetch(`/posts/get`)
+		let data = await response.json()
+		return data
+	}
 }
+
+
+
+

@@ -2,22 +2,6 @@
 
 require_once "BaseModel.php";
 
-/*  
-	Schema for users table (dev sqlite)
-
-	CREATE TABLE users (
-		first_name TEXT,
-		last_name TEXT,
-		handle TEXT,
-		email TEXT,
-		password_hash TEXT,
-		dob TEXT,
-		is_verified INT,
-		profile_img TEXT
-	)
-*/
-
-
 class UserModel extends BaseModel
 {
 	private function setOrNull($value)
@@ -36,21 +20,22 @@ class UserModel extends BaseModel
 	{
 		$insert = "
 			INSERT INTO users 
-			    (first_name, last_name, handle, 
-				 email, password_hash, dob, profile_img) 
+			    (`first_name`, `last_name`, `handle`, 
+				 `email`, `password_hash`) 
 			VALUES
 				(:first_name, :last_name, :handle, :email, 
-			     :password_hash, :dob, :profile_img)";
+			     :password_hash)";
 
 		
 		$db = $this->getDb();
 
 		$stmt = $db->prepare($insert);
-		$stmt->bindValue(":first_name",    $this->setOrNull($user["first_name"]));
-		$stmt->bindValue(":last_name",     $this->setOrNull($user["last_name"]));
-		$stmt->bindValue(":handle",        $this->setOrNull($user["handle"]));
-		$stmt->bindValue(":email",         $this->setOrNull($user["email"]));
+		$stmt->bindValue(":first_name",     $this->setOrNull($user["first_name"]));
+		$stmt->bindValue(":last_name",      $this->setOrNull($user["last_name"]));
+		$stmt->bindValue(":handle",         $this->setOrNull($user["handle"]));
+		$stmt->bindValue(":email",          $this->setOrNull($user["email"]));
 		$stmt->bindValue(":password_hash",  $this->hashPass($user["password"]));
+
 
 		try
 		{    
@@ -58,6 +43,7 @@ class UserModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
+			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}

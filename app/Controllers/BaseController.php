@@ -31,4 +31,9 @@ class BaseController
 	{
 		RenderView::file("404");
 	}
+
+	public function query_value($kwargs, $entry)
+	{
+		return (isset($kwargs["query"][$entry])) ? $kwargs["query"][$entry] : NULL;
+	}
 }
