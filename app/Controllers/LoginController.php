@@ -21,20 +21,19 @@ class LoginController extends BaseController
             $data = json_decode(file_get_contents('php://input'), true);
             if ($this->model->authenticate($data["email"], $data["password"]))
             {
-                $_SESSION["logged_in_uid"] = $data["email"];
-                error_log("User {$data["email"]} authenticated");
-				RenderView::json(["session_id" => session_id()], 200);
+                $user = $this->model->getUserByEmail($data["email"]);
+                if ($user["verified"])
+                {
+                    $_SESSION["logged_in_uid"] = $data["email"];
+                    RenderView::json(["session_id" => session_id()], 200);
+                }
+                else
+                    RenderView::json([], 401, "Your account is not verified");    
             }
             else
-            {
-                error_log("User {$data["email"]} failed to authenticate");
-				RenderView::json([], 401);
-            }
+				RenderView::json([], 401, "Authentication failed");
         }
         else
-        {
-            error_log("Method not allowed!");
 			RenderView::json([], 405, "Method not allowed");
-        }
     }
 }

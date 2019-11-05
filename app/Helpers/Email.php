@@ -8,7 +8,7 @@ class Email
 		$sender = 'gwasserf@student.wethinkcode.co.za';
 
 		$subject = "Camagru Verification";
-		$message = file_get_contents(ROOT . "/Helpers/verify_email_template.html");
+		$message = file_get_contents(EMAIL_TEMPLATES . "verify_email_template.html");
 		$message = str_replace("[[LINK]]", $link, $message);
 		$message = str_replace("[[NAME]]", $name, $message);
 
@@ -19,6 +19,5 @@ class Email
 		error_log("Email sent to : $recipient", 0);
 
 		return mail($recipient, $subject, $message, $headers);
-		//echo $message;
 	}
 }

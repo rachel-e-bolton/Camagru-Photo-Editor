@@ -3,6 +3,7 @@
 define("ROOT", dirname(__DIR__));
 define("VIEWS", ROOT . "/Views/");
 define("SNIPS", ROOT . "/Views/Snippets/");
+define("EMAIL_TEMPLATES", ROOT . "/EmailTemplates/");
 
 define("DATABASE_URI", "127.0.0.1");
 define("DATABASE_USER", "camagru");

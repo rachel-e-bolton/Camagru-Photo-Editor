@@ -67,7 +67,7 @@ function login(event)
                 if (result.success)
                     return window.location.href='/';
                 else
-                    errors.innerHTML = "Login Failed"
+                    errors.innerHTML = result.message
             })
         }
     }
