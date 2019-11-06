@@ -34,7 +34,7 @@
           <a href="https://github.com/gwasserfall/camagru" class="button is-light" style="margin-left: -.25rem; font-size: 14px;">
           © 2019 - gwasserfall & rachel-e-bolton          
           </a>
-          <a class="button is-primary" >
+          <a class="button is-primary" href="/users/logout">
             <strong>Log out</strong>
           </a>
         </div>

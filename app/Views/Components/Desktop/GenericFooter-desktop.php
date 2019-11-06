@@ -15,7 +15,7 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a onclick="loadSnippet('PrivacyPolicy')"class="navbar-item">
             Privacy Policy
           </a>
           <a onclick="loadSnippet('TermsOfUse')" class="navbar-item">

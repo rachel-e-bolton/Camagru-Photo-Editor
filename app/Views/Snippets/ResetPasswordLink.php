@@ -1,6 +1,6 @@
-<div class="modal-card">
+<div class="modal-card" style="width: 50vw;">
     <header class="modal-card-head">
-      <p class="modal-card-title">Reset my Password...</p>
+      <p class="modal-card-title has-text-centered">Reset my Password...</p>
     </header>
     <section class="modal-card-body">
     <form id="reset-password-modal">
@@ -21,7 +21,7 @@
         <div id="errors"></div>
     </form>
     </section>
-    <footer class="modal-card-foot is-vcentered">
-        <button id="send-reset-link" class="button is-primary">Send Link</button>
+    <footer class="modal-card-foot">
+        <button id="send-reset-link" class="button is-primary" style="margin-left: auto; margin-right: auto;">Send Link</button>
     </footer>
   </div>

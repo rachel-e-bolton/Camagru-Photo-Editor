@@ -36,12 +36,12 @@
             </div>
 
             <div class="has-text-centered">
-                <a onclick="loadSnippet('ResetPasswordLink')" class="is-large">Oops... I forgot my password. Help!</a>
+                <a onclick="loadSnippet('ResetPassword')" class="is-large">Oops... I forgot my password. Help!</a>
             </div>
 
             <div class="buttons">
                 <button type="button" class="button is-light" onclick="previousSlide()">Back</button>
-                <button id="login" class="button is-primary">Log in</button>
+                <button id="login" class="button is-primary">Reset</button>
             </div>
         </div>
         <div id="errors"></div>
