@@ -12,7 +12,7 @@
       <a class="level-item navbar-item">
         My Posts
       </a>
-      <a class="level-item navbar-item">
+      <a onclick="loadSnippet('AddPost')" class="level-item navbar-item">
         Add a Post
       </a>
       <div class="navbar-item has-dropdown is-hoverable">
