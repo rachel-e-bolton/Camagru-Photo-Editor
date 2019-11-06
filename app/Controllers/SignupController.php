@@ -26,7 +26,15 @@ class SignupController extends BaseController
 				die();
 			}
 			if ($this->model->create($data))
-				RenderView::json([], 200, "User created successfully");
+			{
+				$user = $this->model->getUserByEmail($data["email"]);
+				
+				$link = SERVER_ADDRESS . "users/verify/" . $user["id"] . "/" . hash("sha256", $data["email"] . SALT);
+				$name = $user["first_name"];
+				Email::send_verification_email($name, $user["email"], $link);
+
+				RenderView::json([], 200, "User created successfully, please check your email to verify your account");
+			}
 			else
 				RenderView::json([], 400, "Failed to create user");
 		}

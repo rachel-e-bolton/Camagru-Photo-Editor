@@ -15,4 +15,3 @@ if ($stmt)
 	echo "Database setup\n";
 else
 	echo "Failed to create database\n";
-

@@ -1,2 +1,2 @@
 #!/bin/sh
-php -S 0.0.0.0:8081 -t public/
+php -S 0.0.0.0:8080 -t public/

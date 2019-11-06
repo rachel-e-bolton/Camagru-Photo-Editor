@@ -55,7 +55,8 @@ function createUser(formId)
 {
 	ApiClient.createUser(formId)
 	.then(data => {
-		console.log(data)
+		if (data.success)
+			window.location.href = "/login";
 	})
 	.catch(err => {
 		console.log(err)
