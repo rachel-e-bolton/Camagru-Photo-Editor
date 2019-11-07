@@ -1,4 +1,4 @@
-<nav class="level navbar is-light is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
+<nav class="level navbar is-light is-fixed-top has-shadow is-hidden-touch" role="navigation" aria-label="main navigation">
   <div class="level-left navbar-brand">
     <a class="navbar-item" href="/home">
       <img src="../../img/Camagru-transp-long5.png" alt="Home">
@@ -18,6 +18,22 @@
           </a>
         </div>
       </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="level navbar is-light is-fixed-top has-shadow is-hidden-desktop" role="navigation" aria-label="main navigation">
+  <div class="level-left navbar-brand">
+    <a class="navbar-item" href="/home">
+      <img src="../../img/Camagru-transp-long5.png" alt="Home">
+    </a>
+    <div style="margin: .5rem">
+      <a class="button is-primary" href="/signup">
+        <strong>Sign up</strong>
+      </a>
+      <a class="button is-light" href="/login">
+        Log in
+      </a>
     </div>
   </div>
 </nav>

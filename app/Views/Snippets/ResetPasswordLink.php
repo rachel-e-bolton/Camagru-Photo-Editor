@@ -1,4 +1,4 @@
-<div class="modal-card" style="width: 50vw;">
+<div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title has-text-centered">Reset my Password...</p>
     </header>
