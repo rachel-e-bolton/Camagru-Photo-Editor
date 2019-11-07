@@ -1,0 +1,231 @@
+<!-- <div class="canvas">
+    <div id="canvas-container">
+       
+    </div>
+    <div class="controls">
+        <input id="file-in" type="file" name="" id="">
+        <div class="cord">Click X <span id="ix"></span></div>
+        <div class="cord">Click Y <span id="iy"></span></div>
+        <div class="cord">Mouse Zero X <span id="x"></span></div>
+        <div class="cord">Mouse Zero Y <span id="y"></span></div>
+        <div class="cord">Image X <span id="mx"></span></div>
+        <div class="cord">Image Y <span id="my"></span></div>
+
+        <div class="cord">Mouse X <span id="ax"></span></div>
+        <div class="cord">Mouse Y <span id="ay"></span></div>
+
+        <div class="cord">Image X <span id="bx"></span></div>
+        <div class="cord">Image Y <span id="by"></span></div>
+    </div>
+</div> -->
+
+
+
+<div class="new-post-container">
+    <div class="view-port">
+        <div id="cc" class="canvas-container">
+            
+        </div>
+        <div class="controls">
+            <!-- <input type="file" name="" id=""> -->
+            <button onclick="uploadCanvas(this)">Add Canvas</button>
+            <div id="layers">
+                <h3>Layers</h3>
+            </div>
+        </div>
+    </div>
+    <div class="stickers">
+        <button onclick="increaseActive()">+</button>
+        <button onclick="decreaseActive()">-</button>
+
+    </div>
+    <div class="previous-posts">
+
+    </div>
+</div>
+
+
+
+clientX <div id="x"></div>
+clientY <div id="y"></div>
+<div id="dump"></div>
+
+
+
+
+
+<style>
+    
+    .canvas-container {
+        position: relative;
+        width: 600px;
+        height: 600px;
+    }
+
+    .canvas-container > canvas {
+        border: 1px solid black;
+        position: absolute;
+    }
+
+    .view-port {
+        display: flex;
+    }
+
+    #layers {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        width: 150px;
+        height: 50px;
+    }
+
+</style>
+
+<script>
+
+// https://dummyimage.com/30x30/000/fff
+
+
+function increaseActive()
+{
+    var layer = document.querySelector("canvas.active")
+    layer.state.scale++
+}
+
+
+function mouseDown(e) 
+{
+    var mouseX = e.pageX - this.offsetLeft;
+    var mouseY = e.pageY - this.offsetTop;
+    this.state.clickX = (e.clientX - this.state.imgX);
+    this.state.clickY = (e.clientY - this.state.imgY);
+
+    if (
+        (mouseX >= this.state.imgX && mouseX <= this.state.imgX + this.image.width) 
+                && 
+        (mouseY >= this.state.imgY && mouseY <= this.state.imgY + this.image.height)
+       ) {
+        this.state.draggable = true
+    }
+};
+
+function mouseUp(e)
+{
+    this.state.draggable = false;
+    if (this.classList.contains("active"))
+    {
+        this.ctx.beginPath();
+        this.ctx.rect(this.state.imgX - 5, this.state.imgY - 5, this.image.width + 10, this.image.height + 10);
+        this.ctx.stroke();
+    }
+}
+
+
+function mouseMove(e) {
+
+    document.getElementById("dump").innerText = JSON.stringify(this.state)
+
+    if (this.state.draggable) {
+        this.state.imgX = (this.state.clickX - e.clientX) * -1
+        this.state.imgY = (this.state.clickY - e.clientY) * -1
+    
+        this.ctx.clearRect(0,0, this.width, this.height);
+        this.ctx.drawImage(this.image, this.state.imgX, this.state.imgY, this.image.width + this.state.scale, this.image.height + this.state.scale)
+    }
+}
+
+
+window.onmousemove = e => {
+    document.getElementById("x").innerText = e.clientX
+    document.getElementById("y").innerText = e.clientY
+}
+
+
+function activateLayer(id)
+{
+    var layer = document.getElementById(id)
+
+    document.querySelectorAll("canvas").forEach(canvas => {
+        canvas.classList.remove("active")
+        canvas.ctx.clearRect(0,0, canvas.width, canvas.height);
+        canvas.ctx.drawImage(canvas.image, canvas.state.imgX, canvas.state.imgY)
+        canvas.style.zIndex = 0;
+    })
+
+    layer.ctx.beginPath();
+    layer.ctx.rect(layer.state.imgX - 5, layer.state.imgY - 5, layer.image.width + 10, layer.image.height + 10);
+    layer.ctx.stroke();
+    layer.style.zIndex = 1
+
+    layer.classList.add("active")
+    console.log(id, "is active")
+}
+
+function addLayer(layer_canvas)
+{
+    var layers = document.getElementById("layers")
+
+    var button = document.createElement("button")
+
+    button.onclick = () => {activateLayer(layer_canvas.id)}
+    button.innerText = "Activate " + layer_canvas.id
+
+    layers.appendChild(button)
+}
+
+var layer_count = 0
+
+function uploadCanvas(file_input)
+{
+    var canvas = document.createElement("canvas")
+    document.getElementById("cc").appendChild(canvas)
+    canvas.id = "layer" + layer_count
+    canvas.width = 600
+    canvas.height = 600
+    var ctx = canvas.getContext("2d")
+    
+    canvas.image = new Image
+    canvas.ctx = ctx
+    canvas.state = {
+        scale: 1,
+        imgX: 0,
+        imgY: 0,
+        clickX: 0,
+        clickY: 0,
+        draggable: false,
+        zIndex: 1
+    }
+    
+    canvas.image.onload = () => {
+        ctx.drawImage(canvas.image, 0, 0)
+    }
+    //image.src = URL.createObjectURL(self.files[0])
+    canvas.image.src = "https://dummyimage.com/30x30/000/fff"
+    
+    
+    // document.querySelectorAll("canvas").forEach(function(el){
+        //     el.classList.remove("active")
+        //     el.ctx.clearRect(0,0, el.width, el.height);
+        //     el.ctx.drawImage(el.image, el.state.imgX, el.state.imgY)
+        // })
+        // canvas.classList.add("active")
+        
+        
+        canvas.onmouseup = mouseUp
+        canvas.onmousedown = mouseDown
+        canvas.onmousemove = mouseMove
+        
+        
+        activateLayer("layer" + layer_count)
+        addLayer(canvas)
+        layer_count++;
+        
+        
+    }
+    
+
+
+
+</script>

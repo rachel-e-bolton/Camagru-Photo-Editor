@@ -6,7 +6,7 @@ class BaseModel
 
 	public function __construct()
 	{
-		try 
+		try
 		{
 			$conn = new PDO("mysql:host=" . DATABASE_URI . ";dbname=camagru;charset=utf8", DATABASE_USER, DATABASE_PASS);
 			// set the PDO error mode to exception
