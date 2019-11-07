@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8080/ -->
+<html lang="en" class="has-navbar-fixed-top has-navbar-fixed-bottom"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="./My Posts_files/header+footer.js"></script>
+	<link rel="stylesheet" href="./My Posts_files/mystyles.css">
+	<link rel="stylesheet" href="./My Posts_files/signup.css">
+	<link rel="stylesheet" href="./My Posts_files/gallery-grid.css">
+	<script src="./My Posts_files/modals.js"></script>
+	<script src="./My Posts_files/snippets.js"></script>
+	<title>My Posts</title>
+<link rel="stylesheet" type="text/css" href="./My Posts_files/add-post.css" class="modal-dynamic"></head>
+
+<body><div id="modal" class="modal is-active">
+	<div class="modal-background"></div>
+	<div id="modal-content" class="modal-content"><div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Add a Post</p>
+    </header>
+    <section class="modal-card-body">
+
+		<div class="columns is-centered">
+			<div class="column">
+				<div class="step">
+					<div class="post-selection">
+						<div><a class="button">Image</a></div>
+						<div class="post-selection-divider">
+							<div></div>
+							<div>OR</div>
+							<div></div>
+						</div>
+						<div><a class="button">Webcam</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	<div class="step">
+		<div id="post-file-upload">
+	
+		</div>
+	
+		<div id="post-video">
+			<video autoplay=""></video>
+		</div>
+	</div>
+
+
+
+	<link rel="stylesheet" href="./My Posts_files/add-post.css">
+	<script src="./My Posts_files/add-post.js"></script>
+    </section>
+    <!-- <footer class="modal-card-foot is-vcentered">
+        <button id="send-reset-link" class="button is-primary">Send Link</button>
+    </footer> -->
+  </div></div>
+	<button class="modal-close is-large" aria-label="close"></button>
+</div>
+<nav class="level navbar is-light is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
+  <div class="level-left navbar-brand">
+    <a class="navbar-item" href="http://localhost:8080/home">
+      <img src="./My Posts_files/Camagru-transp-long5.png" alt="Home">
+    </a>
+  </div>
+  <div id="navbarMenu" class="level-right navbar-menu">
+    <div class="level-item navbar-start">
+      <a class="level-item navbar-item">
+        Gallery
+      </a>
+      <a class="level-item navbar-item">
+        My Posts
+      </a>
+      <a onclick="loadSnippet(&#39;AddPost&#39;)" class="level-item navbar-item">
+        Add a Post
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="level-item navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Edit my Account
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report a User
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <input class="navbar-item input" type="text" name="searchQuery" placeholder="Search for posts..." style="max-width: 75%; padding: 1rem; margin: .5rem;">
+      <input class="navbar-item button is-primary" type="submit" name="search" value="Search" style="color: white; font-weight: bolder; margin: .5rem; margin-left: -.25rem">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" href="http://localhost:8080/users/logout" style="margin-left: -.75rem">
+            <strong>Log out</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div id="posts-container" class="posts">
+
+			
+			
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="./My Posts_files/api.js"></script>
+<script src="./My Posts_files/posts.js"></script>
+<nav class="level navbar is-light is-fixed-bottom" role="navigation" aria-label="main navigation">
+  <div class="level-left navbar-brand">
+    <a class="navbar-item" href="http://localhost:8080/home">
+      <img src="./My Posts_files/Camagru-transp-long5.png" alt="Home">
+    </a>
+  </div>
+  <div id="navbarMenu" class="level-right navbar-menu">
+    <div class="level-item navbar-start">
+      <a class="level-item navbar-item">
+        Contact Us
+      </a>
+      <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
+        <a id="help" class="level-item navbar-link">
+          Help
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Privacy Policy
+          </a>
+          <a class="navbar-item">
+            Terms of Use
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an Issue
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a href="https://github.com/gwasserfall/camagru" class="button is-light" style="margin-left: -.25rem; font-size: 14px;">
+          © 2019 - gwasserfall &amp; rachel-e-bolton          
+          </a>
+          <a class="button is-primary">
+            <strong>Log out</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<script class="modal-dynamic" async="" src="./My Posts_files/add-post.js"></script></body></html>

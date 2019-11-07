@@ -1,0 +1,54 @@
+.slide-container {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+
+.slide {
+	position: absolute;
+	width: 100%;
+	transition: all 0.4s;
+	transition-timing-function: ease-out;
+}
+
+.center {
+	transform: translateX(0%);
+	opacity: 1;
+}
+
+.left {
+	transform: translateX(-150%);
+	opacity: 0;
+}
+
+.right {
+	transform: translateX(150%);
+	opacity: 0;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.grow-1 {
+	flex-grow: 1;
+}
+
+.grow-2 {
+	flex-grow: 2;
+}
+
+.grow-3 {
+	flex-grow: 3;
+}
+
+.grow-4 {
+	flex-grow: 4;
+}
+
+.grow-5 {
+	flex-grow: 5;
+}
+

@@ -1,0 +1,35 @@
+.step {
+	display: flex;
+	justify-content: center;
+	margin-top: 10vh;
+}
+
+.post-selection {
+	display: flex;
+	flex-direction: row;	
+}
+
+.post-selection > div {
+	margin: 0px 3vw;
+}
+
+.post-selection-divider {
+	display: flex;
+}
+
+.post-selection-divider > div {
+	margin: auto;
+}
+
+.step {
+	display: none;
+}
+
+.active {
+	display: flex;
+}
+
+canvas {
+	width: 600px;
+	height: 600px;
+}
