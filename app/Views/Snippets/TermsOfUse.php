@@ -69,6 +69,6 @@
         If you have any questions about these Terms, please contact us.
     </section>
     <footer class="modal-card-foot">
-    <a class="button is-primary" href="https://doc-08-4o-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/48vbtqgq5sq8hlfu049fc1auvq9gtbn9/1572984000000/04474591709366834397/*/1uzX699t1bQKtMt04qsY7blbUvoHihAge?e=download">Download Terms of Use</a>
+    <a class="button is-primary" onclick="downloadDoc('TermsOfUse')">Download Terms of Use</a>    
     </footer>
   </div>
