@@ -6,7 +6,7 @@
   </div>
   <div id="navbarMenu" class="level-right navbar-menu">
     <div class="level-item navbar-start">
-      <a class="level-item navbar-item">
+      <a onclick="loadSnippet('ContactUs')" class="level-item navbar-item">
         Contact us
       </a>
       <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
@@ -15,14 +15,14 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a onclick="loadSnippet('PrivacyPolicy')"class="navbar-item">
+          <a onclick="loadSnippet('PrivacyPolicy')" class="navbar-item">
             Privacy Policy
           </a>
           <a onclick="loadSnippet('TermsOfUse')" class="navbar-item">
             Terms of Use
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a onclick="loadSnippet('ReportAnIssue')" class="navbar-item">
             Report an Issue
           </a>
         </div>

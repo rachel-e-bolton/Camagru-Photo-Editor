@@ -2,6 +2,19 @@
 <body>
 <?php Component::load("Desktop/SignedInHeader-desktop") ?>
 
+<section class="hero is-primary" style="margin-top: 2rem;" >
+    <div class="hero-body">
+        <div class="container">
+        <h1 class="title">
+			Welcome Home [[NAME]].
+        </h1>
+        <h2 class="subtitle">
+            A collection of your best moments...
+        </h2>
+        </div>
+    </div>
+</section>
+
 <div class="container">
 	<div class="row">
 		<div class="col-12">

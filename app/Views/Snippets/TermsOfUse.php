@@ -69,6 +69,6 @@
         If you have any questions about these Terms, please contact us.
     </section>
     <footer class="modal-card-foot">
-    <a class="button is-primary" onclick="downloadDoc('TermsOfUse')">Download Terms of Use</a>    
+    <!-- <a class="button is-primary" onclick="loadSnippet('ContactUs')">Contact Us</a> -->
     </footer>
   </div>

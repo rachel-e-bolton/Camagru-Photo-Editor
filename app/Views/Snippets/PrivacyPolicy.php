@@ -113,6 +113,6 @@
         If you have any questions about this Privacy Policy, please contact us.
     </section>
     <footer class="modal-card-foot">
-    <a class="button is-primary" onclick="downloadDoc('PrivacyPolicy')">Download Privacy Policy</a>
+    <!-- <a class="button is-primary" onclick="loadSnippet('ContactUs')">Contact Us</a> -->
     </footer>
   </div>
