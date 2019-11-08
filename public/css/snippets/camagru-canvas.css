@@ -1,0 +1,25 @@
+.main-container {
+	background: pink;
+	display: flex;
+	justify-content: center;
+}
+
+.media-view {
+	position: relative;
+	width: 600px;
+	border: 1px solid black;
+	height: 600px
+}
+
+.hidden {
+	display: none;
+}
+
+.media-controls {
+	display: flex;
+	flex-direction: column;
+}
+
+.media-view > * {
+	position: absolute;
+}

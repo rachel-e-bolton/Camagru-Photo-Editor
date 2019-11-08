@@ -19,6 +19,96 @@
     </div>
 </div> -->
 
+<script>
+
+class CamagruCanvas extends HTMLCanvasElement {
+  constructor() {
+    // Always call super first in constructor
+    super();
+
+    // Element functionality written in here
+    this.image = null
+    this.image_x = 0
+    this.image_y = 0
+    this.click_x = 0
+    this.click_y = 0
+    this.is_draggable = false
+    this.is_active = false
+
+    this.onmousedown = this.handleMouseDown
+    this.onmousemove = this.handleMouseMove
+    this.onmouseup = this.handleMouseUp
+
+  }
+
+  handleMouseDown(event)
+  {
+    if (!this.image)
+        return false
+
+    var mouseX = event.pageX - this.offsetLeft;
+    var mouseY = event.pageY - this.offsetTop;
+    this.click_x = (event.clientX - this.image_x);
+    this.click_y = (event.clientY - this.image_y);
+
+    if (mouseX >= this.image_x && mouseX <= this.image_x + this.image.width)
+    {
+        if (mouseY >= this.image_y && mouseY <= this.image_y + this.image.height)
+        {
+            this.is_draggable = true
+        }
+    }
+  }
+
+  handleMouseUp(event)
+  {
+      this.is_draggable = false
+  }
+
+  handleMouseMove(event)
+  {
+    if (!this.image)
+        return false
+  }
+
+  activate()
+  {
+    document.querySelectorAll("canvas").forEach(el => {
+      if (el instanceof CamagruCanvas) 
+      {
+        el.is_active = false
+        el.style.zIndex = 0
+      }
+    })
+    this.is_active = true
+    this.style.zIndex = 1
+  }
+
+  draw()
+  {
+      // clear and paint image
+    if (this.image)
+    {
+
+
+        if (this.active)
+        {
+        // Draw a bounding box  
+        }
+    }
+  }
+
+}
+
+customElements.define('sticker-view', CamagruCanvas, { extends: 'canvas' });
+
+
+
+</script>
+
+
+<canvas id="a" is="sticker-view"></canvas>
+<canvas id="b" is="sticker-view"></canvas>
 
 
 <div class="new-post-container">
@@ -51,9 +141,6 @@ clientY <div id="y"></div>
 <div id="dump"></div>
 
 
-
-
-
 <style>
     
     .canvas-container {
@@ -81,6 +168,10 @@ clientY <div id="y"></div>
         height: 50px;
     }
 
+    canvas {
+      border: 1px solid black;
+    }
+
 </style>
 
 <script>
@@ -91,7 +182,7 @@ clientY <div id="y"></div>
 function increaseActive()
 {
     var layer = document.querySelector("canvas.active")
-    layer.state.scale++
+    layer.state.scale += 0.001
 }
 
 
@@ -132,16 +223,10 @@ function mouseMove(e) {
         this.state.imgY = (this.state.clickY - e.clientY) * -1
     
         this.ctx.clearRect(0,0, this.width, this.height);
-        this.ctx.drawImage(this.image, this.state.imgX, this.state.imgY, this.image.width + this.state.scale, this.image.height + this.state.scale)
+        this.ctx.drawImage(this.image, this.state.imgX, this.state.imgY, 
+            this.image.width * this.state.scale, this.image.height * this.state.scale)
     }
 }
-
-
-window.onmousemove = e => {
-    document.getElementById("x").innerText = e.clientX
-    document.getElementById("y").innerText = e.clientY
-}
-
 
 function activateLayer(id)
 {
@@ -153,14 +238,11 @@ function activateLayer(id)
         canvas.ctx.drawImage(canvas.image, canvas.state.imgX, canvas.state.imgY)
         canvas.style.zIndex = 0;
     })
-
     layer.ctx.beginPath();
     layer.ctx.rect(layer.state.imgX - 5, layer.state.imgY - 5, layer.image.width + 10, layer.image.height + 10);
     layer.ctx.stroke();
     layer.style.zIndex = 1
-
     layer.classList.add("active")
-    console.log(id, "is active")
 }
 
 function addLayer(layer_canvas)
@@ -201,31 +283,17 @@ function uploadCanvas(file_input)
     canvas.image.onload = () => {
         ctx.drawImage(canvas.image, 0, 0)
     }
-    //image.src = URL.createObjectURL(self.files[0])
     canvas.image.src = "https://dummyimage.com/30x30/000/fff"
+    canvas.onmouseup = mouseUp
+    canvas.onmousedown = mouseDown
+    canvas.onmousemove = mouseMove
+    activateLayer("layer" + layer_count)
+    addLayer(canvas)
+    layer_count++;        
+}
     
-    
-    // document.querySelectorAll("canvas").forEach(function(el){
-        //     el.classList.remove("active")
-        //     el.ctx.clearRect(0,0, el.width, el.height);
-        //     el.ctx.drawImage(el.image, el.state.imgX, el.state.imgY)
-        // })
-        // canvas.classList.add("active")
-        
-        
-        canvas.onmouseup = mouseUp
-        canvas.onmousedown = mouseDown
-        canvas.onmousemove = mouseMove
-        
-        
-        activateLayer("layer" + layer_count)
-        addLayer(canvas)
-        layer_count++;
-        
-        
-    }
-    
+var a = document.getElementById("a")
 
-
+a.sayHello()
 
 </script>

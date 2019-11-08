@@ -1,3 +1,5 @@
 
 # Ignore development database file
 *.db*
+
+*.code-workspace

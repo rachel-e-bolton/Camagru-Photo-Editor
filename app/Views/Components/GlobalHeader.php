@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/css/gallery-grid.css">
 	<script src="/js/modals.js"></script>
 	<script src="/js/snippets.js"></script>
+	<script src="/js/custom-elements/canvas.js"></script>
 	<title><?= $data["title"] ?></title>
 </head>
 
