@@ -1,51 +1,49 @@
-<?= Component::load("GlobalHeader", ["title" => "Log In"]) ?>
+<?= Component::load("GlobalHeader", ["title" => "Reset Password"]) ?>
 <body>
 <?php Component::load("Desktop/GenericHeader-desktop") ?>
 
-<div class="columns slide-container" style="margin-top: 3rem">
+<div class="columns" style="margin-top: 3rem">
     <div  class="column is-offset-3 is-half box" style="padding: 1.5rem">
-    <form id="login-form">
-        <div style="width: 50%; margin-right: auto; margin-left:auto; padding-left: 1.5rem">
-            <img src="/img/camagru..png">
-        </div>
-        <div class="login-fields">
-            <div class="field is-horizontal">
-                <div class="field-label grow-1 is-normal">
-                    <label class="label">Email</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
+    <form id="reset-password-form">
+
+        <div class="field is-horizontal">
+            <div class="field-label grow-1 is-normal">
+                <label class="label">New Password</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
                     <p class="control is-expanded">
-                        <input id="email" name="email" class="input" required type="email">
+                        <input name="password" class="input" type="password">
                     </p>
-                    </div>
                 </div>
-            </div>
-
-            <div class="field is-horizontal">
-                <div class="field-label grow-1 is-normal">
-                    <label class="label">Password</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                    <p class="control is-expanded">
-                        <input id="password" name="password" class="input" required type="password">
-                    </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="has-text-centered">
-                <a onclick="loadSnippet('ResetPassword')" class="is-large">Oops... I forgot my password. Help!</a>
-            </div>
-
-            <div class="buttons">
-                <button type="button" class="button is-light" onclick="previousSlide()">Back</button>
-                <button id="login" class="button is-primary">Reset</button>
             </div>
         </div>
-        <div id="errors"></div>
-        </form>
+
+        <div class="field is-horizontal">
+            <div class="field-label grow-1 is-normal">
+                <label class="label">Repeat</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="password">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box has-background-warning has-text-centered">
+        A password should be <strong>at least 8 characters</strong> in length and <strong>contain at least</strong>:<br/> 
+        a <strong>special character</strong>,
+        a <strong>number</strong> and a <strong>capital letter</strong>.
+        </div>
+
+        <div class="buttons">
+            <button id="reset-password" class="button is-primary">Reset</button>
+        </div>
+    </div>
+    </form>
+    <div id="errors"></div>
     </div>
 </div>
 

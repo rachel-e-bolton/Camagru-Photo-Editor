@@ -1,6 +1,19 @@
-<?= Component::load("GlobalHeader", ["title" => "Results"]) ?>
+<?= Component::load("GlobalHeader", ["title" => "Gallery - All Users"]) ?>
 <body>
-<?php Component::load("Desktop/GenericHeader-desktop") ?>
+<?php Component::load("Desktop/SignedInHeader-desktop") ?>
+
+<section class="hero is-primary" style="margin-top: 2rem; padding-left: 0; padding-right: 0;" >
+    <div class="hero-body">
+        <div class="container">
+        <h1 class="title">
+            [[NAME]]'s Gallery.
+        </h1>
+        <h2 class="subtitle">
+            See what [[NAME]] has been up to...
+        </h2>
+        </div>
+    </div>
+</section>
 
 <div class="container">
 	<div class="row">
@@ -36,11 +49,12 @@
 
 			<?php endforeach; ?>
 
+
 			</div>
 		</div>
 	</div>
 </div>
 
-<?php Component::load("Desktop/GenericFooter-desktop") ?>
+<?php Component::load("Desktop/SignedInFooter-desktop") ?>
 </body>
-<?php Component::load("GlobalFooter") ?>
+<?= Component::load("GlobalFooter") ?>

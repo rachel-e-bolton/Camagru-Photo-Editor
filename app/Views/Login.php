@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="has-text-centered">
+            <div class="has-text-centered" style="margin: .75rem;">
                 <a onclick="loadSnippet('ResetPasswordLink')" class="is-large">Oops... I forgot my password. Help!</a>
             </div>
 
