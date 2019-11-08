@@ -4794,6 +4794,12 @@ a.navbar-item,
     max-height: 1.75rem; }
   .navbar-item.has-dropdown {
     padding: 0; }
+    .navbar-item.has-dropdown .navbar-dropdown {
+      display: none;
+   }
+    .navbar-item.has-dropdown.is-active .navbar-dropdown {
+      display: block;
+   }
   .navbar-item.is-expanded {
     flex-grow: 1;
     flex-shrink: 1; }
