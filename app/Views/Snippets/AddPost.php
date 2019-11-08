@@ -16,8 +16,7 @@
 				<button onclick="snapshot()" class="button">Snapshot</button>
 			</div>
 		</div>
-
-		
+		<div id="stickers" class="sticker-container"></div>
 	<link rel="stylesheet" href="/css/snippets/camagru-canvas.css">
 	<script src="/js/snippets/camagru-canvas.js"></script>
     </section>

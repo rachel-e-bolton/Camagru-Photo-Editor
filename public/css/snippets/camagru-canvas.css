@@ -1,14 +1,15 @@
 .main-container {
-	background: pink;
 	display: flex;
 	justify-content: center;
+	padding: 20px 0px;
 }
 
 .media-view {
 	position: relative;
 	width: 600px;
 	border: 1px solid black;
-	height: 600px
+	height: 600px;
+	background: whitesmoke;
 }
 
 .hidden {

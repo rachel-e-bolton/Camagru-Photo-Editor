@@ -3,7 +3,35 @@
 
 var viewPanel = document.getElementById("view")
 var fileInput = document.getElementById("file-in")
+var stickers = document.getElementById("stickers")
 var webStream = null
+
+ApiClient.getStickers()
+	.then(resp => {
+		
+		// IF success
+		if (resp.success)
+		{
+			resp.data.forEach(sticker => {
+				var img = new Image	
+				img.src = sticker.image
+				img.class = "sticker"
+				img.onclick = stickerClicker
+				stickers.appendChild(img)
+			});
+		}
+		else
+		{
+			console.log(resp.message)
+		}
+	})
+
+
+function stickerClicker(event)
+{
+	console.log(this);
+	newLayer(this.src)
+}
 
 
 function newLayer(src, id = "sticker")
@@ -13,6 +41,7 @@ function newLayer(src, id = "sticker")
 	canvas.width = 600
 	canvas.height = 600
 	canvas.id = id
+	canvas.is_base = (id === "base")
 	if (src instanceof HTMLVideoElement)
 		canvas.addVideoSnap(src)
 	else

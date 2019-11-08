@@ -9,11 +9,8 @@
 	<link rel="stylesheet" href="/css/gallery-grid.css">
 	<script src="/js/modals.js"></script>
 	<script src="/js/snippets.js"></script>
-<<<<<<< HEAD
 	<script src="/js/custom-elements/canvas.js"></script>
-=======
 	<script src="/js/header+footer.js"></script>
->>>>>>> 67004f3eb6af5d9243185d7fa1c4192883989a6c
 	<title><?= $data["title"] ?></title>
 </head>
 

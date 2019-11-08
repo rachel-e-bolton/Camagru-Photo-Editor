@@ -42,6 +42,13 @@ class ApiClient
 		let data = await response.json()
 		return data
 	}
+
+	static async getStickers()
+	{
+		let response = await fetch(`/stickers/get_all`)
+		let data = await response.json()
+		return data
+	}
 }
 
 

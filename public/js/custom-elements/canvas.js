@@ -11,6 +11,7 @@ class CamagruCanvas extends HTMLCanvasElement {
 	  this.scale = 1
 	  this.is_draggable = false
 	  this.is_active = false
+	  this.is_base = false
 	  this.ctx = this.getContext("2d")
   
 	  this.onmousedown = this.handleMouseDown
@@ -114,12 +115,13 @@ class CamagruCanvas extends HTMLCanvasElement {
 			if (el instanceof CamagruCanvas) 
 			{
 				el.is_active = false
-				el.style.zIndex = 0
+				el.style.zIndex = (this.is_base) ? 0 : 1;
+				console.log(this.is_base, this.id)
 				el.draw()
 			}
 		})
 		this.is_active = true
-		this.style.zIndex = 1
+		this.style.zIndex = (this.is_base) ? 0 : 2;
 		this.draw()
 	}
   

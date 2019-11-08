@@ -67,7 +67,8 @@ CREATE TABLE IF NOT EXISTS likes(
         ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS overlays(
+CREATE TABLE IF NOT EXISTS stickers(
 	id			INT 		AUTO_INCREMENT PRIMARY KEY,
-	image		longtext 	NOT NULL
+	image		longtext 	NOT NULL,
+	type		varchar(55)	NOT NULL
 );
