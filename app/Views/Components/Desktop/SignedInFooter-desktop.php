@@ -1,9 +1,9 @@
 
-<div class="is-hidden-desktop">
+<div class="is-hidden-desktop is-mobile">
   <div style="margin-top: 3.5rem;"></div>
-  <nav class="navbar is-light is-fixed-bottom" role="navigation" aria-label="main navigation">
-    <div id="menu-menu" class="navbar-item has-dropdown has-dropdown-up is-hoverable is-mobile" style="padding-right: .75rem;"> 
-      <a onclick="mobileFooterMenu()" id="help-link" class="navbar-link is-large is is-primary">
+  <nav class="navbar is-light is-fixed-bottom is-mobile" role="navigation" aria-label="main navigation">
+    <div id="help-menu" class="navbar-item has-dropdown has-dropdown-up is-hoverable is-mobile" style="padding-left: .75rem; padding-right: .75rem;"> 
+      <a onclick="mobileFooterHelp()" id="help-link" class="navbar-link is-large is is-primary">
         Help
       </a>
       <div class="navbar-dropdown">
@@ -24,7 +24,7 @@
       <div class="navbar-item">
           <div class="buttons" style="padding-right: .75rem;">
             <a href="https://github.com/gwasserfall/camagru" class="button is-light is-vcentered" style="margin-right: auto; margin-left: auto; font-size: 10px;">
-              © 2019 - gwasserfall & rachel-e-bolton &nbsp<img src="../../img/Camagru-favicon-smaller.png" alt="camagru."><a class="button is-primary" href="/users/logout"><strong>Log out</strong></a>
+              © 2019 - gwasserfall & rachel-e-bolton &nbsp<img src="../../img/Camagru-favicon-smaller.png" alt="camagru.">
             </a>
           </div>
         </div>

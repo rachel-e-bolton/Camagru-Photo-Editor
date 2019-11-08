@@ -2,7 +2,7 @@
 <body>
 <?php Component::load("Desktop/SignedInHeader-desktop") ?>
 
-<section class="hero is-primary" style="margin-top: 2rem;" >
+<section class="hero is-primary" style="margin-top: 2rem; padding-left: 0; padding-right: 0;" >
     <div class="hero-body">
         <div class="container">
         <h1 class="title">

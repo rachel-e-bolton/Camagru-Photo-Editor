@@ -3,7 +3,7 @@
 <?php Component::load("Desktop/SignedInHeader-desktop") ?>
 
 <!-- <div class="container box" style="margin-top: 3rem; padding-bottom: 3rem; padding-left: 0; padding-right: 0;"> -->
-<section class="hero is-primary" style="margin-top: 2rem;" >
+<section class="hero is-primary" style="margin-top: 2rem; padding-left: 0; padding-right: 0;" >
 <div class="hero-body">
     <div class="container">
     <h1 class="title">
