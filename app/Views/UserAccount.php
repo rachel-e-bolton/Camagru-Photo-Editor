@@ -7,7 +7,7 @@
 <div class="hero-body">
     <div class="container">
     <h1 class="title">
-        Hello [[NAME]]!
+        Hello <?= $user["first_name"] ?>!
     </h1>
     <h2 class="subtitle">
         Welcome to your account details page...
@@ -16,46 +16,46 @@
 </div>
 </section>
 
-    <div class="columns" style="margin-top: 2rem" style="padding-left: 0; padding-right: 0;">
-        <div  class="column is-offset-2 is-two-thirds box" style="padding: 1.5rem">
-            
-        <section class="hero is-small" >
-            <div class="hero-body">
-                <div class="container" style="margin-top: -1rem;">
-                <h1 class="title">
-                    Update Handle
-                </h1>
-                <h2 class="subtitle">
-                    Change your personal handle here.
-                </h2>
-                </div>
+<div class="columns" style="margin-top: 2rem" style="padding-left: 0; padding-right: 0;">
+    <div  class="column is-offset-2 is-two-thirds box" style="padding: 1.5rem">
+        
+    <section class="hero is-small" >
+        <div class="hero-body">
+            <div class="container" style="margin-top: -1rem;">
+            <h1 class="title">
+                Update Handle
+            </h1>
+            <h2 class="subtitle">
+                Change your personal handle here.
+            </h2>
             </div>
-            </section>
-
-            <form id="update-handle-form">
-
-            <div class="field is-horizontal">
-					<div class="field-label grow-1 is-normal">
-						<label class="label">New Handle</label>
-					</div>
-					<div class="field-body">
-						<div class="field has-addons">
-							<p class="control">
-								<a class="button is-static">@</a>
-							</p>
-							<p class="control is-expanded">
-								<input name="new-handle" id="new-handle" class="input" type="text">
-							</p>
-						</div>
-					</div>
-				</div>
-
-                <div class="buttons">
-                    <button id="update-handle" class="button is-primary">Update</button>
-                </div>
-            </div>
-            </form>
         </div>
+        </section>
+
+        <form id="update-handle-form">
+
+        <div class="field is-horizontal">
+                <div class="field-label grow-1 is-normal">
+                    <label class="label">Handle</label>
+                </div>
+                <div class="field-body">
+                    <div class="field has-addons">
+                        <p class="control">
+                            <a class="button is-static">@</a>
+                        </p>
+                        <p class="control is-expanded">
+                            <input name="new-handle" id="new-handle" class="input" type="text" value="<?= $user["handle"] ?>">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="update-handle" class="button is-primary">Update</button>
+            </div>
+        </div>
+        </form>
+    </div>
 
     <div class="columns" style="margin-top: 2rem" style="padding-left: 0; padding-right: 0;">
         <div  class="column is-offset-2 is-two-thirds box" style="padding: 1.5rem">
@@ -149,12 +149,12 @@
 
                 <div class="field is-horizontal">
                     <div class="field-label grow-1 is-normal">
-                        <label class="label">New Email</label>
+                        <label class="label">Email</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <p class="control">
-                                <input name="new-email" class="input" type="email">
+                                <input name="new-email" class="input" type="email" value="<?= $user["email"] ?>">
                             </p>
                         </div>
                     </div>

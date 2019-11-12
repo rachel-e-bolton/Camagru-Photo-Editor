@@ -9,7 +9,7 @@
       <a href="/gallery" class="level-item navbar-item">
         Gallery
       </a>
-      <a href="/userhome" class="level-item navbar-item">
+      <a href="/home" class="level-item navbar-item">
         My Posts
       </a>
       <a onclick="loadSnippet('AddPost')" class="level-item navbar-item">
