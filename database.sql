@@ -69,6 +69,7 @@ CREATE TABLE IF NOT EXISTS likes(
 
 CREATE TABLE IF NOT EXISTS stickers(
 	id			INT 		AUTO_INCREMENT PRIMARY KEY,
+	name		varchar(55) NOT NULL,
 	image		longtext 	NOT NULL,
 	type		varchar(55)	NOT NULL
 );

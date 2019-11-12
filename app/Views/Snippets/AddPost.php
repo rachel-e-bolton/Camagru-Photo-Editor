@@ -20,7 +20,8 @@
 	<link rel="stylesheet" href="/css/snippets/camagru-canvas.css">
 	<script src="/js/snippets/camagru-canvas.js"></script>
     </section>
-    <!-- <footer class="modal-card-foot is-vcentered">
-        <button id="send-reset-link" class="button is-primary">Send Link</button>
-    </footer> -->
+    <footer class="modal-card-foot is-vcentered">
+        <button id="save-post" class="button is-primary">Save</button>
+	</footer>
+	<script src="/js/actions/add-post.js"></script>
   </div>
