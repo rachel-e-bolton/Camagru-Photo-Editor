@@ -7,7 +7,7 @@ class Post
         this.post = post
         console.log(post)
 		this.html = `
-			<div class="post">
+			<div onclick="centreExpandedView();" class="post">
 				<div class="stats">
 					<div class="likes single">
 						<img class="icon" src="/img/heart.svg" alt="">
