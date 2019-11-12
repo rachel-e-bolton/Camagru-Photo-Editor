@@ -49,6 +49,17 @@ class ApiClient
 		let data = await response.json()
 		return data
 	}
+
+	static async savePost(layers)
+	{
+		console.log(layers)
+		let response = await fetch(`/posts/add`, {
+			method: 'POST', 
+			body: JSON.stringify(layers)
+		})
+		let data = await response.json()
+		return data
+	}
 }
 
 

@@ -15,7 +15,7 @@
       <a onclick="loadSnippet('AddPost')" class="level-item navbar-item">
         Add a Post
       </a>
-      <a href="/useraccount" class="navbar-item">
+      <a href="/accounts/edit" class="navbar-item">
         Edit my Account
       </a>
       </div>

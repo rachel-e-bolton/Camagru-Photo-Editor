@@ -10,6 +10,16 @@ class AccountsController extends BaseProtectedController
 
 	public function default()
 	{
-		RenderView::file("");
+		RenderView::redirect("/");
+	}
+
+	public function edit()
+	{
+		RenderView::file("UserAccount");
+	}
+
+	public function update()
+	{
+
 	}
 }
