@@ -64,3 +64,35 @@ function loadSnippet(name)
 		})
 
 }
+
+function loadPostSnippet(containerId, postId)
+{
+	var container = document.getElementById(containerId)
+	fetch(`/snippets/post/${postId}`)
+		.then((resp) => resp.text())
+		.then(data => {
+			container.innerHTML = data
+
+			// Load any snippet script files
+			container.querySelectorAll("script").forEach(script => {
+				if (script.src)
+				{
+					loadScript(script.src)
+					.catch(err => {
+						Messages.push(err.message)
+					})
+				}
+			})
+
+			// Load any css links into head
+			container.querySelectorAll("link").forEach(link => {
+				if (link.href)
+				{
+					loadLink(link.href)
+				}
+			})
+		})
+		.catch(err => {
+			Messages.push(err.message)
+		})
+}

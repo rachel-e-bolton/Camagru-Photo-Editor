@@ -55,7 +55,7 @@ class RenderView
 	 *
 	 * @param string $snippetFile Name of snippet file.
 	 */
-	public static function snippet($snippetFile)
+	public static function snippet($snippetFile, $data = NULL)
 	{
 		if (!strstr($snippetFile, ".php"))
 			$snippetFile = $snippetFile . ".php";

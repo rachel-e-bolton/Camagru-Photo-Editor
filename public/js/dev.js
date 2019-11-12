@@ -13,16 +13,16 @@ document.querySelectorAll(".post-container").forEach(el => {
 		var posts = Array.from(document.querySelectorAll(".post-container"))
 		var index = posts.indexOf(this)
 
-		while (this.offsetTop == posts[index + 1].offsetTop)
+
+		console.log(`posts.length = ${posts.length}`)
+		while (this.offsetTop == posts[index].offsetTop)
 		{
 			index++;
 			if (index >= posts.length)
 				break
 		}
-		console.log(`We put the thing at! ${index}`)
-		// console.log(`Items per row: ${ipr}, index ${index}`)
-		// console.log(this.offsetTop)
-		posts[index].insertAdjacentHTML(
+		console.log(`selected index = ${index + 1}`)
+		posts[index + 1].insertAdjacentHTML(
 			"afterend", `
 				<div class="post-info">
 					<div class="image">Image Here</div>

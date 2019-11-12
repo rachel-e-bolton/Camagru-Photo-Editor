@@ -35,10 +35,44 @@ class PostModel extends BaseModel
 		}
 	}
 
+	public function getPostbyId($id)
+	{
+		$sql = "
+		SELECT
+			posts.id as id,
+			first_name, 
+			last_name, 
+			handle, 
+			email,
+			date,
+			image,
+			(SELECT COUNT(*) FROM likes WHERE post_id=posts.id) AS like_count,
+			(SELECT COUNT(*) FROM comments WHERE post_id=posts.id) AS comment_count
+		FROM posts
+			LEFT JOIN users ON users.id=posts.user_id
+		WHERE
+			posts.id =:postid
+		";
+
+		$stmt = $this->db->prepare($sql);
+		$stmt->bindParam(":postid", $id);
+		try
+		{    
+			$stmt->execute();
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e)
+		{
+			error_log("SQL Error: " . $e->getMessage(),0);
+			return false;
+		}
+	}
+
 	public function retrieve($handle=NULL, $order=NULL)
 	{
 		$sql = "
-		SELECT 
+		SELECT
+			posts.id as id,
 			first_name, 
 			last_name, 
 			handle, 

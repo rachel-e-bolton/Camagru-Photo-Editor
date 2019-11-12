@@ -56,7 +56,7 @@
 	</div>
 </div>
 
-<script src="/js/posts.js"></script>
+<script src="/js/actions/get-posts.js"></script>
 <?php Component::load("Desktop/SignedInFooter-desktop") ?>
 </body>
 <?php Component::load("GlobalFooter") ?>
