@@ -17,15 +17,17 @@
     height: auto;
 }
 
-.post-comments {
+.list-comments {
     overflow-y: scroll;
     height: 68%;
-    min-width: 400px;
-    flex: 1 0 auto;
+    padding: 15px 0px;
+    padding-right: 15px;
 }
 
-.post-detail {
-    flex: 1 0  auto;
+.add-comment {
+    border-top: 1px solid lightgrey;
+    padding: 15px 0px;
+    padding-right: 15px;
 }
 
 </style>
@@ -34,26 +36,26 @@
     <div class="post-image">
         <img src="<?= $data["post"]["image"] ?>" alt="">
     </div>
-
-    <div class="post-detail">
-        <div id="post-comments" class="post-comments">
-
-
-
+    <div class="like-image">
+        
+    </div>
+    <div class="post-comments">
+        <div class="list-comments">
         <?php foreach($data["comments"] as $comment): ?>
-            <article class="media">
-                <figure class="media-left image is-64x64">
-                    <p class="">
-                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                    </p>
-                </figure>
-                <div class="media-content">
-                    <div class="content">
-                    <p>
-                        <strong>@ <?= $comment["handle"] ?></strong> <small>${comment.date}</small>
-                        <br>
-                        <?= $comment["comment"] ?>
-                    </p>
+                <article class="media comment">
+                    <figure class="media-left image is-64x64">
+                        <p class="">
+                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                        <p>
+                            <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                            <br>
+                            <?= $comment["comment"] ?>
+                        </p>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -83,7 +85,6 @@
 
             </div>
             </article>
-
         </div>
     </div>
 </div>
