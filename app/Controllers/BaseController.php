@@ -7,6 +7,7 @@ class BaseController
 {
 	protected $args;
 	public $model;
+	protected $user = NULL;
 
 	public function __construct($name, $args)
 	{
@@ -51,5 +52,6 @@ class BaseController
 			RenderView::json([], 401, "You are not authorised to use this resource.");
 
 		$GLOBALS["user"] = (new UserModel())->getUserByEmail($_SESSION["logged_in_uid"]);
+		$this->user = $GLOBALS["user"];
 	}
 }

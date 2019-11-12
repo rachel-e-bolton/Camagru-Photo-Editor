@@ -38,13 +38,13 @@ class RenderView
 	 */
 	public static function json($data, $status_code, $message="")
 	{
+		header('Content-Type: application/json');
 		$response = [
             "success" => ($status_code < 299) ? true : false,
 			"data"    => $data,
 			"message" => $message
 		];
 		$user = self::loadUserIfFound();
-		header('Content-Type: application/json');
 		http_response_code($status_code);
 		echo json_encode($response);
 		die();

@@ -5,10 +5,22 @@ var submit = document.getElementById("save-post")
 
 submit.onclick = function(event)
 {
-    layers = []
+    data = {
+        layers: [],
+        comment: ""   
+    }
     Array.from(document.querySelectorAll("canvas")).forEach(canvas => {
-        layers.push(canvas.toDataURL())
+        canvas.is_active = false;
+        canvas.draw();
+        data.layers.push(canvas.toDataURL())
     })
 
-    ApiClient.savePost(layers)
+    ApiClient.savePost(data)
+        .then(resp => {
+            console.log(resp)
+            if (resp.success)
+                window.location.href = "/"
+            else
+                Messages.push(resp.message)
+        })
 }

@@ -13,6 +13,7 @@
 	<script src="/js/custom-elements/canvas.js"></script>
 	<script src="/js/header+footer.js"></script>
 	<script src="/js/messages.js"></script>
+	<script src="/js/api.js"></script>
 	<title><?= $data["title"] ?></title>
 </head>
 

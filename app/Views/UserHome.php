@@ -56,8 +56,6 @@
 	</div>
 </div>
 
-
-<script src="/js/api.js"></script>
 <script src="/js/posts.js"></script>
 <?php Component::load("Desktop/SignedInFooter-desktop") ?>
 </body>
