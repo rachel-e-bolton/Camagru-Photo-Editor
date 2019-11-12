@@ -14,7 +14,7 @@
 	<script src="/js/header+footer.js"></script>
 	<script src="/js/messages.js"></script>
 	<script src="/js/api.js"></script>
-	<script src="/js/actions/add-comment.js"></script>
+	<script src="/js/viewpostsscroll.js"></script>
 	<title><?= $data["title"] ?></title>
 </head>
 

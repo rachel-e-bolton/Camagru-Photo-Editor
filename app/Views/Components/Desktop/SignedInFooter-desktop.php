@@ -19,6 +19,9 @@
         <a onclick="loadSnippet('ReportAnIssue')" class="navbar-item">
           Report an Issue
         </a>
+        <a onclick="loadSnippet('Credits')" class="navbar-item">
+          Credits
+        </a>
       </div>
       </div>
       <div class="navbar-item">
@@ -61,6 +64,9 @@
             <hr class="navbar-divider">
             <a onclick="loadSnippet('ReportAnIssue')" class="navbar-item">
               Report an Issue
+            </a>
+            <a onclick="loadSnippet('Credits')" class="navbar-item">
+              Credits
             </a>
           </div>
         </div>

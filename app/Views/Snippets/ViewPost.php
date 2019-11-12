@@ -9,7 +9,8 @@
 
 .post-image {
     flex: 1 0 auto;
-    max-width: 500px;
+    position: relative;
+
 }
 
 .post-image > img {
@@ -19,7 +20,7 @@
 
 .list-comments {
     overflow-y: scroll;
-    height: 68%;
+    height: 66%;
     padding: 15px 0px;
     padding-right: 15px;
 }
@@ -30,14 +31,24 @@
     padding-right: 15px;
 }
 
+.like-image {
+    position: absolute;
+    top: 15px;
+    right: 45px;
+    z-index: 1;
+}
+
+.like-image:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
 </style>
 
-<div class="post-view">
+<div id="post-view" class="post-view has-background-light">
     <div class="post-image">
         <img src="<?= $data["post"]["image"] ?>" alt="">
-    </div>
-    <div class="like-image">
-        
+        <img id="like-image" class="like-image" src="img/unliked.png" alt="" onclick="likeImage();" style="width: 64px; height: auto;">
     </div>
     <div class="post-comments">
         <div class="list-comments">
@@ -45,7 +56,7 @@
                 <article class="media comment">
                     <figure class="media-left image is-64x64">
                         <p class="">
-                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                        <img class="is-rounded" src="img/User Icon.png">
                         </p>
                     </figure>
                     <div class="media-content">
@@ -67,19 +78,19 @@
         <article class="media">
             <figure class="media-left image is-64x64">
                 <p class="">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                <img class="is-rounded" src="img/User Icon.png">
                 </p>
             </figure>
             <div class="media-content">
                 <div class="field">
                 <p class="control">
-                    <textarea data-postid="<?= $data["post"]["id"] ?>" id="comment-text" class="textarea has-fixed-size" placeholder="Add a comment..."></textarea>
+                    <textarea class="textarea" placeholder="Add a comment..." height="35"></textarea>
                 </p>
                 </div>
 
-                <div class="level-left">
+                <div class="level-right">
                     <div class="level-item">
-                    <a onclick="addComment()" class="button is-info">Submit</a>
+                    <a class="button is-primary">Submit</a>
                     </div>
                 </div>
 
@@ -88,3 +99,5 @@
         </div>
     </div>
 </div>
+
+<script src="/js/likes.js"></script>
