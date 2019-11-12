@@ -1,7 +1,7 @@
 <?php
 
 require_once "./app/Config/Config.php";
-require_once "./app/models/BaseModel.php";
+require_once "./app/Models/BaseModel.php";
 
 $directory = './stickers';
 $scanned_directory = array_diff(scandir($directory), array('..', '.'));
