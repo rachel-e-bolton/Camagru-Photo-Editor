@@ -14,7 +14,15 @@
             <div class="field">
             <label class="label">Name and Surname</label>
             <div class="control">
-                <input class="input" name="name" id="name" required type="text" placeholder="Your Name and Surname here..." minlength="10" maxlength="60">
+                <input class="input"
+                        name="name"
+                        id="name" 
+                        required 
+                        type="text" 
+                        minlength="10" 
+                        maxlength="60"
+                        value="<?= $user["first_name"] ?> <?= $user["last_name"] ?>"
+                        placeholder="Your Name and Surname here...">
             </div>
             </div>
 
@@ -26,7 +34,12 @@
                             <a class="button is-static">@</a>
                         </p>
                         <p class="control is-expanded">
-                            <input name="handle" id="handle" required class="input" type="text">
+                            <input name="handle" 
+                                    id="handle" value="<?= 
+                                    $user["handle"] ?>" 
+                                    class="input" 
+                                    type="text" 
+                                    placeholder="Optional...">
                         </p>
                     </div>
                 </div>
@@ -35,21 +48,37 @@
             <div class="field">
             <label class="label">Email</label>
             <div class="control">
-                <input class="input" name="email" id="email" required type="email" placeholder="eg. hello@general.co.za">
+                <input class="input" 
+                        name="email" 
+                        id="email" 
+                        required type="email" 
+                        value="<?= $user["email"] ?>" 
+                        placeholder="eg. hello@general.co.za">
             </div>
             </div>
 
             <div class="field">
             <label class="label">Subject</label>
             <div class="control">
-                <input class="input" name="subject" id="subject" required type="text" placeholder="Subject here..." minlength="10" maxlength="60">
+                <input class="input" 
+                        name="subject" 
+                        id="subject" 
+                        required type="text" 
+                        placeholder="Subject here..." 
+                        minlength="10" 
+                        maxlength="60">
             </div>
             </div>
 
             <div class="field">
             <label class="label">Message</label>
             <div class="control">
-                <textarea class="textarea" name="message" id="message" required placeholder="Your message here... (Maximum 600 Characters)" minlength="10" maxlength="600"></textarea>
+                <textarea class="textarea" 
+                            name="message" id="message" 
+                            required 
+                            placeholder="Your message here... (Maximum 600 Characters)" 
+                            minlength="10" 
+                            maxlength="600"></textarea>
             </div>
             </div>
 

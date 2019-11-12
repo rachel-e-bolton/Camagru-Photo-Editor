@@ -34,7 +34,12 @@
                             <a class="button is-static">@</a>
                         </p>
                         <p class="control is-expanded">
-                            <input name="handle" id="handle" required value="<?= $user["handle"] ?>" class="input" type="text">
+                            <input name="handle" 
+                                    id="handle" 
+                                    value="<?= $user["handle"] ?>" 
+                                    class="input" 
+                                    type="text" 
+                                    placeholder="Optional...">
                         </p>
                     </div>
                 </div>
@@ -43,7 +48,13 @@
             <div class="field">
             <label class="label">Email</label>
             <div class="control">
-                <input class="input" name="email" id="email" required type="email" value="<?= $user["email"] ?>" placeholder="eg. hello@general.co.za">
+                <input class="input"
+                        name="email" 
+                        id="email" 
+                        required 
+                        type="email" 
+                        value="<?= $user["email"] ?>" 
+                        placeholder="eg. hello@general.co.za">
             </div>
             </div>
 
@@ -59,14 +70,26 @@
                     <option>General Issue</option>
                 </select>
                 </div>
-                <input class="input level-item" name="subject-suffix" id="subject-suffix" required type="text" placeholder="Short description here..." minlength="10" maxlength="60" style="width: 60%; margin-left: .75rem;">
+                <input class="input level-item" 
+                        name="subject-suffix" 
+                        id="subject-suffix" 
+                        required type="text" 
+                        placeholder="Short description here..." 
+                        minlength="10" 
+                        maxlength="60" 
+                        style="width: 60%; margin-left: .75rem;">
             </div>
             </div>
 
             <div class="field">
             <label class="label">Message</label>
             <div class="control">
-                <textarea class="textarea" name="message" id="message" placeholder="Detailed description here... (OPTIONAL - Maximum 600 Characters)" minlength="10" maxlength="600"></textarea>
+                <textarea class="textarea" 
+                            name="message" 
+                            id="message" 
+                            placeholder="Detailed description here... (OPTIONAL - Maximum 600 Characters)" 
+                            minlength="10" 
+                            maxlength="600"></textarea>
             </div>
             </div>
 
