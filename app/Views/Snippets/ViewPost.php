@@ -1,4 +1,4 @@
-<div class="container" style="width: 90%; max-width: 1240px; max-height: 700px; overflow: hidden;">
+<div class="" style="width: 90%; max-width: 1240px; max-height: 600px; overflow: hidden;">
     <div class="columns">
         <div class="column is-half">
             <figure class="image is-square">
@@ -6,11 +6,79 @@
             </figure>
         </div>
         <div class="column is-parent">
-            <div class="contained is-child" style="height: 100px; width: auto;">
+
+            <div class="contained is-child" style="max-height: 60%; overflow-y: auto;">
                 <article class="media">
                     <figure class="media-left image is-16x16">
                         <p class="">
-                        <img src="">
+                        <img src="https://via.placeholder.com/64">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                        <p>
+                            <strong>Barbara Middleton</strong>
+                            <br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                            <br>
+                        </p>
+                        </div>
+                </article>
+                <article class="media">
+                    <figure class="media-left image is-16x16">
+                        <p class="">
+                        <img src="https://via.placeholder.com/64">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                        <p>
+                            <strong>Barbara Middleton</strong>
+                            <br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                            <br>
+                        </p>
+                        </div>
+                </article>
+                <article class="media">
+                    <figure class="media-left image is-16x16">
+                        <p class="">
+                        <img src="https://via.placeholder.com/64">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                        <p>
+                            <strong>Barbara Middleton</strong>
+                            <br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                            <br>
+                        </p>
+                        </div>
+                </article>
+                <article class="media">
+                    <figure class="media-left image is-16x16">
+                        <p class="">
+                        <img src="https://via.placeholder.com/64">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                        <p>
+                            <strong>Barbara Middleton</strong>
+                            <br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                            <br>
+                        </p>
+                        </div>
+                </article>
+            </div>
+            <div style="margin: 1rem"></div>
+            <div class="is-child" style="height: 100px; width: auto;">
+                <article class="media">
+                    <figure class="media-left image is-16x16">
+                        <p class="">
+                        <img src="https://via.placeholder.com/64">
                         </p>
                     </figure>
                     <div class="media-content">
@@ -34,72 +102,6 @@
                         </div> -->
                         </nav>
                     </div>
-                </article>
-            </div>
-            <div class="contained is-child" style="max-height: 70%; overflow-y: auto;">
-                <article class="media">
-                    <figure class="media-left image is-16x16">
-                        <p class="">
-                        <img src="https://via.placeholder.com/64">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                        <p>
-                            <strong>Barbara Middleton</strong>
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
-                            <br>
-                        </p>
-                        </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left image is-16x16">
-                        <p class="">
-                        <img src="https://via.placeholder.com/64">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                        <p>
-                            <strong>Barbara Middleton</strong>
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
-                            <br>
-                        </p>
-                        </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left image is-16x16">
-                        <p class="">
-                        <img src="https://via.placeholder.com/64">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                        <p>
-                            <strong>Barbara Middleton</strong>
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
-                            <br>
-                        </p>
-                        </div>
-                </article>
-                <article class="media">
-                    <figure class="media-left image is-16x16">
-                        <p class="">
-                        <img src="https://via.placeholder.com/64">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                        <p>
-                            <strong>Barbara Middleton</strong>
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
-                            <br>
-                        </p>
-                        </div>
                 </article>
             </div>
         </div>
