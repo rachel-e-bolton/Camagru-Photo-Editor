@@ -26,10 +26,6 @@ class PostModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
-			echo "<pre>";
-			$stmt->debugDumpParams();
-			echo "</pre>";
-			
 			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}

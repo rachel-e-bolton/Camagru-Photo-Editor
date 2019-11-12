@@ -26,7 +26,6 @@ class UserModel extends BaseModel
 				(:first_name, :last_name, :handle, :email, 
 			     :password_hash)";
 
-		
 		$db = $this->getDb();
 
 		$stmt = $db->prepare($insert);

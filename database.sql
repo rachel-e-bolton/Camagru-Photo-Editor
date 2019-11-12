@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS comments(
 	parent_id 		INT,
 	user_id 		INT				NOT NULL,
 	post_id 		INT				NOT NULL,
+	date 			DATETIME 		DEFAULT CURRENT_TIMESTAMP,
 	comment			varchar(500),
 
 	CONSTRAINT fk_comment_parentid

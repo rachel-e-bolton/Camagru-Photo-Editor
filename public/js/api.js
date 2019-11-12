@@ -59,6 +59,16 @@ class ApiClient
 		let data = await response.json()
 		return data
 	}
+
+	static async addComment(comment)
+	{
+		let response = await fetch(`/comment/add`, {
+			method: 'POST',
+			body: JSON.stringify(comment)
+		})
+		let data = await response.json()
+		return data
+	}
 }
 
 

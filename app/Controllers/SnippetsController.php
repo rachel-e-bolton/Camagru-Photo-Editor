@@ -16,8 +16,10 @@ class SnippetsController extends BaseController
 			$model = new PostModel();
 
 			$post = $model->getPostbyId($kwargs["params"][0]);
+			$comments = (new CommentModel())->getCommentsByPostId($post["id"]);
 
-			RenderView::snippet("ViewPost", $post);
+
+			RenderView::snippet("ViewPost", ["post" => $post, "comments" => $comments]);
 		}
 		RenderView::snippet("404");
 	}

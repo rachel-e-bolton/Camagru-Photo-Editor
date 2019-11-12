@@ -12,19 +12,17 @@ class PostsController extends BaseController
 			die();
 		}
 
-		if (count($data) > 0)
-		{
-			$post = [];
-			$post["user_id"] = $this->user["id"];
-			$post["image"] = (new ImageStack($data["layers"], session_id()))->mergedImage64();
-			$post["comment"] = $data["comment"];
+		$post = [];
+		$post["user_id"] = $this->user["id"];
+		$post["image"] = (new ImageStack($data["layers"], session_id()))->mergedImage64();
+		$post["comment"] = $data["comment"];
 
-			if ($this->model->create($post))
-			{
-				RenderView::json($post, 200, "Post added successfuly");
-			}
-			RenderView::json([], 400, "An error occured");
+		if ($this->model->create($post))
+		{
+			RenderView::json($post, 200, "Post added successfuly");
 		}
+		RenderView::json([], 400, "An error occured");
+
 	}
 
 	public function get($kwargs)

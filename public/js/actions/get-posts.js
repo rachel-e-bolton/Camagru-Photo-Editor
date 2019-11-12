@@ -5,7 +5,6 @@ class Post
     constructor(post)
 	{
         this.post = post
-        console.log(post)
 		this.html = `
 			<div class="post">
 				<div class="stats">
