@@ -40,15 +40,19 @@ function newLayer(src, id = "sticker")
 	
 	canvas.width = 600
 	canvas.height = 600
+	canvas.style.zIndex = 1
 	canvas.id = id
 	canvas.is_base = (id === "base")
+
 	if (src instanceof HTMLVideoElement)
 		canvas.addVideoSnap(src)
 	else
 		canvas.addImage(src)
 	canvas.activate()
-	
-	viewPanel.appendChild(canvas)
+	if (canvas.is_base)
+		viewPanel.prepend(canvas)
+	else
+		viewPanel.appendChild(canvas)
 }
 
 function uploadFile()

@@ -50,36 +50,8 @@
 </div>
 
 <script src="/js/api.js"></script>
-<!-- <script src="/js/errors.js"></script> -->
-<script>
+<script src="/js/actions/login.js"></script>
 
-let errors = document.getElementById("errors")
-
-function login(event)
-{
-    var form = document.getElementById("login-form");
-    if (form.reportValidity())
-    {
-        var email = document.getElementsByName("email")[0]
-    
-
-        ApiClient.loginUser("login-form")
-        .then(result => {
-            if (result.success)
-                return window.location.href='/';
-            else
-                errors.innerHTML = "Login Failed"
-        })
-
-    }
-
-    event.preventDefault()
-
-}
-
-document.getElementById("login-form").addEventListener("submit", login)
-
-</script>
 
 <?php Component::load("Desktop/GenericFooter-desktop") ?>
 </body>

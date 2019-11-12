@@ -18,6 +18,6 @@ class Email
 
 		error_log("Email sent to : $recipient", 0);
 
-		return mail($recipient, $subject, $message, $headers);
+		//return mail($recipient, $subject, $message, $headers);
 	}
 }

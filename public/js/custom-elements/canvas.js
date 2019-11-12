@@ -115,13 +115,12 @@ class CamagruCanvas extends HTMLCanvasElement {
 			if (el instanceof CamagruCanvas) 
 			{
 				el.is_active = false
-				el.style.zIndex = (this.is_base) ? 0 : 1;
-				console.log(this.is_base, this.id)
+				el.style.zIndex = 1;
 				el.draw()
 			}
 		})
 		this.is_active = true
-		this.style.zIndex = (this.is_base) ? 0 : 2;
+		this.style.zIndex = (this.is_base) ? 1 : 2;
 		this.draw()
 	}
   
@@ -129,17 +128,20 @@ class CamagruCanvas extends HTMLCanvasElement {
 	{
 		if (this.image)
 		{
+			let scaled_x = this.image.width * this.scale
+			let scaled_y = this.image.height * this.scale
+
 			this.ctx.clearRect(0,0, this.width, this.height);
 			this.ctx.drawImage(this.image, this.image_x, this.image_y, 
-				this.image.width * this.scale, this.image.height * this.scale)
+				scaled_x, scaled_y)
 
 			if (this.is_active)
 			{
 				this.ctx.beginPath();
 				this.ctx.rect(this.image_x - 5, this.image_y - 5, 
-					(this.image.width * this.scale) + 10, (this.image.height * this.scale) + 10);
+					scaled_x + 10, scaled_y + 10);
 				this.ctx.stroke();
-				this.style.zIndex = 1
+				//this.style.zIndex = (this.is_base) ? 1 : 2;
 			}
 		}
 	}

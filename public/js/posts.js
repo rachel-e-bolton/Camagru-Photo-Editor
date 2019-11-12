@@ -16,7 +16,7 @@ class Post
 					</div>
 				</div>
 				<div class="image">
-					<img src="https://via.placeholder.com/300">
+					<img src="${post.image}">
 				</div>
 			
 			</div>

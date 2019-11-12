@@ -24,3 +24,13 @@
 .media-view > * {
 	position: absolute;
 }
+
+#stickers {
+	display: flex;
+	overflow-y: scroll;
+}
+
+#stickers > img {
+	width: 75px;
+	height: auto;
+}

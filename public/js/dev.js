@@ -3,7 +3,6 @@ var posts = document.querySelector(".posts")
 document.querySelectorAll(".post-container").forEach(el => {
 	el.onclick = function ()
 	{
-
 		Array.from(document.querySelectorAll(".post-info")).forEach(pi => {
 			pi.remove()
 		})

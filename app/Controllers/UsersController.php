@@ -1,7 +1,5 @@
 <?php
 
-include_once "BaseProtectedController.php";
-
 class UsersController extends BaseController
 {
     public function default()
@@ -19,6 +17,21 @@ class UsersController extends BaseController
             RenderView::json([], 400, "Handle exists");
     }
 
+    public function delete()
+    {
+        $this->protectSelfJSON();
+
+        if ($_SERVER['REQUEST_METHOD'] == "DELETE")
+        {
+            $user = $GLOBALS["user"];
+            if ($this->model->deleteUserById($user["id"]))
+            {
+                RenderView::json([], 200, "User deleted");
+            }
+        }
+        RenderView::json([], 400, "Incorrect method or user not found");
+    }
+
     public function logout()
     {
         $_SESSION = array();
@@ -26,7 +39,6 @@ class UsersController extends BaseController
         die();
     }
 
-    
     public function verify($kwargs)
     {
         $user_id = $kwargs["params"][0];
@@ -38,8 +50,7 @@ class UsersController extends BaseController
             if (hash("sha256", $user["email"] . SALT) == $hash)
             {
                 $this->model->verifyUserById($user["id"]);
-                header("Location: /");
-                die();
+                RenderView::redirect("/login");
             }
             RenderView::file("404");
         }

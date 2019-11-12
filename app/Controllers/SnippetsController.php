@@ -4,6 +4,8 @@ class SnippetsController extends BaseController
 {
 	function load($kwargs)
 	{
-		RenderView::snippet($kwargs["params"][0]);
+		if (count($kwargs["params"]) > 0)
+			RenderView::snippet($kwargs["params"][0]);
+		RenderView::snippet("404");
 	}
 }

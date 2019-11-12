@@ -50,7 +50,10 @@ class UserModel extends BaseModel
 
 	public function getUserByEmail($email)
 	{
-		$stmt = $this->db->prepare("SELECT * FROM users WHERE email=:email LIMIT 1");
+		$stmt = $this->db->prepare("
+			SELECT id, first_name, last_name, handle, email, profile_img, verified
+		 		FROM users WHERE email=:email LIMIT 1
+		 ");
 		$stmt->bindValue(":email", $email);
 
 		try
@@ -67,7 +70,7 @@ class UserModel extends BaseModel
 
 	public function getUserById($id)
 	{
-		$stmt = $this->db->prepare("SELECT * FROM users WHERE id=:id LIMIT 1");
+		$stmt = $this->db->prepare("SELECT id, first_name, last_name, handle, email, profile_img, verified FROM users WHERE id=:id LIMIT 1");
 		$stmt->bindValue(":id", $id);
 
 		try
@@ -87,6 +90,22 @@ class UserModel extends BaseModel
 		$stmt = $this->db->prepare("UPDATE users SET verified=1 WHERE id=:id");
 		$stmt->bindValue(":id", $id);
 		
+		try
+		{    
+			return $stmt->execute();
+		}
+		catch (PDOException $e)
+		{
+			error_log("SQL Error: " . $e->getMessage(),0);
+			return false;
+		}
+	}
+
+	public function deleteUserById($id)
+	{
+		$stmt = $this->db->prepare("DELETE FROM users WHERE id=:id");
+		$stmt->bindValue(":id", $id);
+
 		try
 		{    
 			return $stmt->execute();

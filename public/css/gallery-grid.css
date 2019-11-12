@@ -8,7 +8,14 @@
 .posts {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     padding: 15px;
+}
+
+.image > img{
+    margin: auto;
+    height: 300px;
+    width: auto;
 }
 
 .post-container {
@@ -18,8 +25,8 @@
     height: 330px; 
     width: 300px;
     margin: 0.4em;
-    margin-right: auto;
-    margin-left: auto;
+    /* margin-right: auto;
+    margin-left: auto; */
 }
 
 
@@ -85,6 +92,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.single:hover {
+    transition: all 130ms ease-in-out;
+    transform: scale(1.2);
 }
 
 .counter {

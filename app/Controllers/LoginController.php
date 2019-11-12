@@ -5,7 +5,8 @@ class LoginController extends BaseController
 
 	public function __construct($name, $args)
 	{
-		parent::__construct($name, $args);
+        parent::__construct($name, $args);
+        $GLOBALS["user"] = NULL;
 		$this->model = new UserModel();
 	}
 

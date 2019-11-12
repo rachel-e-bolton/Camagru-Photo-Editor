@@ -6,7 +6,7 @@
     <div class="hero-body">
         <div class="container">
         <h1 class="title">
-			Welcome Home [[NAME]].
+			Welcome Home <?= $user["first_name"] ?>.
         </h1>
         <h2 class="subtitle">
             A collection of your best moments...
