@@ -16,9 +16,17 @@
     height: auto;
 }
 
-.comments {
+.list-comments {
     overflow-y: scroll;
     height: 68%;
+    padding: 15px 0px;
+    padding-right: 15px;
+}
+
+.add-comment {
+    border-top: 1px solid lightgrey;
+    padding: 15px 0px;
+    padding-right: 15px;
 }
 
 </style>
@@ -27,8 +35,11 @@
     <div class="post-image">
         <img src="<?= $data["image"] ?>" alt="">
     </div>
+    <div class="like-image">
+        
+    </div>
     <div class="post-comments">
-        <div class="comments">
+        <div class="list-comments">
         <?php foreach(range(0, 10) as $_): ?>
                 <article class="media comment">
                     <figure class="media-left image is-64x64">
@@ -72,16 +83,6 @@
 
             </div>
             </article>
-
-
-
-
-
-
-
-
-
         </div>
-
     </div>
 </div>
