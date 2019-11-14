@@ -34,3 +34,30 @@ function toggleButtonSelfie() {
         uploadButton.classList.add("is-light")
     }
 }
+
+document.getElementById("upload-button").addEventListener("click", stickerListener);
+document.getElementById("selfie-button").addEventListener("click", stickerListener);
+
+function stickerListener() {
+    var stickers = document.getElementById("stickers");
+
+    if (stickers.style.display == 'none')
+    {
+        stickers.style.display = '';
+    }
+
+    stickers.addEventListener("click", enableCapture);
+
+    function enableCapture() {
+        var uploadButton = document.getElementById("upload-button");
+        var selfieButton = document.getElementById("selfie-button");
+        var captureButton = document.getElementById("capture-button")
+
+        if (uploadButton.classList.contains("is-primary") || selfieButton.classList.contains("is-primary")) {
+            captureButton.disabled = false;
+        }
+        else {
+            captureButton.disabled = true;
+        }
+    }
+}

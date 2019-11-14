@@ -20,10 +20,10 @@
 				</div>
 			</div>
 			<div class="column" style="margin-top: -1.5rem;">
-				<button onclick="snapshot()" class="button is-family-primary is-large" disabled>Capture!</button>
+				<button id="capture-button" onclick="snapshot()" class="button is-medium is-primary is-light" disabled>Capture</button>
 			</div>
 		</div>
-		<div id="stickers" class="sticker-container"></div>
+		<div id="stickers" class="sticker-container" style="display: none;"></div>
 	<link rel="stylesheet" href="/css/snippets/camagru-canvas.css">
 	<script src="/js/snippets/camagru-canvas.js"></script>
     </section>
