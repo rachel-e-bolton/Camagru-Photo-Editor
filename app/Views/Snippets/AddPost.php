@@ -20,16 +20,16 @@
 				</div>
 			</div>
 			<div class="column" style="margin-top: -1.5rem;">
-				<button id="capture-button" onclick="snapshot()" class="button is-medium is-primary is-light" disabled>Capture</button>
+				<button id="capture-button" onclick="snapshot()" class="button is-medium is-light" disabled>Capture</button>
 			</div>
 		</div>
 		<div id="stickers" class="sticker-container" style="display: none;"></div>
 	<link rel="stylesheet" href="/css/snippets/camagru-canvas.css">
 	<script src="/js/snippets/camagru-canvas.js"></script>
     </section>
-    <footer class="modal-card-foot is-vcentered">
-        <button id="save-post" class="button is-primary">Save</button>
+    <footer class="modal-card-foot level-right">
+	    <button id="save-post" class="level-item button is-primary is-large" disabled>1... 2... 3... Post!</button>
 	</footer>
 	<script src="/js/actions/add-post.js"></script>
-	<script src="/js/toggle-buttons.js"></script>
+	<script src="/js/add-post-buttons.js"></script>
   </div>

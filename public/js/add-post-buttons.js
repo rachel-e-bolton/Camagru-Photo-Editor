@@ -53,6 +53,10 @@ function stickerListener() {
         var selfieButton = document.getElementById("selfie-button");
         var captureButton = document.getElementById("capture-button")
 
+        captureButton.classList.remove("is-light");
+        captureButton.classList.add("is-primary");
+
+
         if (uploadButton.classList.contains("is-primary") || selfieButton.classList.contains("is-primary")) {
             captureButton.disabled = false;
         }
