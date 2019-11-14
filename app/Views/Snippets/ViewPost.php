@@ -10,12 +10,15 @@
 .post-image {
     flex: 1 0 auto;
     position: relative;
-
 }
 
 .post-image > img {
-    width: 96%;
-    height: auto;
+    width: auto;
+    height: 100%;
+}
+
+.post-comments {
+    width: 50%;
 }
 
 .list-comments {
@@ -34,7 +37,7 @@
 .like-image {
     position: absolute;
     top: 15px;
-    right: 45px;
+    right: 40px;
     z-index: 1;
 }
 
