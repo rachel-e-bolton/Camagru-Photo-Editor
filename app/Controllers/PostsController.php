@@ -19,9 +19,9 @@ class PostsController extends BaseController
 
 		if ($this->model->create($post))
 		{
-			RenderView::json($post, 200, "Post added successfuly");
+			RenderView::json($post, 200, "Post added successfully.");
 		}
-		RenderView::json([], 400, "An error occured");
+		RenderView::json([], 400, "An error occurred.");
 
 	}
 

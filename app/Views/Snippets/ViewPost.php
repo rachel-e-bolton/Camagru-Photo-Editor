@@ -37,7 +37,7 @@
 .like-image {
     position: absolute;
     top: 15px;
-    right: 40px;
+    left: 500px;
     z-index: 1;
 }
 

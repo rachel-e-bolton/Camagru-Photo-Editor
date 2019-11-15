@@ -27,9 +27,9 @@
 	<link rel="stylesheet" href="/css/snippets/camagru-canvas.css">
 	<script src="/js/snippets/camagru-canvas.js"></script>
     </section>
-    <footer class="modal-card-foot level-right">
+    <footer class="modal-card-foot level-right" style="justify-content: center;">
 	    <button id="save-post" class="level-item button is-primary is-large" disabled>1... 2... 3... Post!</button>
 	</footer>
 	<script src="/js/actions/add-post.js"></script>
 	<script src="/js/add-post-buttons.js"></script>
-  </div>
+</div>

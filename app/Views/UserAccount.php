@@ -209,7 +209,7 @@
                 </div>
 
                 <div class="buttons">
-                    <button id="update-email" class="button is-primary">Update</button>
+                    <button id="update-notification-settings" class="button is-primary">Update</button>
                 </div>
             </form>
         </div>

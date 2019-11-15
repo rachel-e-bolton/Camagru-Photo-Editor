@@ -63,5 +63,13 @@ function stickerListener() {
         else {
             captureButton.disabled = true;
         }
+
+        captureButton.addEventListener("click", enablePost);
+
+        function enablePost() {
+
+
+            document.getElementById("save-post").disabled = false;
+        }
     }
 }
