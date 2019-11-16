@@ -28,11 +28,13 @@
 					<div class="field-body">
 						<div class="field">
 							<p class="control is-expanded">
-								<input name="email" class="input" type="email">
+								<input id="email-field" name="email" class="input" type="email">
 							</p>
 						</div>
 					</div>
 				</div>
+
+				<div id="email-message" style="display: none; padding-bottom: .5rem;" class="has-text-danger has-text-centered"></div>
 
 				<div class="field is-horizontal">
 					<div class="field-label grow-1 is-normal">
@@ -41,11 +43,18 @@
 					<div class="field-body">
 						<div class="field">
 							<p class="control is-expanded">
-								<input name="password" class="input" type="password">
+								<input id="password-field" 
+										name="password" 
+										class="input" 
+										type="password"
+										minlength="8"
+										maxlength="32">
 							</p>
 						</div>
 					</div>
 				</div>
+
+				<div id="password-message" style="display: none" class="has-text-danger has-text-centered"></div>
 
 				<div class="field is-horizontal">
 					<div class="field-label grow-1 is-normal">
@@ -54,21 +63,23 @@
 					<div class="field-body">
 						<div class="field">
 							<p class="control">
-								<input class="input" type="password">
+								<input id="repeat-password-field" class="input" type="password">
 							</p>
 						</div>
 					</div>
 				</div>
 
+				<div id="repeat-password-message" style="display: none" class="has-text-danger has-text-centered"></div>
+
 				<div class="box has-background-warning has-text-centered">
-				A password should be <strong>at least 8 characters</strong> in length and <strong>contain at least</strong>:<br/> 
+				A password should be <strong>8 to 32 characters</strong> in length and <strong>contain at least</strong>:<br/> 
 				a <strong>special character</strong>,
 				a <strong>number</strong> and a <strong>capital letter</strong>.
 				</div>
 
 				<div class="buttons">
 					<div class="spacer"></div>
-					<button type="button" class="button is-primary" onclick="nextSlide()">Next</button>
+					<button type="button" class="button is-primary" onclick="nextSlide()" disabled>Next</button>
 				</div>
 
 			</div>
