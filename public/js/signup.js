@@ -64,18 +64,42 @@ function createUser(formId)
 }
 
 // Starting front end validation... Not yet working
-var emailInput = document.getElementById("email-field");
-var passwordInput = document.getElementById("password-field");
-var repeatPasswordInput = document.getElementById("repeat-password-field");
+// var emailInput = document.getElementById("email-field");
+// var passwordInput = document.getElementById("password-field");
+// var repeatPasswordInput = document.getElementById("repeat-password-field");
 
-emailInput.onfocus = function () {
-	document.getElementById("email-message").display = "block"
+// emailInput.onfocus = function () {
+// 	document.getElementById("email-message").display = "block"
+// }
+
+// emailInput.onblur = function() {
+// 	document.getElementById("email-message").display = "none"
+// }
+
+// emailInput.onkeyup = function() {
+// 	document.getElementById("email-message").innerHTML = "Something here..."
+// }
+
+var emailInput = document.getElementById("email-field")
+var emailMessage = document.getElementById("email-message")
+
+emailInput.onfocus = function() {
+	emailMessage.style.display = "block";
+	emailMessage.innerHTML = "";
 }
 
 emailInput.onblur = function() {
-	document.getElementById("email-message").display = "none"
-}
+	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	var test = re.test(emailInput.value);
 
-emailInput.onkeyup = function() {
-	document.getElementById("email-message").innerHTML = "Something here..."
+	if (test) {
+		emailMessage.style.display = "none";
+		emailInput.classList.remove("is-danger");
+		emailInput.classList.add("is-success");
+	}
+	else {
+		emailMessage.innerHTML = "Invalid email format. Please try again."
+		emailInput.classList.remove("is-success");
+		emailInput.classList.add("is-danger");
+	}
 }
