@@ -1,4 +1,8 @@
-CREATE TABLE IF NOT EXISTS users(
+<?php
+
+$sql = [
+
+"users" => "CREATE TABLE IF NOT EXISTS users(
 	id				INT 			AUTO_INCREMENT PRIMARY KEY,
 	first_name		varchar(255) 	NOT NULL,
 	last_name		varchar(255),
@@ -8,8 +12,9 @@ CREATE TABLE IF NOT EXISTS users(
 	verified		boolean 		DEFAULT false,
 	profile_img		longtext
 );
+",
 
-CREATE TABLE IF NOT EXISTS posts(
+"posts" => "CREATE TABLE IF NOT EXISTS posts(
 	id 				INT 			AUTO_INCREMENT PRIMARY KEY,
 	user_id 		INT 			NOT NULL,
 	date 			DATETIME 		DEFAULT CURRENT_TIMESTAMP,
@@ -22,8 +27,9 @@ CREATE TABLE IF NOT EXISTS posts(
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+",
 
-CREATE TABLE IF NOT EXISTS comments(
+"comments" =>  "CREATE TABLE IF NOT EXISTS comments(
 	id 				INT 			AUTO_INCREMENT PRIMARY KEY,
 	parent_id 		INT,
 	user_id 		INT				NOT NULL,
@@ -49,8 +55,9 @@ CREATE TABLE IF NOT EXISTS comments(
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+",
 
-CREATE TABLE IF NOT EXISTS likes(
+"likes" => "CREATE TABLE IF NOT EXISTS likes(
 	id				INT 		AUTO_INCREMENT PRIMARY KEY,
 	post_id			INT 		NOT NULL,
 	user_id			INT 		NOT NULL,
@@ -67,10 +74,13 @@ CREATE TABLE IF NOT EXISTS likes(
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+",
 
-CREATE TABLE IF NOT EXISTS stickers(
+"stickers" => "CREATE TABLE IF NOT EXISTS stickers(
 	id			INT 		AUTO_INCREMENT PRIMARY KEY,
 	name		varchar(55) NOT NULL,
 	image		longtext 	NOT NULL,
 	type		varchar(55)	NOT NULL
 );
+"
+];

@@ -1,10 +1,5 @@
 <?php
 
-// user_id 		INT 			NOT NULL,
-// 	date 			DATETIME 		DEFAULT CURRENT_TIMESTAMP,
-// 	image			longtext 		NOT NULL,
-// 	comment			varchar(500),
-
 class PostModel extends BaseModel
 {
 	public function create($post)
@@ -64,37 +59,42 @@ class PostModel extends BaseModel
 		}
 	}
 
-	public function retrieve($handle=NULL, $order=NULL)
+	public function retrieve($start=0, $handle=NULL)
 	{
 		$sql = "
-		SELECT
-			posts.id as id,
-			first_name, 
-			last_name, 
-			handle, 
-			email,
-			date,
-			image,
-			(SELECT COUNT(*) FROM likes WHERE post_id=posts.id) AS like_count,
-			(SELECT COUNT(*) FROM comments WHERE post_id=posts.id) AS comment_count
-		FROM posts
-			LEFT JOIN users ON users.id=posts.user_id
+			SELECT
+				posts.id as id,
+				first_name, 
+				last_name, 
+				handle, 
+				email,
+				date,
+				image,
+				(SELECT COUNT(*) FROM likes WHERE post_id=posts.id) AS like_count,
+				(SELECT COUNT(*) FROM comments WHERE post_id=posts.id) AS comment_count
+			FROM posts
+				LEFT JOIN users ON users.id=posts.user_id
+			LIMIT :ll,15
 		";
 
-		$sql .= ($handle) ? " WHERE handle = :handle" : "";		
-		$sql .= ($order) ? " ORDER BY :order" : " ORDER BY date";
+		$right_limit = $start + 15;
 
+		error_log("Start $start end $right_limit");
 
 		$stmt = $this->db->prepare($sql);
-		if ($handle)
-			$stmt->bindParam(":handle", $handle);
-		if ($order)
-			$stmt->bindParam(":order", $order);
+		$stmt->bindParam(":ll", $start, PDO::PARAM_INT);
+		// $stmt->bindParam(":lr", $right_limit, PDO::PARAM_INT);
 
 		try
 		{    
 			$stmt->execute();
-			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			$t = $stmt->rowCount();
+
+			error_log("Returned $t", 0);
+
+			return $data;
 		}
 		catch (PDOException $e)
 		{

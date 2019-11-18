@@ -28,9 +28,9 @@ class PostsController extends BaseController
 	public function get($kwargs)
 	{
 
+		$start = $this->query_value($kwargs, "start");
 		$handle = $this->query_value($kwargs, "handle");
-		$order = $this->query_value($kwargs, "order");
 
-		echo json_encode($this->model->retrieve($handle, $order));
+		echo json_encode($this->model->retrieve($start, $handle));
 	}
 }

@@ -48,11 +48,11 @@ class Post
 	}
 }
 
-function getPosts(handle = null, order = null)
+function getPosts(start = 0, handle = null)
 {
 	var container = document.getElementById("posts-container")
 	posts = []
-	ApiClient.getPosts(handle, order)
+	ApiClient.getPosts(start, handle)
 		.then(json => {
 			Array.from(json).forEach(post => {
                 let postEl = new Post(post)
@@ -87,4 +87,4 @@ function viewPost(event)
 
 }
 
-document.addEventListener("DOMContentLoaded", getPosts());
+//document.addEventListener("DOMContentLoaded", getPosts());
