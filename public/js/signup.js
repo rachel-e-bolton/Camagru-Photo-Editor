@@ -82,24 +82,45 @@ function createUser(formId)
 
 var emailInput = document.getElementById("email-field")
 var emailMessage = document.getElementById("email-message")
+var passwordInput = document.getElementById("password-field")
+var passwordMessage = document.getElementById("password-message")
+var repeatPasswordInput = document.getElementById("repeat-password-field")
+var repeatPasswordMessage = document.getElementById("repeat-password-message")
 
 emailInput.onfocus = function() {
 	emailMessage.style.display = "block";
 	emailMessage.innerHTML = "";
+	emailMessage.style.paddingBottom = "";
 }
 
 emailInput.onblur = function() {
 	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	var test = re.test(emailInput.value);
+	var str = emailInput.value;
+	var array = str.split("@");
+
 
 	if (test) {
-		emailMessage.style.display = "none";
-		emailInput.classList.remove("is-danger");
-		emailInput.classList.add("is-success");
+		if (array[0].length <= 64 && array[1].length <= 255) {
+			emailMessage.style.display = "none";
+			emailInput.classList.remove("is-danger");
+			emailInput.classList.add("is-success");
+		}
+		else {
+			emailMessage.style.paddingBottom = ".5rem";
+			emailMessage.innerHTML = "Username or Domain too long. Please try again."
+			emailInput.classList.remove("is-success");
+			emailInput.classList.add("is-danger");
+		}
 	}
 	else {
+		emailMessage.style.paddingBottom = ".5rem";
 		emailMessage.innerHTML = "Invalid email format. Please try again."
 		emailInput.classList.remove("is-success");
 		emailInput.classList.add("is-danger");
 	}
+}
+
+passwordInput.onfocus = function name(params) {
+	
 }

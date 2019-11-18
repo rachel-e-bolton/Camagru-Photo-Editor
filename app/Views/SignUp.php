@@ -34,7 +34,7 @@
 					</div>
 				</div>
 
-				<div id="email-message" style="display: none; padding-bottom: .5rem;" class="has-text-danger has-text-centered"></div>
+				<div id="email-message" style="display: none;" class="has-text-danger has-text-centered"></div>
 
 				<div class="field is-horizontal">
 					<div class="field-label grow-1 is-normal">
@@ -63,7 +63,11 @@
 					<div class="field-body">
 						<div class="field">
 							<p class="control">
-								<input id="repeat-password-field" class="input" type="password">
+								<input id="repeat-password-field" 
+										class="input" 
+										type="password"
+										minlength="8"
+										maxlength="32">
 							</p>
 						</div>
 					</div>
