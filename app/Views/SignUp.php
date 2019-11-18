@@ -44,7 +44,7 @@
 					</div>
 					<div class="field-body">
 						<div class="field">
-							<p class="control is-expanded right-inner-addon">
+							<p class="control is-expanded">
 								<input id="password-field" 
 										name="password" 
 										class="input" 
@@ -65,7 +65,7 @@
 					</div>
 					<div class="field-body">
 						<div class="field">
-							<p class="control right-inner-addon">
+							<p class="control">
 								<input id="repeat-password-field" 
 										class="input" 
 										type="password"
