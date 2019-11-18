@@ -26,6 +26,7 @@
 </div>
 
 <script src="/js/actions/get-posts.js"></script>
+<script src="/js/infinite-scroll.js"></script>
 <?php Component::load("Desktop/SignedInFooter-desktop") ?>
 </body>
 <?php Component::load("GlobalFooter") ?>

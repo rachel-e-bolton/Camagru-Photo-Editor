@@ -5,18 +5,6 @@
 <div class="columns is-centered" style="margin-top: 3rem">
 	<div class="column is-6">
 
-		<!-- <form id="new_user">
-			First Name 		<input name="first_name" type="text"><br>
-			Last Name 		<input name="last_name" type="text"><br>
-			Handle 			<input name="handle" type="text"><br>
-			Email 			<input name="email" type="email"><br>
-			Password 		<input name="password" type="password"><br>
-			Date of Birth 	<input name="dob" type="date"><br>
-			Profile Image 	<input name="profile_img" type="file"><br>
-		</form>
-
-		<button class="button is-primary" onclick="createUser('new_user')">Add</button> -->
-
 		<div class="slide-container">
 			<div class="box slide center">
 				<form id="new_user">
@@ -83,7 +71,7 @@
 
 				<div class="buttons">
 					<div class="spacer"></div>
-					<button type="button" class="button is-primary" onclick="nextSlide()" disabled>Next</button>
+					<button type="button" class="button is-primary" onclick="nextSlide()">Next</button>
 				</div>
 
 			</div>
@@ -142,17 +130,6 @@
 	</div>
 </div>
 
-<!-- <div class="columns is-centered">
-	<div class="notification is-primary column is-half">
-	<button class="delete"></button>
-	Primar lorem ipsum dolor sit amet, consectetur
-	adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
-	consectetur adipiscing elit
-	</div>
-</div> -->
-
-
-<script src="/js/api.js"></script>
 <script src="/js/signup.js"></script>
 
 <?php Component::load("Desktop/GenericFooter-desktop") ?>

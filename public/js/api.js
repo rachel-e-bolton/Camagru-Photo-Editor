@@ -35,10 +35,10 @@ class ApiClient
 		return data
 	}
 
-	static async getPosts(handle, order)
+	static async getPosts(start = 0, handle = null)
 	{
-		//let response = await fetch(`/posts/get?handle=${handle}&order=${order}`)
-		let response = await fetch(`/posts/get`)
+		//let response = await fetch(`/posts/get?start=${start}` + (handle) ? `&handle=${handle}` : "")
+		let response = await fetch(`/posts/get?start=${start}`)
 		let data = await response.json()
 		return data
 	}
