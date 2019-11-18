@@ -2,6 +2,20 @@
 <body>
 <?php Component::load("Desktop/GenericHeader-desktop") ?>
 
+<style>
+.right-inner-addon {
+    position: relative;
+}
+
+.right-inner-addon img {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+	height: 100%;
+	filter: opacity(50%);
+}
+</style>
+
 <div class="columns is-centered" style="margin-top: 3rem">
 	<div class="column is-6">
 
@@ -42,13 +56,14 @@
 					</div>
 					<div class="field-body">
 						<div class="field">
-							<p class="control is-expanded">
+							<p class="control is-expanded right-inner-addon">
 								<input id="password-field" 
 										name="password" 
 										class="input" 
 										type="password"
 										minlength="8"
 										maxlength="32">
+								<!-- <img id="password-show-hide" class="hidden" src="/img/icons8-show-password-48.png"> -->
 							</p>
 						</div>
 					</div>
@@ -62,12 +77,13 @@
 					</div>
 					<div class="field-body">
 						<div class="field">
-							<p class="control">
+							<p class="control right-inner-addon">
 								<input id="repeat-password-field" 
 										class="input" 
 										type="password"
 										minlength="8"
 										maxlength="32">
+								<!-- <img id="repeat-show-hide" class="hidden" src="/img/icons8-show-password-48.png"> -->
 							</p>
 						</div>
 					</div>
@@ -78,16 +94,16 @@
 				<div class="box has-background-warning has-text-centered">
 				A password should be <strong>8 to 32 characters</strong> in length and <strong>contain at least</strong>:<br/> 
 				a <strong>special character</strong>,
-				a <strong>number</strong> and a <strong>capital letter</strong>.
+				a <strong>number</strong>, a <strong>lowercase letter</strong> and an <strong>uppercase letter</strong>.
 				</div>
 
 				<div class="buttons">
 					<div class="spacer"></div>
-					<button type="button" class="button is-primary" onclick="nextSlide()" disabled>Next</button>
+					<button id="next-button" type="button" class="button is-primary" onclick="nextSlide()" disabled>Next</button>
 				</div>
 
 			</div>
-			<div class="box slide right">
+			<div id="slide-right" class="box slide right" style="display: none;">
 
 				<div class="field is-horizontal">
 					<div class="field-label grow-1 is-normal">

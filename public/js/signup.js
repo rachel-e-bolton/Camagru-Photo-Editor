@@ -121,6 +121,100 @@ emailInput.onblur = function() {
 	}
 }
 
-passwordInput.onfocus = function name(params) {
-	
+passwordInput.onfocus = function() {
+	passwordMessage.style.display = "block";
+	passwordMessage.innerHTML = "";
+	passwordMessage.style.paddingBottom = "";
 }
+
+passwordInput.onblur = function() {
+	var re = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}/;
+	var test = re.test(passwordInput.value);
+
+	if (test) {
+		passwordMessage.style.display = "none";
+		passwordInput.classList.remove("is-danger");
+		passwordInput.classList.add("is-success");
+	}
+	else {
+		var len = passwordInput.value.length;
+		var upper = /(?=.*[A-Z])/;
+		var lower = /(?=.*[a-z])/;
+		var digit = /(?=.*\d)/;
+		var special = /(?=.*[@$!%*?&])/;
+
+		if (len < 8) {
+			var msg = "Password is too short.<br/>";
+		}
+		if (len > 32) {
+			var msg = "Password is too long.<br/>"
+		}
+		if (!(upper.test(passwordInput.value))) {
+			msg = msg.concat("Password must contain an UPPERCASE letter.<br/>")
+		}
+		if (!(lower.test(passwordInput.value))) {
+			msg = msg.concat("Password must contain a LOWERCASE letter.<br/>")
+		}
+		if (!(special.test(passwordInput.value))) {
+			msg = msg.concat("Password must contain one of the following SPECIAL CHARACTERS: @$!%*?&.<br/>")
+		}
+		if (!(digit.test(passwordInput.value))) {
+			msg = msg.concat("Password must contain a DIGIT.</br>")
+		}
+
+		passwordMessage.style.paddingBottom = ".5rem";
+		passwordMessage.innerHTML = msg;
+		passwordInput.classList.remove("is-success");
+		passwordInput.classList.add("is-danger");
+	}
+}
+
+repeatPasswordInput.onfocus = function() {
+	repeatPasswordMessage.style.display = "block";
+	repeatPasswordMessage.innerHTML = "";
+	repeatPasswordMessage.style.paddingBottom = "";
+}
+
+repeatPasswordInput.onblur = function() {
+
+	if (repeatPasswordInput.value === passwordInput.value) {
+		repeatPasswordMessage.style.display = "none";
+		repeatPasswordInput.classList.remove("is-danger");
+		repeatPasswordInput.classList.add("is-success");
+		if (emailInput.classList.contains("is-success") && passwordInput.classList.contains("is-success") && repeatPasswordInput.classList.contains("is-success")) {
+			document.getElementById("next-button").disabled = false;
+			document.getElementById("slide-right").style.display = "";
+		}
+		else {
+			document.getElementById("next-button").disabled = true;
+			document.getElementById("slide-right").style.display = "none";
+		}
+	}
+	else {
+		repeatPasswordMessage.style.paddingBottom = ".5rem";
+		repeatPasswordMessage.innerHTML = "Passwords do not match. Please try again."
+		repeatPasswordInput.classList.remove("is-success");
+		repeatPasswordInput.classList.add("is-danger");
+		document.getElementById("next-button").disabled = true;
+		document.getElementById("slide-right").style.display = "none";
+	}
+}
+
+// var passwordView = document.getElementById("password-show-hide");
+// var repeatView = document.getElementById("repeat-show-hide");
+
+// passwordView.addEventListener("click", viewPassword(passwordInput));
+// repeatView.addEventListener("click", viewPassword(repeatPasswordInput))
+
+// function viewPassword(input) {
+// 	if (input.type == "password") {
+// 		input.type = "text";
+// 	}
+// 	else {
+// 		input.type = "password";
+// 	}
+// }
+
+// function hidePassword(input) {
+// 	input.type = "password";
+// }
