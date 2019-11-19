@@ -175,7 +175,7 @@ repeatPasswordInput.onfocus = function() {
 	repeatPasswordMessage.style.paddingBottom = "";
 }
 
-repeatPasswordInput.onblur = function() {
+repeatPasswordInput.oninput = function() {
 
 	if (repeatPasswordInput.value === passwordInput.value) {
 		repeatPasswordMessage.style.display = "none";
@@ -192,7 +192,7 @@ repeatPasswordInput.onblur = function() {
 	}
 	else {
 		repeatPasswordMessage.style.paddingBottom = ".5rem";
-		repeatPasswordMessage.innerHTML = "Passwords do not match. Please try again."
+		repeatPasswordMessage.innerHTML = "Passwords do not match."
 		repeatPasswordInput.classList.remove("is-success");
 		repeatPasswordInput.classList.add("is-danger");
 		document.getElementById("next-button").disabled = true;
