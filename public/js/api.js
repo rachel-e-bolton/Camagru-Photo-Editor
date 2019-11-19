@@ -1,3 +1,18 @@
+class Api
+{
+	static post(url, body)
+	{
+		let options = {
+			method: "POST",
+			body: body
+		}
+		return fetch(url, options).then(resp => resp.json())
+	}
+}
+
+
+
+
 class ApiClient
 {
 	static async createUser(formId)

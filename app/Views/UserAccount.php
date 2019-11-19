@@ -32,15 +32,15 @@
 
 <div class="columns" style="margin-top: 2rem" style="padding-left: 0; padding-right: 0;">
     <div  class="column is-offset-2 is-two-thirds box" style="padding: 1.5rem">
-        
+   
     <section class="hero is-small" >
         <div class="hero-body">
             <div class="container" style="margin-top: -1rem;">
             <h1 class="title">
-                Update Handle
+                Update Your Info
             </h1>
             <h2 class="subtitle">
-                Change your personal handle here.
+                Change your personal details here.
             </h2>
             </div>
         </div>
@@ -48,7 +48,7 @@
 
         <form id="update-handle-form">
 
-        <div class="field is-horizontal">
+            <div class="field is-horizontal">
                 <div class="field-label grow-1 is-normal">
                     <label class="label">Handle</label>
                 </div>
@@ -59,6 +59,32 @@
                         </p>
                         <p class="control is-expanded">
                             <input name="new-handle" id="new-handle" class="input" type="text" value="<?= $user["handle"] ?>">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label grow-1 is-normal">
+                    <label class="label">First Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field has-addons">
+                        <p class="control is-expanded">
+                            <input name="new-firstname" class="input" type="text" value="<?= $user["first_name"] ?>">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label grow-1 is-normal">
+                    <label class="label">Last Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field has-addons">
+                        <p class="control is-expanded">
+                            <input name="new-lastname" class="input" type="text" value="<?= $user["last_name"] ?>">
                         </p>
                     </div>
                 </div>
@@ -218,14 +244,27 @@
 
             <form id="update-notifications-form" class="has-text-centered">
                 <div class="control has-text-centered" style="margin: .25rem; margin-bottom: .rem;">
+             
+                <?php if ($user["notifications"]): ?>             
                     <label class="radio" style="font-size: 23px">
-                        <input type="radio" name="answer" id="yes" class="title">
+                        <input type="radio" name="answer" id="yes" class="title" checked>
                         &nbspYes
                     </label>
                     <label class="radio" style="font-size: 23px">
                         <input type="radio" name="answer" id="no" class="title">
                         &nbspNo
                     </label>
+                <?php else: ?>
+                    <label class="radio" style="font-size: 23px">
+                        <input type="radio" name="answer" id="yes" class="title">
+                        &nbspYes
+                    </label>
+                    <label class="radio" style="font-size: 23px">
+                        <input type="radio" name="answer" id="no" class="title" checked>
+                        &nbspNo
+                    </label>
+                <?php endif; ?>
+
                 </div>
 
                 <div class="buttons">
@@ -237,6 +276,7 @@
     </div>
 </div>
 
+<script src="/js/accounts/edit.js"></script>
 <script src="/js/useraccount-validation.js"></script>
 
 <?php Component::load("Desktop/SignedInFooter-desktop") ?>

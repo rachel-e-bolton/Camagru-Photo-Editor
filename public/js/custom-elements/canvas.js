@@ -30,6 +30,8 @@ class CamagruCanvas extends HTMLCanvasElement {
 		
 		var t_ctx = tempCanvas.getContext("2d")
 
+		t_ctx.translate(600, 0);
+		t_ctx.scale(-1, 1);
 		t_ctx.drawImage(stream, 0, 0)
 
 

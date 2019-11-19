@@ -15,7 +15,7 @@ class DatabaseResponse
 
             $stmt->execute();
          
-            if (strpos(strtolower($stmt->queryString), "insert") === FALSE)
+            if (strpos(strtolower($stmt->queryString), "select") === TRUE)
             {
                 if ($multiple)
                     $this->data = $stmt->fetchAll(PDO::FETCH_ASSOC);

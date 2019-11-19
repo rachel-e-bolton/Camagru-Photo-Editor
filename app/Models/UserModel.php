@@ -50,7 +50,7 @@ class UserModel extends BaseModel
 	public function getUserByEmail($email)
 	{
 		$stmt = $this->db->prepare("
-			SELECT id, first_name, last_name, handle, email, profile_img, verified
+			SELECT id, first_name, last_name, handle, email, profile_img, verified, notifications
 		 		FROM users WHERE email=:email LIMIT 1
 		 ");
 		$stmt->bindValue(":email", $email);
@@ -69,7 +69,7 @@ class UserModel extends BaseModel
 
 	public function getUserById($id)
 	{
-		$stmt = $this->db->prepare("SELECT id, first_name, last_name, handle, email, profile_img, verified FROM users WHERE id=:id LIMIT 1");
+		$stmt = $this->db->prepare("SELECT id, first_name, last_name, handle, email, profile_img, verified, notifications FROM users WHERE id=:id LIMIT 1");
 		$stmt->bindValue(":id", $id);
 
 		try
@@ -142,5 +142,47 @@ class UserModel extends BaseModel
 			return (hash("sha512", $password) === $result["password_hash"]);
 		else
 			return false;
+	}
+
+	public function updatePassword($id, $newPassword)
+	{
+		$stmt = $this->db->prepare("UPDATE users set password_hash=:hash WHERE id=:id");
+		$stmt->bindValue(":id", (int)$userId, PDO::PARAM_INT);
+
+		$hash = $this->hashPass($newPassword);
+		$stmt->bindParam(":hash", $hash);
+
+		return (new DatabaseResponse($stmt));
+	}
+
+	public function updateDetails($userId, $handle, $fname, $lname)
+	{
+		$sql = "
+			UPDATE
+				users
+			SET
+				handle=:handle,
+				first_name=:fname,
+				last_name=:lname
+			WHERE
+				id=:id
+		";
+
+		$stmt = $this->db->prepare($sql);
+		$stmt->bindValue(":id", (int)$userId, PDO::PARAM_INT);
+		$stmt->bindParam(":handle", $handle);
+		$stmt->bindParam(":fname", $fname);
+		$stmt->bindParam(":lname", $lname);
+
+		return (new DatabaseResponse($stmt));
+	}
+
+	public function updateEmail($id, $newEmail)
+	{
+		$stmt = $this->db->prepare("UPDATE users SET email=:email, verified=0 WHERE id=:id");
+		$stmt->bindValue(":id", (int)$id, PDO::PARAM_INT);
+		$stmt->bindParam(":email", $newEmail);
+
+		return (new DatabaseResponse($stmt));
 	}
 }

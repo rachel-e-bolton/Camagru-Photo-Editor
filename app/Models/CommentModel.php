@@ -21,20 +21,6 @@ class CommentModel extends BaseModel
 
         return (new DatabaseResponse($stmt));
 
-        // try
-		// {    
-		// 	$stmt->execute();
-        //     $response["success"] = true;
-        //     $response["id"] = $this->db->lastInsertId();
-		// }
-		// catch (PDOException $e)
-		// {
-        //     error_log("SQL Error: " . $e->getMessage(),0);
-        //     $response["success"] = false;
-        //     $response["error"] = $e->getMessage();
-        // }
-        
-        // return $response;
     }
 
     public function getCommentById($id)

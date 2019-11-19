@@ -43,7 +43,7 @@ class BaseController
 		if (!isset($_SESSION["logged_in_uid"]))
 			RenderView::redirect("/login");
 
-		$GLOBALS["user"] = (new UserModel())->getUserByEmail($_SESSION["logged_in_uid"]);
+		return (new UserModel())->getUserByEmail($_SESSION["logged_in_uid"]);
 	}
 
 	public function protectSelfJSON() 
@@ -53,5 +53,6 @@ class BaseController
 
 		$GLOBALS["user"] = (new UserModel())->getUserByEmail($_SESSION["logged_in_uid"]);
 		$this->user = $GLOBALS["user"];
+		return (new UserModel())->getUserByEmail($_SESSION["logged_in_uid"]);
 	}
 }

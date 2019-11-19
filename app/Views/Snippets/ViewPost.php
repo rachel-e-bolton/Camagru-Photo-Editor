@@ -51,7 +51,9 @@
 <div id="post-view" class="post-view has-background-light">
     <div class="post-image">
         <img src="<?= $data["post"]["image"] ?>" alt="">
-        <img id="like-image" class="like-image" src="img/unliked.png" alt="" onclick="likeImage();" style="width: 64px; height: auto;">
+        <?php if ($user): ?>
+            <img id="like-image" class="like-image" src="img/unliked.png" alt="" onclick="likeImage();" style="width: 32px; height: auto;">
+        <?php endif; ?>
     </div>
     <div class="post-comments">
         <div class="list-comments">

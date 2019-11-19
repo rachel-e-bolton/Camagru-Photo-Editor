@@ -74,16 +74,13 @@ class PostModel extends BaseModel
 				(SELECT COUNT(*) FROM comments WHERE post_id=posts.id) AS comment_count
 			FROM posts
 				LEFT JOIN users ON users.id=posts.user_id
-			LIMIT :ll,15
+			LIMIT ?,15
 		";
 
-		$right_limit = $start + 15;
-
-		error_log("Start $start end $right_limit");
 
 		$stmt = $this->db->prepare($sql);
-		$stmt->bindParam(":ll", $start, PDO::PARAM_INT);
-		// $stmt->bindParam(":lr", $right_limit, PDO::PARAM_INT);
+		$stmt->bindValue(1, (int)$start, PDO::PARAM_INT);
+		
 
 		try
 		{    
