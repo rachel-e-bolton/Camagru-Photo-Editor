@@ -44,14 +44,14 @@
 					</div>
 					<div class="field-body">
 						<div class="field">
-							<p class="control is-expanded">
+							<p class="control is-expanded right-inner-addon">
 								<input id="password-field" 
 										name="password" 
 										class="input" 
 										type="password"
 										minlength="8"
 										maxlength="32">
-								<!-- <img id="password-show-hide" class="hidden" src="/img/icons8-show-password-48.png"> -->
+								<img id="password-show-hide" class="hidden" src="/img/icons8-show-password-48.png">
 							</p>
 						</div>
 					</div>
@@ -65,13 +65,13 @@
 					</div>
 					<div class="field-body">
 						<div class="field">
-							<p class="control">
+							<p class="control right-inner-addon">
 								<input id="repeat-password-field" 
 										class="input" 
 										type="password"
 										minlength="8"
 										maxlength="32">
-								<!-- <img id="repeat-show-hide" class="hidden" src="/img/icons8-show-password-48.png"> -->
+								<img id="repeat-show-hide" class="hidden" src="/img/icons8-show-password-48.png">
 							</p>
 						</div>
 					</div>
