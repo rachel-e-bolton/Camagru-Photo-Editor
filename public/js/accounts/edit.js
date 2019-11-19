@@ -65,9 +65,9 @@ function updateNotifications(event)
 {
     event.preventDefault()
     
-    let form = JSON.stringify(Object.fromEntries(new FormData(this)))
+    let answer = (document.getElementById("yes").checked) ? true : false;
 
-    Api.post("/accounts/update_notifications")
+    Api.post("/accounts/update_notifications", JSON.stringify({answer}))
         .then(resp => {
             if (!resp.success)
                 Messages.error(resp.message)

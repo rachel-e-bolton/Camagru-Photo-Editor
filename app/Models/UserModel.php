@@ -185,4 +185,18 @@ class UserModel extends BaseModel
 
 		return (new DatabaseResponse($stmt));
 	}
+
+	public function updateNotifications($id, $val)
+	{
+		$stmt = $this->db->prepare("UPDATE users SET notifications=:val WHERE id=:id");
+		$stmt->bindValue(":id", (int)$id, PDO::PARAM_INT);
+		
+		$value = ($val) ? "1" : "0";
+		
+		$stmt->bindParam(":val", $value);
+
+
+
+		return (new DatabaseResponse($stmt));
+	}
 }

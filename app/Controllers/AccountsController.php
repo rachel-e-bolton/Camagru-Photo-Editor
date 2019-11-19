@@ -50,7 +50,19 @@ class AccountsController extends BaseProtectedController
 	
 	public function update_notifications()
 	{
+		$user = $this->protectSelfJSON();
+		$data = json_decode(file_get_contents('php://input'), true);
 
+		if (isset($data["answer"]) && $data["answer"])
+		{
+			$this->model->updateNotifications($user["id"], TRUE);
+			RenderView::json([], 200, "Notifications for posts is on.");
+		}
+		else
+		{
+			$this->model->updateNotifications($user["id"], FALSE);
+			RenderView::json([], 200, "Notifications for posts is off.");
+		}
 	}
 	
 	public function update_password()
