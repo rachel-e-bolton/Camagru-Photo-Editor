@@ -2,6 +2,20 @@
 <body>
 <?php Component::load("Desktop/SignedInHeader-desktop") ?>
 
+<style>
+.right-inner-addon {
+    position: relative;
+}
+
+.right-inner-addon img {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+	height: 100%;
+	filter: opacity(50%);
+}
+</style>
+
 <!-- <div class="container box" style="margin-top: 3rem; padding-bottom: 3rem; padding-left: 0; padding-right: 0;"> -->
 <section class="hero is-primary" style="margin-top: 2rem; padding-left: 0; padding-right: 0;" >
 <div class="hero-body">
@@ -82,7 +96,7 @@
                     <div class="field-body">
                         <div class="field">
                             <p class="control">
-                                <input name="old-password" class="input" type="password">
+                                <input id="old-password" name="old-password" class="input" type="password">
                             </p>
                         </div>
                     </div>
@@ -93,26 +107,32 @@
                         <label class="label">New Password</label>
                     </div>
                     <div class="field-body">
-                        <div class="field">
+                        <div class="field right-inner-addon">
                             <p class="control">
-                                <input name="new-password" class="input" type="password">
+                                <input id="new-password" name="new-password" class="input" type="password">
+                                <img id="password-show-hide" class="hidden" src="/img/icons8-show-password-48.png">
                             </p>
                         </div>
                     </div>
                 </div>
+
+                <div id="password-message" style="display: none" class="has-text-danger has-text-centered"></div>
 
                 <div class="field is-horizontal">
                     <div class="field-label grow-1 is-normal">
                         <label class="label">Repeat New</label>
                     </div>
                     <div class="field-body">
-                        <div class="field">
+                        <div class="field right-inner-addon">
                             <p class="control">
-                                <input class="input" type="password">
+                                <input id="repeat-new-password" class="input" type="password">
+                                <img id="repeat-show-hide" class="hidden" src="/img/icons8-show-password-48.png">
                             </p>
                         </div>
                     </div>
                 </div>
+
+				<div id="repeat-password-message" style="display: none" class="has-text-danger has-text-centered"></div>
 
                 <div class="box has-background-warning has-text-centered">
                 A password should be <strong>at least 8 characters</strong> in length and <strong>contain at least</strong>:<br/> 
@@ -121,7 +141,7 @@
                 </div>
 
                 <div class="buttons">
-                    <button id="update-password" class="button is-primary">Update</button>
+                    <button id="update-password" class="button is-primary" disabled>Update</button>
                 </div>
             </div>
             </form>
@@ -216,6 +236,8 @@
 
     </div>
 </div>
+
+<script src="/js/useraccount-validation.js"></script>
 
 <?php Component::load("Desktop/SignedInFooter-desktop") ?>
 </body>
