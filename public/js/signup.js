@@ -100,6 +100,8 @@ emailInput.onblur = function() {
 	var array = str.split("@");
 
 
+	if (this.value.length < 3)
+		return false
 	if (test) {
 		if (array[0].length <= 64 && array[1].length <= 255) {
 			emailMessage.style.display = "none";
@@ -131,6 +133,8 @@ passwordInput.onblur = function() {
 	var re = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}/;
 	var test = re.test(passwordInput.value);
 
+	if (this.value.length < 3)
+		return false
 	if (test) {
 		passwordMessage.style.display = "none";
 		passwordInput.classList.remove("is-danger");
@@ -176,7 +180,8 @@ repeatPasswordInput.onfocus = function() {
 }
 
 repeatPasswordInput.oninput = function() {
-
+	if (this.value.length < 3)
+		return false
 	if (repeatPasswordInput.value === passwordInput.value) {
 		repeatPasswordMessage.style.display = "none";
 		repeatPasswordInput.classList.remove("is-danger");

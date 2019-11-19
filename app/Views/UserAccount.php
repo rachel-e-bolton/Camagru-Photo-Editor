@@ -200,11 +200,13 @@
                     <div class="field-body">
                         <div class="field">
                             <p class="control">
-                                <input name="new-email" class="input" type="email" value="<?= $user["email"] ?>">
+                                <input id="new-email" name="new-email" class="input" type="email" value="<?= $user["email"] ?>">
                             </p>
                         </div>
                     </div>
                 </div>
+
+                <div id="new-email-message" style="display: none" class="has-text-danger has-text-centered"></div>
 
                 <div class="field is-horizontal">
                     <div class="field-label grow-1 is-normal">
@@ -213,14 +215,16 @@
                     <div class="field-body">
                         <div class="field">
                             <p class="control">
-                                <input class="input" type="email">
+                                <input id="new-email-repeat" class="input" type="email">
                             </p>
                         </div>
                     </div>
                 </div>
 
+                <div id="new-email-repeat-message" style="display: none" class="has-text-danger has-text-centered"></div>
+
                 <div class="buttons">
-                    <button id="update-email" class="button is-primary">Update & Log Out</button>
+                    <button id="update-email" class="button is-primary" disabled>Update & Log Out</button>
                 </div>
             </div>
             </form>
@@ -251,7 +255,7 @@
                         &nbspYes
                     </label>
                     <label class="radio" style="font-size: 23px">
-                        <input type="radio" name="answer" id="no" class="title">
+                        <input type="radio" name="answer" id="no" class="title" value="no">
                         &nbspNo
                     </label>
                 <?php else: ?>

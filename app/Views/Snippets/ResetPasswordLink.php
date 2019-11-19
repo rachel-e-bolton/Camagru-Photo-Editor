@@ -22,6 +22,6 @@
     </form>
     </section>
     <footer class="modal-card-foot">
-        <button id="send-reset-link" class="button is-primary" style="margin-left: auto; margin-right: auto;">Send Link</button>
+        <button form="reset-password-modal" id="send-reset-link" class="button is-primary" style="margin-left: auto; margin-right: auto;">Send Link</button>
     </footer>
   </div>

@@ -136,3 +136,79 @@ repeatPasswordView.onmouseleave = function() {
 		repeatPasswordInput.type = "password";
     }
 }
+
+var oldEmail = document.getElementById("new-email").value;
+var emailInput = document.getElementById("new-email");
+var emailRepeat = document.getElementById("new-email-repeat");
+var emailMessage = document.getElementById("new-email-message");
+var emailRepeatMessage = document.getElementById("new-email-repeat-message");
+
+emailInput.onfocus = function() {
+    emailInput.value = "";
+    emailMessage.style.display = "block";
+	emailMessage.innerHTML = "";
+	emailMessage.style.paddingBottom = "";
+}
+
+emailInput.onblur = function() {
+	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	var test = re.test(emailInput.value);
+	var str = emailInput.value;
+	var array = str.split("@");
+
+
+	if (test) {
+        if (array[0].length <= 64 && array[1].length <= 255) {
+            if (emailInput.value === oldEmail) {
+                emailMessage.style.paddingBottom = ".5rem";
+                emailMessage.innerHTML = "Old and New Email Addresses shouldn't match..."
+                emailInput.classList.remove("is-success");
+                emailInput.classList.add("is-danger");
+            }
+            else {
+			emailMessage.style.display = "none";
+			emailInput.classList.remove("is-danger");
+            emailInput.classList.add("is-success");
+            }
+        }
+		else {
+			emailMessage.style.paddingBottom = ".5rem";
+			emailMessage.innerHTML = "Username or Domain too long. Please try again."
+			emailInput.classList.remove("is-success");
+			emailInput.classList.add("is-danger");
+		}
+	}
+	else {
+		emailMessage.style.paddingBottom = ".5rem";
+		emailMessage.innerHTML = "Invalid email format. Please try again."
+		emailInput.classList.remove("is-success");
+		emailInput.classList.add("is-danger");
+	}
+}
+
+emailRepeat.onfocus = function() {
+	emailRepeatMessage.style.display = "block";
+	emailRepeatMessage.innerHTML = "";
+	emailRepeatMessage.style.paddingBottom = "";
+}
+
+emailRepeat.oninput = function() {
+	if (emailRepeat.value === emailInput.value) {
+		emailRepeatMessage.style.display = "none";
+		emailRepeat.classList.remove("is-danger");
+		emailRepeat.classList.add("is-success");
+		if (emailInput.classList.contains("is-success") && emailRepeat.classList.contains("is-success")) {
+			document.getElementById("update-email").disabled = false;
+		}
+		else {
+			document.getElementById("update-email").disabled = true;
+		}
+	}
+	else {
+		emailRepeatMessage.style.paddingBottom = ".5rem";
+		emailRepeatMessage.innerHTML = "Email Addresses entered do not match."
+		emailRepeat.classList.remove("is-success");
+		emailRepeat.classList.add("is-danger");
+		document.getElementById("update-email").disabled = true;
+	}
+}
