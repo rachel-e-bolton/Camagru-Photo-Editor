@@ -18,7 +18,6 @@ class BaseModel
 			echo "Connection failed: " . $e->getMessage();
 		}
 
-
 		$this->db = $conn;
 	}
 

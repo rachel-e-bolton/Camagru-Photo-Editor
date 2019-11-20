@@ -27,6 +27,12 @@ function closeAllModals()
     elem.disabled = true;
     elem.parentNode.removeChild(elem);
   })
+
+  // Stop any active streams
+  if (typeof webStream !== 'undefined') {
+    if (webStream)
+        webStream.getTracks()[0].stop()
+  }
 }
 
 

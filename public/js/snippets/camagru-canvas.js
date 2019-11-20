@@ -5,6 +5,7 @@ var viewPanel = document.getElementById("view")
 var fileInput = document.getElementById("file-in")
 var stickers = document.getElementById("stickers")
 var webStream = null
+var layers = document.getElementById("layers")
 
 ApiClient.getStickers()
 	.then(resp => {
@@ -29,7 +30,6 @@ ApiClient.getStickers()
 
 function stickerClicker(event)
 {
-	console.log(this);
 	newLayer(this.src)
 }
 
@@ -50,10 +50,43 @@ function newLayer(src, id = "sticker")
 		canvas.addImage(src)
 	canvas.activate()
 	if (canvas.is_base)
+	{
 		viewPanel.prepend(canvas)
+		addLayerEntryBefore(id)
+	}
 	else
+	{
 		viewPanel.appendChild(canvas)
+		addLayerEntry(id)
+	}
 }
+
+function addLayerEntry(name)
+{
+	var div = document.createElement("div")
+	var button = document.createElement("button")
+
+	div.className = "layer"
+	button.className = "delete"
+
+	div.innerText = name
+	div.appendChild(button)
+	layers.appendChild(div)	
+}
+
+function addLayerEntryBefore(name)
+{
+	var div = document.createElement("div")
+	var button = document.createElement("button")
+
+	div.className = "layer"
+	button.className = "delete"
+
+	div.innerText = name
+	div.appendChild(button)
+	layers.prepend(div)
+}
+
 
 function uploadFile()
 {

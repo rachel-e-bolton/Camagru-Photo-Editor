@@ -6,6 +6,7 @@ class DatabaseResponse
     private $valid = FALSE;
     private $errorMessage = NULL;
     private $id = NULL;
+    public $rowCount = 0;
 
     public function __construct($stmt, $multiple = TRUE)
     {
@@ -26,6 +27,7 @@ class DatabaseResponse
             {
                 $this->id = ($base->getDb())->lastInsertId();
             }
+            $this->rowCount = count($this->data);
             $this->valid = TRUE;
 		}
 		catch (PDOException $e)

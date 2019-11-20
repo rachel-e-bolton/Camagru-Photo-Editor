@@ -67,6 +67,26 @@ class UserModel extends BaseModel
 		}
 	}
 
+	public function getUserByHandle($handle)
+	{
+		$stmt = $this->db->prepare("
+			SELECT id, first_name, last_name, handle, email, profile_img, verified, notifications
+		 		FROM users WHERE handle=:handle LIMIT 1
+		 ");
+		$stmt->bindValue(":handle", $handle);
+
+		try
+		{
+			$stmt->execute();
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e)
+		{
+			error_log("SQL Error: " . $e->getMessage(),0);
+			return false;
+		}
+	}
+
 	public function getUserById($id)
 	{
 		$stmt = $this->db->prepare("SELECT id, first_name, last_name, handle, email, profile_img, verified, notifications FROM users WHERE id=:id LIMIT 1");

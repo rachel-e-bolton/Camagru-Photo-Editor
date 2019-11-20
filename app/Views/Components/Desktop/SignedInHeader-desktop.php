@@ -6,10 +6,10 @@
   </div>
   <div id="navbarMenu" class="level-right navbar-menu">
     <div class="level-item navbar-start">
-      <a href="/gallery" class="level-item navbar-item">
+      <a href="/home/gallery" class="level-item navbar-item">
         Gallery
       </a>
-      <a href="/home" class="level-item navbar-item">
+      <a href="/<?= "?handle=" . $user["handle"] ?>" class="level-item navbar-item">
         My Posts
       </a>
       <a onclick="loadSnippet('AddPost')" class="level-item navbar-item">

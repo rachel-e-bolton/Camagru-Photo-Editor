@@ -61,19 +61,7 @@ $sql = [
 	"likes" => "CREATE TABLE IF NOT EXISTS likes(
 		id				INT 		AUTO_INCREMENT PRIMARY KEY,
 		post_id			INT 		NOT NULL,
-		user_id			INT 		NOT NULL,
-
-		CONSTRAINT fk_like_userid
-		FOREIGN KEY (user_id) 
-		REFERENCES users(id)
-			ON UPDATE CASCADE
-			ON DELETE CASCADE,
-
-		CONSTRAINT fk_like_postid
-		FOREIGN KEY (post_id) 
-		REFERENCES posts(id)
-			ON UPDATE CASCADE
-			ON DELETE CASCADE
+		user_id			INT 		NOT NULL
 	);
 	",
 

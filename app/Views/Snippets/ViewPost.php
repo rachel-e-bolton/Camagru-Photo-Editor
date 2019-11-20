@@ -52,7 +52,17 @@
     <div class="post-image">
         <img src="<?= $data["post"]["image"] ?>" alt="">
         <?php if ($user): ?>
-            <img id="like-image" class="like-image" src="img/unliked.png" alt="" onclick="likeImage();" style="width: 32px; height: auto;">
+
+            <?php if ($data["liked"]): ?>
+
+                <img id="like-image" data-id="<?= $data["post"]["id"] ?>" class="like-image liked" src="/img/liked.png" alt="" onclick="likeImage();" style="width: 32px; height: auto;">
+
+            <?php else: ?>
+
+                <img id="like-image" data-id="<?= $data["post"]["id"] ?>" class="like-image" src="/img/unliked.png" alt="" onclick="likeImage();" style="width: 32px; height: auto;">
+
+            <?php endif; ?>
+
         <?php endif; ?>
     </div>
     <div class="post-comments">
@@ -61,7 +71,7 @@
                 <article class="media comment">
                     <figure class="media-left image is-64x64">
                         <p class="">
-                        <img class="is-rounded" src="img/User Icon.png">
+                        <img class="is-rounded" src="/img/User Icon.png">
                         </p>
                     </figure>
                     <div class="media-content">
@@ -83,7 +93,7 @@
         <article class="media">
             <figure class="media-left image is-64x64">
                 <p class="">
-                <img class="is-rounded" src="img/User Icon.png">
+                    <img class="is-rounded" src="/img/User Icon.png">
                 </p>
             </figure>
             <div class="media-content">
@@ -105,4 +115,4 @@
     </div>
 </div>
 
-<script src="/js/likes.js"></script>
+<script src="/js/actions/scroll-to-post.js"></script>

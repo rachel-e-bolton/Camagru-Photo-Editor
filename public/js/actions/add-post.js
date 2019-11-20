@@ -1,6 +1,3 @@
-console.log("Add POst JS laoded")
-
-
 var submit = document.getElementById("save-post")
 
 submit.onclick = function(event)

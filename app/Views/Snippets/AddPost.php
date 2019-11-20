@@ -7,16 +7,21 @@
 			<input type="file" name="" id="file-in">
 		</span>
 		<div class="main-container">
-			<div id="view" class="media-view">
-			</div>
+				<div class="layers-container">
+					<div id="layers">
+						
+					</div>
+				</div>
+				<div id="view" class="media-view"></div>
+				<div class="view-spacer"></div>
 		</div>
 		<div id="controls" class="media-controls columns is-vcentered">
 			<div class="field has-addons column">
 				<div class="control">
-					<a id="upload-button" onclick="uploadFile();toggleButtonUpload();" class="button is-medium">Upload Image</a>
+					<a id="upload-button" onclick="uploadFile(); toggleButtonUpload();" class="button is-medium">Upload Image</a>
 				</div>
 				<div class="control">
-					<a id="selfie-button" onclick="webcam();toggleButtonSelfie();" class="button is-medium">Selfie</a>
+					<a id="selfie-button" onclick="webcam(); toggleButtonSelfie();" class="button is-medium">Selfie</a>
 				</div>
 			</div>
 			<div class="column" style="margin-top: -1.5rem;">
@@ -25,11 +30,14 @@
 		</div>
 		<div id="stickers" class="sticker-container" style="display: none;"></div>
 	<link rel="stylesheet" href="/css/snippets/camagru-canvas.css">
+	<link rel="stylesheet" href="/css/snippets/add-post.css">
 	<script src="/js/snippets/camagru-canvas.js"></script>
     </section>
     <footer class="modal-card-foot level-right" style="justify-content: center;">
 	    <button id="save-post" class="level-item button is-primary is-large" disabled>1... 2... 3... Post!</button>
 	</footer>
+
+
 	<script src="/js/actions/add-post.js"></script>
 	<script src="/js/add-post-buttons.js"></script>
 </div>

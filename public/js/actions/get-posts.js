@@ -6,7 +6,7 @@ class Post
 	{
         this.post = post
 		this.html = `
-			<div onclick="centreExpandedView();" class="post">
+			<div onclick="" class="post">
 				<div class="stats">
 					<div class="likes single">
 						<img class="icon" src="/img/heart.svg" alt="">
@@ -24,7 +24,7 @@ class Post
 			
 			</div>
 			<div class="attribution">
-					<a href="#" class="user">@${post.handle}</a>
+					<a href="/home/gallery/${post.handle}" onclick="event.stopPropagation();" class="user">@${post.handle}</a>
 					<div class="date">${post.date}</div>
 			</div>
 		`
@@ -86,5 +86,3 @@ function viewPost(event)
     loadPostSnippet("post-info", id)
 
 }
-
-//document.addEventListener("DOMContentLoaded", getPosts());

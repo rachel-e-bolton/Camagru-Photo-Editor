@@ -53,7 +53,16 @@ class ApiClient
 	static async getPosts(start = 0, handle = null)
 	{
 		//let response = await fetch(`/posts/get?start=${start}` + (handle) ? `&handle=${handle}` : "")
-		let response = await fetch(`/posts/get?start=${start}`)
+		let urlParams = new URLSearchParams(window.location.search);
+		let response
+		
+		if (!handle)
+			handle = urlParams.get('handle');
+
+		if (handle)
+			response = await fetch(`/posts/get?start=${start}&handle=${handle}`)
+		else
+			response = await fetch(`/posts/get?start=${start}`)
 		let data = await response.json()
 		return data
 	}

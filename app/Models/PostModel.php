@@ -61,7 +61,7 @@ class PostModel extends BaseModel
 
 	public function retrieve($start=0, $handle=NULL)
 	{
-		$sql = "
+		$sql_base = "
 			SELECT
 				posts.id as id,
 				first_name, 
@@ -74,14 +74,20 @@ class PostModel extends BaseModel
 				(SELECT COUNT(*) FROM comments WHERE post_id=posts.id) AS comment_count
 			FROM posts
 				LEFT JOIN users ON users.id=posts.user_id
-			LIMIT ?,15
 		";
 
+		if ($handle)
+			$sql_base .= " WHERE users.handle=:handle ";
 
-		$stmt = $this->db->prepare($sql);
-		$stmt->bindValue(1, (int)$start, PDO::PARAM_INT);
+		$sql_base .= "ORDER BY date DESC LIMIT :start,15";
+
+		$stmt = $this->db->prepare($sql_base);
 		
-
+		if ($handle)
+			$stmt->bindValue(":handle", $handle);
+		
+		$stmt->bindValue(":start", (int)$start, PDO::PARAM_INT);
+		
 		try
 		{    
 			$stmt->execute();

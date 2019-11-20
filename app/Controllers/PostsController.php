@@ -33,4 +33,24 @@ class PostsController extends BaseController
 
 		echo json_encode($this->model->retrieve($start, $handle));
 	}
+
+	public function toggle_like()
+	{
+		$model = new LikesModel();
+
+		$user = $this->protectSelfJSON();
+		$data = json_decode(file_get_contents('php://input'), true);
+
+		if (isset($data["post_id"]))
+		{
+			$result = $model->toggleLike($data["post_id"], $user["id"]);
+			
+			if ($result->isValid())
+				RenderView::json([], 200, "Done.");
+			else
+				RenderView::json([], 400, $result->errorMessage());
+		}
+		else
+			RenderView::json([], 400, "Missing data, cannot complete request.");
+	}
 }
