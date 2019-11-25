@@ -13,8 +13,8 @@
 }
 
 .post-image > img {
-    width: auto;
-    height: 100%;
+    width: 575px;
+    height: auto;
 }
 
 .post-comments {
@@ -37,7 +37,7 @@
 .like-image {
     position: absolute;
     top: 15px;
-    left: 500px;
+    right: 80px;
     z-index: 1;
 }
 
@@ -47,8 +47,9 @@
 }
 
 </style>
-
-<div id="post-view" class="post-view has-background-light">
+<script src="/js/actions/add-comment.js"></script>
+<script src="/js/actions/delete-comment.js"></script>
+<div id="post-view" data-postid="<?= $data["post"]["id"] ?>" class="post-view has-background-light">
     <div class="post-image">
         <img src="<?= $data["post"]["image"] ?>" alt="">
         <?php if ($user): ?>
@@ -63,10 +64,14 @@
 
             <?php endif; ?>
 
+            <?php if ($data["post"]["user_id"] == $user["id"]): ?>
+                <div class="icon-delete"></div>
+            <?php endif; ?>
+
         <?php endif; ?>
     </div>
     <div class="post-comments">
-        <div class="list-comments">
+        <div id="list-comments" class="list-comments">
         <?php foreach($data["comments"] as $comment): ?>
                 <article class="media comment">
                     <figure class="media-left image is-64x64">
@@ -77,14 +82,18 @@
                     <div class="media-content">
                         <div class="content">
                         <p>
-                            <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                            <strong>@<?= $comment["handle"] ?></strong> &nbsp; 
+                            <?php  if ($comment["uid"] == $user["id"]): ?>
+                                <span onclick="deleteComment(this)" id="<?= $comment["cid"] ?>" class="icon-trash is-pulled-right"></span> 
+                            <?php endif; ?>
+                            <small class="is-pulled-right"><?= $comment["date"] ?></small> 
+                                
                             <br>
                             <?= $comment["comment"] ?>
                         </p>
                         </div>
                     </div>
-                </div>
-            </article>
+                </article>
         <?php endforeach; ?>
 
         </div>
@@ -99,13 +108,13 @@
             <div class="media-content">
                 <div class="field">
                 <p class="control">
-                    <textarea class="textarea" placeholder="Add a comment..." height="35"></textarea>
+                    <textarea id="comment-text" data-postid="<?= $data["post"]["id"] ?>" class="textarea has-fixed-size" placeholder="Add a comment..." height="35"></textarea>
                 </p>
                 </div>
 
                 <div class="level-right">
                     <div class="level-item">
-                    <a class="button is-primary">Submit</a>
+                        <button onclick="addComment()" class="button is-primary">Submit</button>
                     </div>
                 </div>
 

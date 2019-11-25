@@ -26,7 +26,7 @@
 </div>
 
 <script>
-	var overrideHandle = <?= $handle ?>
+	overrideHandle = "<?= $data["handle"] ?>"
 </script>
 <script src="/js/actions/get-posts.js"></script>
 <script src="/js/infinite-scroll.js"></script>

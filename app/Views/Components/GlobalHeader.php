@@ -16,6 +16,10 @@
 	<script src="/js/api.js"></script>
 	<script src="/js/posts/like.js"></script>
 	<title><?= $data["title"] ?></title>
+	<script>
+		// Hackzzzz
+		var overrideHandle = null
+	</script>
 </head>
 
 <div id="messages"></div>

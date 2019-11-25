@@ -5,7 +5,7 @@ class Messages
 		var container = document.getElementById("messages")
 		var message = document.createElement("article")
 		message.classList.add("message")
-		//message.classList.add(cls)
+		message.classList.add("offscreen")
 
 		var header = document.createElement("div")
 		header.className = "message-header"
@@ -15,7 +15,7 @@ class Messages
 		
 		var button = document.createElement("button")
 		button.className = "delete"
-		button.onclick = () => {message.parentElement.removeChild(message)}
+		button.onclick = () => {message.classList.add("offscreen")}
 
 		header.appendChild(text)
 		header.appendChild(button)
@@ -24,8 +24,15 @@ class Messages
 		container.appendChild(message)
 
 		setTimeout(() => {
-			message.parentElement.removeChild(message)
-		}, 4000);
+			message.classList.remove("offscreen")
+		}, 1);
+
+		setTimeout(() => {
+			message.classList.add("offscreen")
+			setTimeout(() => {
+				message.parentElement.removeChild(message)
+			}, 1000);
+		}, 3500);
 	}
 
 	static info(text)

@@ -9,28 +9,49 @@ class CommentController extends BaseController
 
     public function add()
     {
-        $this->protectSelfJSON();
+        $user = $this->protectSelfJSON();
+        $data = $this->getJSON();
 
-        $data = json_decode(file_get_contents('php://input'), true);
-        if (!$data)
-            RenderView::json([], 400, "No data submitted");
-            
-        $comment = [];
-        $comment["user_id"] = $this->user["id"];
-        $comment["post_id"] = $data["post_id"];
-        $comment["comment"] = $data["comment"];
+        if (!isset($data["post_id"]) || !isset($data["comment"]))
+            RenderView::json([], 400, "Missing data could not complete request.");
 
-        print_r($comment);
 
-        $resp = $this->model->add($comment);
+        $cmt = nl2br($data["comment"]);
 
-        print_r($resp);
+        $resp = $this->model->add($user["id"], $data["post_id"], $cmt);
 
         if ($resp->isValid())
         {
-            $commentObj = $this->model->getCommentById($resp->getId());
-            RenderView::json($commentObj, 200);
+            $comment = $this->model->getCommentById($resp->getId());
+            RenderView::json($comment, 200, "Added comment");
         }
-        RenderView::json($comment, 400, "Nope");
+        RenderView::json([], 400, "Count not add comment");
+    }
+
+    public function delete($kwargs)
+    {
+        $user = $this->protectSelfJSON();
+        if (!count($kwargs["params"]) > 0)
+            RenderView::json([], 404, "Comment does not exist");
+
+        $model = new CommentModel();
+        $comment = $model->getCommentById($kwargs["params"][0]);
+
+        if ($comment)
+        {
+            if ($user["id"] == $comment["user_id"])
+            {
+                if ($model->deleteCommentById($comment["id"]))
+                    RenderView::json([], 200, "Comment deleted.");
+                else
+                    RenderView::json([], 400, "Could not delete comment.");
+            }
+            else
+            {
+                RenderView::json([], 401, "You are not authroised to delete this comment.");
+            }
+        }
+        else
+            RenderView::json([], 404, "Comment does not exist");
     }
 }

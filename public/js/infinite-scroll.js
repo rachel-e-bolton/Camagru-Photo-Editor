@@ -11,7 +11,11 @@ var canRefresh = false
 
 window.addEventListener("DOMContentLoaded", e => {
 	var container = document.getElementById("posts-container")
-	ApiClient.getPosts(postCount, null)
+
+	Messages.info("loaded infiniter scroll")
+	Messages.info(overrideHandle)
+
+	ApiClient.getPosts(postCount, overrideHandle)
 		.then(json => {
 			Array.from(json).forEach(post => {
                 let postEl = new Post(post)
@@ -21,6 +25,8 @@ window.addEventListener("DOMContentLoaded", e => {
 			postCount += 15
 		})
 })
+
+var endOfContent = false
 
 window.onscroll = function(event)
 {
@@ -32,9 +38,13 @@ window.onscroll = function(event)
 		canRefresh = false
 		Messages.push("Fetching more shit")
 		var container = document.getElementById("posts-container")
-		ApiClient.getPosts(postCount, null)
+
+		if (endOfContent)
+			return false
+		ApiClient.getPosts(postCount, overrideHandle)
 			.then(json => {
 				console.log(json)
+				endOfContent = (json.length > 0) ? false : true
 				Array.from(json).forEach(post => {
 					let postEl = new Post(post)
 					postEl.render(container)

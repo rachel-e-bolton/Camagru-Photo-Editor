@@ -1,9 +1,21 @@
 #messages {
 	position: fixed;
-	top: 60px;
+	top: 15px;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 100;
+}
+
+.offscreen {
+	transform: translateY(-600px);
+	height: 0; 
+	margin-bottom: -20px;
+ 	vertical-align: top;
+}
+
+.message {
+	margin-bottom: 3px !important;
+	transition: all 500ms ease-in-out;
 }
 
 #messages > div {
@@ -26,5 +38,82 @@ video {
 
 .message {
 	min-width: 40vw;
-	border-radius: 30px;
+}
+
+.is-white {
+	color: white;
+}
+
+.is-red {
+	background: #FA7268;
+}
+
+.icon-trash {
+	width: 20px;
+	height: 20px;
+	background: url("/img/trash.svg");
+	background-size: contain;
+	content: "&nbsp;";
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.icon-delete {
+	position: absolute;
+	bottom: 15px;
+	right: 75px;
+	background: url("/img/delete.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50%;
+	padding: 10px;
+	width: 45px;
+	height: 45px;
+	border: 1px solid black;
+	border-radius: 100%;
+	background-color: #FA7268;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.post-image:hover .icon-delete {
+	opacity: 1;
+	transition: 0.5s opacity ease-in-out;
+}
+
+.comment {
+	max-height: 1000px;
+	transition: all 0.5s;
+	opacity: 1;
+}
+
+@media (max-width:641px) {
+	.message-header {
+		width: 100vw !important;
+		border-radius: 0px;
+	}
+
+	.message {
+		margin-bottom: 0px !important;
+		border-bottom: 1px solid grey;
+	}
+
+	#messages {
+		top: 0px;
+	}
+
+	.post-container {
+		width: 100% !important;
+		height: auto;
+	}
+
+	.image > img {
+		width: 100% !important;
+		height: auto !important;
+	}
+
+	.post-image {
+		display: none;
+	}
+
 }

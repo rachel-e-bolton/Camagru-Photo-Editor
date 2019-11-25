@@ -19,7 +19,7 @@ class SignupController extends BaseController
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST")
 		{
-			$data = json_decode(file_get_contents('php://input'), true);
+			$data = $this->getJSON();
 			if (!$data)
 			{
 				RenderView::json([], 400, "Failed to create user");
@@ -33,14 +33,14 @@ class SignupController extends BaseController
 				$name = $user["first_name"];
 				Email::send_verification_email($name, $user["email"], $link);
 
-				RenderView::json(["link" => $link], 200, "User created successfully, please check your email to verify your account");
+				RenderView::json([], 200, "User created successfully, please check your email to verify your account");
 			}
 			else
 				RenderView::json([], 400, "Failed to create user");
 		}
 		else
 		{
-			RenderView::json([], 500, "method {$_SERVER['REQUEST_METHOD']} not allowed");
+			RenderView::json([], 400, "method {$_SERVER['REQUEST_METHOD']} not allowed");
 		}
 	}
 }

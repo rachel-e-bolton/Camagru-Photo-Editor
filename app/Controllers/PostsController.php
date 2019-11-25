@@ -5,7 +5,7 @@ class PostsController extends BaseController
 	public function add()
 	{
 		$this->protectSelfJSON();
-		$data = json_decode(file_get_contents('php://input'), true);
+		$data = $this->getJSON();
 		if (!$data)
 		{
 			RenderView::json([], 400, "No data submitted");
@@ -39,7 +39,7 @@ class PostsController extends BaseController
 		$model = new LikesModel();
 
 		$user = $this->protectSelfJSON();
-		$data = json_decode(file_get_contents('php://input'), true);
+		$data = $this->getJSON();
 
 		if (isset($data["post_id"]))
 		{

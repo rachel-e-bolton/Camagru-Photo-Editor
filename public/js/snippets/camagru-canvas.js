@@ -146,7 +146,7 @@ function webcam()
 			video.srcObject = stream;
 		  })
 		  .catch(function (error) {
-			console.log(error);
+			Messages.error(error);
 		  });
 	  }
 	viewPanel.appendChild(video)

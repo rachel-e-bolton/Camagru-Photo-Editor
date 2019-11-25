@@ -22,6 +22,18 @@ class BaseController
 			$this->model = new BaseModel();
 	}
 
+	public static function xssProtect($item)
+	{
+		return htmlspecialchars($item, ENT_QUOTES, 'UTF-8');
+	}
+
+	public function getJSON()
+	{
+		$data = json_decode(file_get_contents('php://input'), true);
+
+		return array_map("self::xssProtect", $data);
+	}
+
 	public function default()
 	{
 		// Render default View here

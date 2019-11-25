@@ -212,3 +212,15 @@ emailRepeat.oninput = function() {
 		document.getElementById("update-email").disabled = true;
 	}
 }
+
+var accPasswordDelete = document.getElementById("account-password")
+
+
+accPasswordDelete.oninput = function(event) {
+	let btn = document.getElementById("delete-account")
+	
+	if (this.value.length < 8)
+		btn.disabled = true	
+	else
+		btn.disabled = false
+}

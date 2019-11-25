@@ -219,4 +219,5 @@ class UserModel extends BaseModel
 
 		return (new DatabaseResponse($stmt));
 	}
+
 }

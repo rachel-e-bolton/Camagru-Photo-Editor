@@ -52,6 +52,7 @@ function getPosts(start = 0, handle = null)
 {
 	var container = document.getElementById("posts-container")
 	posts = []
+
 	ApiClient.getPosts(start, handle)
 		.then(json => {
 			Array.from(json).forEach(post => {

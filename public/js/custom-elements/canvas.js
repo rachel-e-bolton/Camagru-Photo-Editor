@@ -34,9 +34,7 @@ class CamagruCanvas extends HTMLCanvasElement {
 		t_ctx.scale(-1, 1);
 		t_ctx.drawImage(stream, 0, 0)
 
-
 		this.addImage(tempCanvas.toDataURL())
-
 	}
 
 
@@ -107,7 +105,8 @@ class CamagruCanvas extends HTMLCanvasElement {
 		if (this.is_draggable) {
 			this.image_x = ((this.click_x - event.clientX)) * -1
 			this.image_y = ((this.click_y - event.clientY)) * -1
-			this.draw()
+			
+			
 		}
 	}
   

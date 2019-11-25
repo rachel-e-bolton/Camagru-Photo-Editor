@@ -1,13 +1,11 @@
-// Assign click handlers on content load
+
 document.addEventListener("DOMContentLoaded", () => {
-    
-    Messages.info("Loaded")
-    
-    // Update handle
+
     document.getElementById("update-handle-form").onsubmit = updateDetails
     document.getElementById("update-password-form").onsubmit = updatePassword
     document.getElementById("update-email-form").onsubmit = updateEmail
     document.getElementById("update-notifications-form").onsubmit = updateNotifications
+    document.getElementById("delete-account-form").onsubmit = deleteAccount
 
 })
 
@@ -74,4 +72,26 @@ function updateNotifications(event)
             else
                 Messages.info(resp.message)
         })
+}
+
+function deleteAccount(event)
+{
+    event.preventDefault()
+
+    let form = JSON.stringify(Object.fromEntries(new FormData(this)))
+
+    Api.post("/accounts/delete", form)
+        .then(resp => {
+            if (!resp.success)
+            {
+                Messages.error(resp.message)
+                let input = document.getElementById("account-password")
+                input.value = ""
+                input.dispatchEvent(new Event('input'));
+                input.focus()
+            }
+            else
+                Messages.info(resp.message)
+        })
+
 }

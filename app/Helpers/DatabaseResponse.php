@@ -8,7 +8,7 @@ class DatabaseResponse
     private $id = NULL;
     public $rowCount = 0;
 
-    public function __construct($stmt, $multiple = TRUE)
+    public function __construct($stmt, $database = NULL)
     {
         try
 		{
@@ -25,7 +25,11 @@ class DatabaseResponse
             }
             else
             {
-                $this->id = ($base->getDb())->lastInsertId();
+                if ($database)
+                {
+                    $this->id = $database->lastInsertId();
+                    //$this->id = ($base->getDb())->lastInsertId();
+                }
             }
             $this->rowCount = count($this->data);
             $this->valid = TRUE;

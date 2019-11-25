@@ -278,6 +278,49 @@
         </div>
 
     </div>
+
+
+    <div class="columns" style="margin-top: 2rem" style="padding-left: 0; padding-right: 0;">
+        <div  class="column is-red is-offset-2 is-two-thirds box" style="padding: 1.5rem">
+            
+        <section class="hero is-small" >
+            <div class="hero-body">
+                <div class="container" style="margin-top: -1rem;">
+                <h1 class="title is-white">
+                    Delete account (DangerZone)
+                </h1>
+                <h2 class="subtitle is-white">
+                    Permanently delete your account and all posts. This action is nonreversible
+                </h2>
+                </div>
+            </div>
+            </section>
+
+            <form id="delete-account-form" class="has-text-centered">
+                
+            <div class="field is-horizontal">
+                    <div class="field-label grow-1 is-normal">
+                        <label class="label is-white">Account Password</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input id="account-password" name="account-password" class="input" type="password" min="8">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button id="delete-account" class="button" disabled>Delete Account</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
 </div>
 
 <script src="/js/accounts/edit.js"></script>

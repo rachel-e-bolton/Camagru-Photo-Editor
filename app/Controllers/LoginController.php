@@ -19,7 +19,7 @@ class LoginController extends BaseController
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST")
         {   
-            $data = json_decode(file_get_contents('php://input'), true);
+            $data = $this->getJSON();
             if ($this->model->authenticate($data["email"], $data["password"]))
             {
                 $user = $this->model->getUserByEmail($data["email"]);

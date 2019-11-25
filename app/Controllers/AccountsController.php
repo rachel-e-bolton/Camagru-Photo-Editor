@@ -21,7 +21,7 @@ class AccountsController extends BaseProtectedController
 	public function update_email()
 	{
 		$user = $this->protectSelfJSON();
-		$data = json_decode(file_get_contents('php://input'), true);
+		$data = $this->getJSON();
 
 		if (!isset($data["new-email"]))
 			RenderView::json([], 400, "Not new email specified.");
@@ -51,7 +51,7 @@ class AccountsController extends BaseProtectedController
 	public function update_notifications()
 	{
 		$user = $this->protectSelfJSON();
-		$data = json_decode(file_get_contents('php://input'), true);
+		$data = $this->getJSON();
 
 		if (isset($data["answer"]) && $data["answer"])
 		{
@@ -68,7 +68,7 @@ class AccountsController extends BaseProtectedController
 	public function update_password()
 	{
 		$user = $this->protectSelfJSON();
-		$data = json_decode(file_get_contents('php://input'), true);
+		$data = $this->getJSON();
 
 		if (isset($data["old-password"]) && isset($data["new-password"]))
 		{	
@@ -87,7 +87,7 @@ class AccountsController extends BaseProtectedController
 	public function update_details()
 	{
 		$user = $this->protectSelfJSON();
-		$data = json_decode(file_get_contents('php://input'), true);
+		$data = $this->getJSON();
 
 		if (!isset($data["new-handle"]))
 			RenderView::json([], 400, "Handle cannot be blank.");
@@ -104,8 +104,25 @@ class AccountsController extends BaseProtectedController
 			RenderView::json([], 400, $response->errorMessage());
 	}
 
-	public function delete_account()
+	public function delete()
 	{
+		$user = $this->protectSelfJSON();
+		$data = $this->getJSON();
 
+		if (isset($data["account-password"]))
+		{
+			if (!$this->model->authenticate($user["email"], $data["account-password"]))
+				RenderView::json([], 400, "Account password is invalid.");
+
+			$response = $this->model->deleteUserById($user["id"]);
+
+			if ($response->isValid())
+				RenderView::json([], 200, "Details updated successfully.");
+			else
+				RenderView::json([], 400, $response->errorMessage());
+			
+		}
+		else
+			RenderView::json([], 400, "Missing data cannot complete request.");
 	}
 }
