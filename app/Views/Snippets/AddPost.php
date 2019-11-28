@@ -8,9 +8,7 @@
 		</span>
 		<div class="main-container">
 				<div class="layers-container">
-					<div id="layers">
-						
-					</div>
+					<div id="layers"></div>
 				</div>
 				<div id="view" class="media-view"></div>
 				<div class="view-spacer"></div>
@@ -29,6 +27,7 @@
 			</div>
 		</div>
 		<div id="stickers" class="sticker-container" style="display: none;"></div>
+		<div id="previos-posts"></div>
 	<link rel="stylesheet" href="/css/snippets/camagru-canvas.css">
 	<link rel="stylesheet" href="/css/snippets/add-post.css">
 	<script src="/js/snippets/camagru-canvas.js"></script>

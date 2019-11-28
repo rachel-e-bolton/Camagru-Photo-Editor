@@ -29,7 +29,12 @@ class LoginController extends BaseController
                     RenderView::json(["session_id" => session_id()], 200);
                 }
                 else
-                    RenderView::json([], 401, "Your account is not verified");    
+                {
+                    $link = SERVER_ADDRESS . "users/verify/" . $user["id"] . "/" . hash("sha256", $data["email"] . SALT);
+                    $name = $user["first_name"];
+                    Email::send_verification_email($name, $user["email"], $link);
+                    RenderView::json([], 401, "Your account is not verified, resending verification email.");
+                }
             }
             else
 				RenderView::json([], 401, "Authentication failed");

@@ -17,26 +17,10 @@ class UsersController extends BaseController
             RenderView::json([], 400, "Handle exists");
     }
 
-    // public function delete()
-    // {
-    //     $this->protectSelfJSON();
-
-    //     if ($_SERVER['REQUEST_METHOD'] == "DELETE")
-    //     {
-    //         $user = $GLOBALS["user"];
-    //         if ($this->model->deleteUserById($user["id"]))
-    //         {
-    //             RenderView::json([], 200, "User deleted");
-    //         }
-    //     }
-    //     RenderView::json([], 400, "Incorrect method or user not found");
-    // }
-
     public function logout()
     {
         $_SESSION = array();
-        header("Location: /");
-        die();
+        RenderView::redirect("/");
     }
 
     public function verify($kwargs)
@@ -58,7 +42,11 @@ class UsersController extends BaseController
         {
             RenderView::file("404");
         }
+    }
 
+    public function reset_password($kwargs)
+    {
+        
     }
 
 }

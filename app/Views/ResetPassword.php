@@ -47,7 +47,6 @@
     </div>
 </div>
 
-<script src="/js/api.js"></script>
 <!-- <script src="/js/errors.js"></script> -->
 <script>
 

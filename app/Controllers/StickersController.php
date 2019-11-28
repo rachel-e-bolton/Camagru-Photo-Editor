@@ -4,7 +4,7 @@ class StickersController extends BaseProtectedController
 {
 	public function default()
 	{
-		echo "Nothing here fak off";
+		RenderView::redirect("/");
 	}
 
 	public function get_all()

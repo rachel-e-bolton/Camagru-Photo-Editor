@@ -2,9 +2,14 @@
 
 class PostsController extends BaseController
 {
+	public function new_post()
+	{
+		RenderView::file("AddPost");
+	}
+
 	public function add()
 	{
-		$this->protectSelfJSON();
+		$user = $this->protectSelfJSON();
 		$data = $this->getJSON();
 		if (!$data)
 		{
@@ -13,13 +18,13 @@ class PostsController extends BaseController
 		}
 
 		$post = [];
-		$post["user_id"] = $this->user["id"];
+		$post["user_id"] = $user["id"];
 		$post["image"] = (new ImageStack($data["layers"], session_id()))->mergedImage64();
 		$post["comment"] = $data["comment"];
 
 		if ($this->model->create($post))
 		{
-			RenderView::json($post, 200, "Post added successfully.");
+			RenderView::json($user["handle"], 200, "Post added successfully.");
 		}
 		RenderView::json([], 400, "An error occurred.");
 

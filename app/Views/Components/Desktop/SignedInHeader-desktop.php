@@ -12,7 +12,7 @@
       <a href="/<?= "?handle=" . $user["handle"] ?>" class="level-item navbar-item">
         My Posts
       </a>
-      <a onclick="loadSnippet('AddPost')" class="level-item navbar-item">
+      <a href="/posts/new_post" class="level-item navbar-item">
         Add a Post
       </a>
       <a href="/accounts/edit" class="navbar-item">
@@ -47,16 +47,16 @@
         Menu
       </a>
       <div class="navbar-dropdown">
-        <a href="/gallery" class="navbar-item">
+        <a href="/home/gallery" class="navbar-item">
           Gallery
         </a>
-        <a href="/userhome" class="navbar-item">
+        <a href="/<?= "?handle=" . $user["handle"] ?>" class="navbar-item">
           My Posts
         </a>
-        <a onclick="loadSnippet('AddPost')" class="navbar-item">
+        <a href="/posts/new_post" class="navbar-item">
           Add a Post
         </a>
-        <a href="/useraccount" class="navbar-item">
+        <a href="/accounts/edit" class="navbar-item">
           Edit my Account
         </a>
       </div>

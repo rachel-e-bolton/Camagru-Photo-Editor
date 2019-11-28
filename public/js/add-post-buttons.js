@@ -57,18 +57,19 @@ function stickerListener() {
         captureButton.classList.add("is-primary");
 
 
-        if (uploadButton.classList.contains("is-primary") || selfieButton.classList.contains("is-primary")) {
-            captureButton.disabled = false;
-        }
-        else {
-            captureButton.disabled = true;
-        }
+        // if (uploadButton.classList.contains("is-primary") || selfieButton.classList.contains("is-primary")) {
+        //     captureButton.disabled = false;
+        // }
+        // else {
+        //     captureButton.disabled = true;
+        // }
 
         captureButton.addEventListener("click", enablePost);
 
         function enablePost() {
 
-
+            console.log("Is webcam ready?")
+            console.log(cameraReady)
             document.getElementById("save-post").disabled = false;
         }
     }

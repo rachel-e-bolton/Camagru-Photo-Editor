@@ -16,10 +16,12 @@ class SnippetsController extends BaseController
 			$model = new PostModel();
 			$likes = new LikesModel();
 			$logged_in = null;
+
 			if (isset($_SESSION["logged_in_uid"]))
 				$logged_in = (new UserModel())->getUserByEmail($_SESSION["logged_in_uid"]);
 			
 			$post = $model->getPostbyId($kwargs["params"][0]);
+			
 			$comments = (new CommentModel())->getCommentsByPostId($post["id"]);
 			
 			$liked = ($logged_in) ? $likes->isLiked($post["id"], $logged_in["id"]) : null;

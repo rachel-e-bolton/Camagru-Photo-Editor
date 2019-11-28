@@ -21,10 +21,12 @@ class SignupController extends BaseController
 		{
 			$data = $this->getJSON();
 			if (!$data)
-			{
 				RenderView::json([], 400, "Failed to create user");
-				die();
-			}
+
+			if (!Validate::password($data["password"]))
+				RenderView::json([], 400, "Password does not meet complexity requirements");
+
+
 			if ($this->model->create($data))
 			{
 				$user = $this->model->getUserByEmail($data["email"]);

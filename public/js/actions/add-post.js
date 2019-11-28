@@ -16,8 +16,8 @@ submit.onclick = function(event)
         .then(resp => {
             console.log(resp)
             if (resp.success)
-                Messages.push(resp.message)
+                window.location.href = `/?handle=${resp.data}`
             else
-                Messages.push(resp.message)
+                Messages.error(resp.message)
         })
 }

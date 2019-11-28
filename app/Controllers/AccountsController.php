@@ -74,6 +74,9 @@ class AccountsController extends BaseProtectedController
 		{	
 			if ($this->model->authenticate($user["id"], $data["old-password"]))
 			{
+				if (!Validate::password($data["new-password"]))
+					RenderView::json([], 400, "New password does not meet complexity requirements.");
+
 				$this->model->updatePassword($user["id"], $data["new-password"]);
 				RenderView::json([], 200, "Password updated successfully.");
 			}
@@ -117,7 +120,10 @@ class AccountsController extends BaseProtectedController
 			$response = $this->model->deleteUserById($user["id"]);
 
 			if ($response->isValid())
-				RenderView::json([], 200, "Details updated successfully.");
+			{
+				$_SESSION = array();
+				RenderView::json([], 200, "Account has been deleted");
+			}
 			else
 				RenderView::json([], 400, $response->errorMessage());
 			

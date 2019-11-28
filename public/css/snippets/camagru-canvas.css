@@ -31,6 +31,6 @@
 }
 
 #stickers > img {
-	width: 75px;
-	height: auto;
+	width: auto;
+	height: 75px;
 }

@@ -4,7 +4,7 @@ class StickerModel extends BaseModel
 {
 	public function getAll()
 	{
-		$stmt = $this->db->prepare("SELECT * FROM stickers");
+		$stmt = $this->db->prepare("SELECT id, name, image, type FROM stickers");
 
 		try
 		{

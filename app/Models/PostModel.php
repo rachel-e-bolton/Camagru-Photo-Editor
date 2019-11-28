@@ -31,6 +31,7 @@ class PostModel extends BaseModel
 		$sql = "
 		SELECT
 			posts.id as id,
+			users.id as user_id,
 			first_name, 
 			last_name, 
 			handle, 

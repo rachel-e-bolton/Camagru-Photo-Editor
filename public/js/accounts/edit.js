@@ -92,6 +92,9 @@ function deleteAccount(event)
             }
             else
                 Messages.info(resp.message)
+                setTimeout(() => {
+                    document.location.href = "/"
+                }, 500);
         })
 
 }

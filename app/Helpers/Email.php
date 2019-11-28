@@ -18,6 +18,24 @@ class Email
 
 		error_log("Email sent to : $recipient", 0);
 
-		//return mail($recipient, $subject, $message, $headers);
+		return mail($recipient, $subject, $message, $headers);
+	}
+
+	public static function send_password_reset($name, $recipient, $link)
+	{
+		$sender = 'gwasserf@student.wethinkcode.co.za';
+
+		$subject = "Camagru Password Reset";
+		$message = file_get_contents(EMAIL_TEMPLATES . "reset_password.html");
+		$message = str_replace("[[LINK]]", $link, $message);
+		$message = str_replace("[[NAME]]", $name, $message);
+
+		$headers = "MIME-Version: 1.0" . "\r\n"; 
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+		$headers .= 'From:' . $sender . "\r\n";
+
+		error_log("Email sent to : $recipient", 0);
+
+		return mail($recipient, $subject, $message, $headers);
 	}
 }

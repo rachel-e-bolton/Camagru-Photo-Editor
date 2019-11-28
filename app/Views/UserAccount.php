@@ -287,7 +287,7 @@
             <div class="hero-body">
                 <div class="container" style="margin-top: -1rem;">
                 <h1 class="title is-white">
-                    Delete account (DangerZone)
+                    Delete account
                 </h1>
                 <h2 class="subtitle is-white">
                     Permanently delete your account and all posts. This action is nonreversible

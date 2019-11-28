@@ -49,7 +49,6 @@
     </div>
 </div>
 
-<script src="/js/api.js"></script>
 <script src="/js/actions/login.js"></script>
 
 

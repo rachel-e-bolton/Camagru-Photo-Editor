@@ -7,6 +7,7 @@
 #view {
     flex-grow: 1;
     max-width: 600px;
+    min-width: 600px;
 }
 
 .view-spacer {
@@ -46,4 +47,17 @@
 .layer .delete {
     margin-left: auto;
     align-self: center;
+}
+
+
+#previous-posts {
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
+}
+
+#previous-posts > img {
+    width: 150px;
+    height: auto;
+    padding: 5px;
 }

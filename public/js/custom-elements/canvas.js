@@ -106,7 +106,7 @@ class CamagruCanvas extends HTMLCanvasElement {
 			this.image_x = ((this.click_x - event.clientX)) * -1
 			this.image_y = ((this.click_y - event.clientY)) * -1
 			
-			
+			this.draw()
 		}
 	}
   

@@ -6,31 +6,34 @@ var fileInput = document.getElementById("file-in")
 var stickers = document.getElementById("stickers")
 var webStream = null
 var layers = document.getElementById("layers")
+var counter = 0;
+var cameraReady = false
 
 ApiClient.getStickers()
 	.then(resp => {
 		
-		// IF success
 		if (resp.success)
 		{
 			resp.data.forEach(sticker => {
 				var img = new Image	
 				img.src = sticker.image
 				img.class = "sticker"
+				img.id = sticker.name
 				img.onclick = stickerClicker
 				stickers.appendChild(img)
 			});
 		}
 		else
 		{
-			console.log(resp.message)
+			Messages.error(resp.message)
 		}
 	})
 
 
 function stickerClicker(event)
 {
-	newLayer(this.src)
+	counter++;
+	newLayer(this.src, `${this.id}-${counter}`)
 }
 
 
@@ -49,6 +52,7 @@ function newLayer(src, id = "sticker")
 	else
 		canvas.addImage(src)
 	canvas.activate()
+
 	if (canvas.is_base)
 	{
 		viewPanel.prepend(canvas)
@@ -61,6 +65,8 @@ function newLayer(src, id = "sticker")
 	}
 }
 
+
+
 function addLayerEntry(name)
 {
 	var div = document.createElement("div")
@@ -68,6 +74,27 @@ function addLayerEntry(name)
 
 	div.className = "layer"
 	button.className = "delete"
+
+	button.onclick = function (event) 
+	{
+		document.getElementById(name).remove()
+		div.remove()
+		event.stopPropagation()
+	}
+
+	div.onclick = function ()
+	{
+		document.querySelectorAll("canvas").forEach(canvas => {
+			canvas.is_active = false
+			canvas.style.zIndex = 1;
+			canvas.draw()
+		})
+
+		let cnv = document.getElementById(name)
+		cnv.is_active = true
+		cnv.style.zIndex = 2;
+		cnv.draw()
+	}
 
 	div.innerText = name
 	div.appendChild(button)
@@ -82,11 +109,23 @@ function addLayerEntryBefore(name)
 	div.className = "layer"
 	button.className = "delete"
 
+	div.onclick = function ()
+	{
+		document.querySelectorAll("canvas").forEach(canvas => {
+			canvas.is_active = false
+			canvas.style.zIndex = 1;
+			canvas.draw()
+		})
+
+		let cnv = document.getElementById(name)
+		cnv.is_active = true
+		cnv.style.zIndex = 2;
+		cnv.draw()
+	}
+
 	div.innerText = name
-	div.appendChild(button)
 	layers.prepend(div)
 }
-
 
 function uploadFile()
 {
@@ -142,8 +181,13 @@ function webcam()
 	if (navigator.mediaDevices.getUserMedia) {
 		navigator.mediaDevices.getUserMedia({ video: { width: 600, height: 600 } })
 		  .then(function (stream) {
-			  webStream = stream
-			video.srcObject = stream;
+				webStream = stream
+				video.srcObject = stream;
+				return new Promise(resolve => video.onloadedmetadata = resolve);
+		  })
+		  .then(function () {
+				document.getElementById("capture-button").disabled = false
+			  console.log("Webcam is now ready");
 		  })
 		  .catch(function (error) {
 			Messages.error(error);

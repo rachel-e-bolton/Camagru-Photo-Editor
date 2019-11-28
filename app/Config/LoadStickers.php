@@ -14,7 +14,10 @@ $stmt = $db->prepare("DELETE FROM stickers");
 $stmt->execute();
 
 
+$counter = 0;
+
 foreach ($scanned_directory as $file) {
+	$counter++;
 	$path = $directory . "/" . $file;
 	$type = pathinfo($path, PATHINFO_EXTENSION);
 	$data = file_get_contents($path);
@@ -24,10 +27,10 @@ foreach ($scanned_directory as $file) {
 	$name = $path_parts['filename'];
 
 	$stmt = $db->prepare("INSERT INTO stickers (name, image, type) VALUES (:name, :image, :type)");
-
 	$stmt->bindParam(":name", $name);
 	$stmt->bindParam(":image", $base64);
 	$stmt->bindParam(":type", $type);
-
 	$stmt->execute();
 }
+
+echo "Added $counter stickers.";
