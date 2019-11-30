@@ -72,7 +72,7 @@
         <?php endif; ?>
 </div>
 <div id="post-view" data-postid="<?= $data["post"]["id"] ?>" class="post-view has-background-light">
-    <div class="post-image is-hidden-touch">
+    <div class="post-image">
         <img src="<?= $data["post"]["image"] ?>" alt="">
         <?php if ($user): ?>
 
