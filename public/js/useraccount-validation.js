@@ -93,13 +93,13 @@ passwordView.onclick = function() {
 	if (passwordView.classList.contains("hidden")) {
 		passwordView.classList.remove("hidden");
 		passwordView.classList.add("shown");
-		passwordView.src = "../img/icons8-hide-48.png";
+		passwordView.src = "/img/icons8-hide-48.png";
 		passwordInput.type = "text";
 	}
 	else if (passwordView.classList.contains("shown")) {
 		passwordView.classList.remove("shown");
 		passwordView.classList.add("hidden");
-		passwordView.src = "../img/icons8-show-password-48.png";
+		passwordView.src = "/img/icons8-show-password-48.png";
 		passwordInput.type = "password";
 	}
 }
@@ -108,7 +108,7 @@ passwordView.onmouseleave = function() {
 	if (passwordView.classList.contains("shown")) {
 		passwordView.classList.remove("shown");
 		passwordView.classList.add("hidden");
-		passwordView.src = "../img/icons8-show-password-48.png";
+		passwordView.src = "/img/icons8-show-password-48.png";
 		passwordInput.type = "password";
 	}
 }
@@ -117,13 +117,13 @@ repeatPasswordView.onclick = function() {
 	if (repeatPasswordView.classList.contains("hidden")) {
 		repeatPasswordView.classList.remove("hidden");
 		repeatPasswordView.classList.add("shown");
-		repeatPasswordView.src = "../img/icons8-hide-48.png";
+		repeatPasswordView.src = "/img/icons8-hide-48.png";
 		repeatPasswordInput.type = "text";
 	}
 	else if (repeatPasswordView.classList.contains("shown")) {
 		repeatPasswordView.classList.remove("shown");
 		repeatPasswordView.classList.add("hidden");
-		repeatPasswordView.src = "../img/icons8-show-password-48.png";
+		repeatPasswordView.src = "/img/icons8-show-password-48.png";
 		repeatPasswordInput.type = "password";
 	}
 }
@@ -132,7 +132,7 @@ repeatPasswordView.onmouseleave = function() {
 	if (repeatPasswordView.classList.contains("shown")) {
 		repeatPasswordView.classList.remove("shown");
 		repeatPasswordView.classList.add("hidden");
-		repeatPasswordView.src = "../img/icons8-show-password-48.png";
+		repeatPasswordView.src = "/img/icons8-show-password-48.png";
 		repeatPasswordInput.type = "password";
     }
 }

@@ -27,7 +27,7 @@
       <div class="navbar-item">
           <div class="buttons" style="padding-right: .75rem;">
             <a href="https://github.com/gwasserfall/camagru" class="button is-light is-vcentered" style="margin-right: auto; margin-left: auto; font-size: 10px;">
-              © 2019 - gwasserfall & rachel-e-bolton &nbsp<img src="../../img/Camagru-favicon-smaller.png" alt="camagru.">
+              © 2019 - gwasserfall & rachel-e-bolton &nbsp<img src="/img/Camagru-favicon-smaller.png" alt="camagru.">
             </a>
           </div>
         </div>
@@ -41,7 +41,7 @@
   <nav class="level navbar is-light is-fixed-bottom is-hidden-touch" role="navigation" aria-label="main navigation">
     <div class="level-left navbar-brand">
       <a class="navbar-item" href="/home">
-        <img src="../../img/Camagru-transp-long5.png" alt="Home">
+        <img src="/img/Camagru-transp-long5.png" alt="Home">
       </a>
     </div>
     <div id="navbarMenu" class="level-right navbar-menu">

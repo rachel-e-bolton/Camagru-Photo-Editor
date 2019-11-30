@@ -167,7 +167,7 @@ class UserModel extends BaseModel
 	public function updatePassword($id, $newPassword)
 	{
 		$stmt = $this->db->prepare("UPDATE users set password_hash=:hash WHERE id=:id");
-		$stmt->bindValue(":id", (int)$userId, PDO::PARAM_INT);
+		$stmt->bindValue(":id", (int)$id, PDO::PARAM_INT);
 
 		$hash = $this->hashPass($newPassword);
 		$stmt->bindParam(":hash", $hash);

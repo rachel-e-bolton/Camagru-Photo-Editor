@@ -44,9 +44,75 @@ class UsersController extends BaseController
         }
     }
 
-    public function reset_password($kwargs)
+    public function send_reset()
     {
-        
+        $data = $this->getJSON();
+
+        if (!isset($data["email"]))
+            RenderView::json([], 200, "No email specified.");
+
+        $userModel = new UserModel();
+
+        $user = $userModel->getUserByEmail($data["email"]);
+
+        if (!$user)
+            RenderView::json([], 200, "Could not send password reset email at this time.");    
+
+        $hash = hash("sha256", date('mdY') . $user["handle"] . SALT);
+        $link = SERVER_ADDRESS . "users/reset_password/" . $user["handle"] . "/" . $hash;
+
+        if (Email::send_password_reset($user["first_name"], $user["email"], $link))
+        {
+            RenderView::json([], 200, "Password reset email sent.");
+        }
+        RenderView::json([], 200, "Could not send password reset email at this time.");
     }
 
+    public function reset_password($kwargs)
+    {
+        if (isset($kwargs["params"]) && count($kwargs) == 2)
+        {
+            $handle = $kwargs["params"][0];
+            $hash = $kwargs["params"][1];
+
+            if (hash("sha256", date('mdY') . $handle . SALT) == $hash)
+            {
+                $_SESSION["valid_reset"] = $handle;
+                RenderView::file("ResetPassword");
+            }
+            RenderView::file("404");
+        }
+    }
+
+    public function update_password()
+    {
+        $data = $this->getJSON();
+
+        if (!isset($_SESSION["valid_reset"]))
+            RenderView::json([], 400, "Password cannot be blank");
+
+        if (isset($data["password"]))
+        {
+            if (Validate::password($data["password"]) && $_SESSION["valid_reset"])
+            {
+                $handle = $_SESSION["valid_reset"];
+
+                $userModel = new userModel();
+
+                $user = $userModel->getUserByHandle($handle);
+
+                $result = $userModel->updatePassword($user["id"], $data["password"]);
+
+                if ($result->isValid())
+                {
+                    unset($_SESSION["valid_reset"]);
+                    RenderView::json([], 200, "Password reset successfully.");
+                }
+                else
+                    RenderView::json([], 400, "Could not update password.");
+            }
+            RenderView::json([], 400, "Password does not meet complexity requirements.");
+        }
+        RenderView::json([], 400, "Password cannot be blank");
+    }
 }

@@ -1,7 +1,7 @@
 <nav class="level navbar is-light is-fixed-top has-shadow is-hidden-touch" role="navigation" aria-label="main navigation">
   <div class="level-left navbar-brand">
     <a class="navbar-item" href="/home">
-      <img src="../../img/Camagru-transp-long5.png" alt="Home">
+      <img src="/img/Camagru-transp-long5.png" alt="Home">
     </a>
   </div>
   <div id="navbarMenu" class="level-right navbar-menu">
@@ -36,7 +36,7 @@
   <nav class="navbar is-light is-fixed-top has-shadow is-hidden-desktop is-mobile" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/home">
-        <img src="../../img/Camagru-transp-long5.png" alt="Home">
+        <img src="/img/Camagru-transp-long5.png" alt="Home">
       </a>
       <a class="button is-primary is-left" href="/users/logout" style="margin: .5rem;">
         <strong>Log out</strong>

@@ -19,19 +19,6 @@
             </div>
         </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label grow-1 is-normal">
-                <label class="label">Repeat</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control">
-                        <input class="input" type="password">
-                    </p>
-                </div>
-            </div>
-        </div>
-
         <div class="box has-background-warning has-text-centered">
         A password should be <strong>at least 8 characters</strong> in length and <strong>contain at least</strong>:<br/> 
         a <strong>special character</strong>,
@@ -47,34 +34,31 @@
     </div>
 </div>
 
-<!-- <script src="/js/errors.js"></script> -->
-<script>
 
-let errors = document.getElementById("errors")
+<script>
 
 function login(event)
 {
-    var form = document.getElementById("login-form");
+    var form = document.getElementById("reset-password-form");
     if (form.reportValidity())
     {
-        var email = document.getElementsByName("email")[0]
+        let formData = JSON.stringify(Object.fromEntries(new FormData(form)))
     
-
-        ApiClient.loginUser("login-form")
-        .then(result => {
-            if (result.success)
-                return window.location.href='/';
-            else
-                errors.innerHTML = "Login Failed"
-        })
-
+        Api.post("/users/update_password", formData)
+            .then(resp => {
+                Messages.info(resp.message)
+                if (resp.success)
+                {
+                    setTimeout(() => {
+                        window.location.href = "/login"
+                    }, 1000);
+                }
+            })
     }
-
     event.preventDefault()
-
 }
 
-document.getElementById("login-form").addEventListener("submit", login)
+document.getElementById("reset-password-form").addEventListener("submit", login)
 
 </script>
 
