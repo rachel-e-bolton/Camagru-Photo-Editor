@@ -31,7 +31,7 @@ class CommentController extends BaseController
             {
                 Email::send_comment_notify($post["first_name"], '@' . $comment["handle"], $comment["date"], $cmt, $post["email"]);
             }
-
+            
             RenderView::json($comment, 200, "Added comment");
         }
         RenderView::json([], 400, "Count not add comment");

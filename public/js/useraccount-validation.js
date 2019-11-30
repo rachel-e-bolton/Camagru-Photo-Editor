@@ -10,7 +10,7 @@ passwordInput.onfocus = function() {
 }
 
 passwordInput.onblur = function() {
-	var re = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}/;
+	var re = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\'^£!$%&*()}{@#~?><>,|=_+¬-])[A-Za-z\d\'^£!$%&*()}{@#~?><>,|=_+¬-]{8,32}/;
 	var test = re.test(passwordInput.value);
 
 	if (test) {
@@ -23,7 +23,7 @@ passwordInput.onblur = function() {
 		var upper = /(?=.*[A-Z])/;
 		var lower = /(?=.*[a-z])/;
 		var digit = /(?=.*\d)/;
-		var special = /(?=.*[@$!%*?&])/;
+		var special = /(?=.*[\'^£!$%&*()}{@#~?><>,|=_+¬-])/;
 
         if (document.getElementById("old-password").value === passwordInput.value) {
             var msg = "Old and New Passwords cannot match.<br/>";
