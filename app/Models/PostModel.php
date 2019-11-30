@@ -81,7 +81,7 @@ class PostModel extends BaseModel
 		if ($handle)
 			$sql_base .= " WHERE users.handle=:handle ";
 
-		$sql_base .= "ORDER BY date DESC LIMIT :start,15";
+		$sql_base .= "ORDER BY date DESC LIMIT :start,12";
 
 		$stmt = $this->db->prepare($sql_base);
 		

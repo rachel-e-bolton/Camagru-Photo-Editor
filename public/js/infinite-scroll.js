@@ -14,12 +14,13 @@ window.addEventListener("DOMContentLoaded", e => {
 
 	ApiClient.getPosts(postCount, overrideHandle)
 		.then(json => {
+
 			Array.from(json).forEach(post => {
                 let postEl = new Post(post)
                 postEl.render(container)
 			})
 			canRefresh = true;
-			postCount += 15
+			postCount += 12
 		})
 })
 
@@ -46,7 +47,7 @@ window.onscroll = function(event)
 					postEl.render(container)
 				})
 				canRefresh = true;
-				postCount += 15
+				postCount += 12
 			})
 	}
 }
