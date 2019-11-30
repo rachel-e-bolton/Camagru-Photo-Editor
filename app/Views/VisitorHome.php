@@ -9,7 +9,7 @@
             Welcome to Camagru.
         </h1>
         <h2 class="subtitle">
-            See what our users have been up to...
+            See what all our users have been up to...
         </h2>
         </div>
     </div>

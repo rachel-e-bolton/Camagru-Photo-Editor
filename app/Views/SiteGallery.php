@@ -9,7 +9,7 @@
             Gallery.
         </h1>
         <h2 class="subtitle">
-            See what other users have been up to...
+            See what all our users have been up to...
         </h2>
         </div>
     </div>
