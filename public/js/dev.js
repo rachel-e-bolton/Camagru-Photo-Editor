@@ -7,21 +7,17 @@ document.querySelectorAll(".post-container").forEach(el => {
 			pi.remove()
 		})
 
-		//console.log(this)
 		var container = document.querySelector(".posts")
 		var ipr = Math.floor(container.offsetWidth / this.offsetWidth)
 		var posts = Array.from(document.querySelectorAll(".post-container"))
 		var index = posts.indexOf(this)
 
-
-		console.log(`posts.length = ${posts.length}`)
 		while (this.offsetTop == posts[index].offsetTop)
 		{
 			index++;
 			if (index >= posts.length)
 				break
 		}
-		console.log(`selected index = ${index + 1}`)
 		posts[index + 1].insertAdjacentHTML(
 			"afterend", `
 				<div class="post-info">

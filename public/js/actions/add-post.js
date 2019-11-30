@@ -14,7 +14,6 @@ submit.onclick = function(event)
 
     ApiClient.savePost(data)
         .then(resp => {
-            console.log(resp)
             if (resp.success)
                 window.location.href = `/?handle=${resp.data}`
             else

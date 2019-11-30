@@ -3,7 +3,7 @@ const loadScript = (source) =>
 	return new Promise((resolve, reject) => 
 	{
 		const script = document.createElement('script')
-		document.body.appendChild(script)
+		document.body.insertAdjacentElement('afterend', script)
 		script.onload = resolve(`Loaded ${script}`)
 		script.onerror = reject(Error("Failed to load script"))
 		script.classList.add("modal-dynamic")
@@ -45,7 +45,7 @@ function loadSnippet(name)
 				{
 					loadScript(script.src)
 					.catch(err => {
-						console.log("Error", err)
+						Messages.error(err)
 					})
 				}
 			})
@@ -60,7 +60,7 @@ function loadSnippet(name)
 
 		})
 		.catch(err => {
-			console.log("Error", err)
+			Messages.error(err)
 		})
 
 }
