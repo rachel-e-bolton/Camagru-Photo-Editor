@@ -58,4 +58,33 @@ class PostsController extends BaseController
 		else
 			RenderView::json([], 400, "Missing data, cannot complete request.");
 	}
+
+	public function delete($kwargs)
+	{
+		$user = $this->protectSelfJSON();
+		$post_id = (isset($kwargs["params"]) && count($kwargs["params"]) == 1) ? $kwargs["params"][0] : NULL;
+
+		if ($post_id)
+		{
+			if (!ctype_digit($post_id))
+				RenderView::json([], 400, "Post ID must be an integer.");
+
+			$post = $this->model->getPostbyId($post_id);
+
+			if (!$post)
+				RenderView::json([], 400, "Post does not exist.");
+		
+			if ($post["user_id"] == $user["id"])
+			{
+				if ($this->model->deletePostById($post_id))
+				{
+					RenderView::json([], 200, "Post deleted.");
+				}
+				RenderView::json([], 400, "Post was not deleted.");
+			}
+			else
+				RenderView::json([], 401, "Cannot delete this post, it does not belong to you.");
+		}
+		RenderView::json([], 400, "Missing post ID");
+	}
 }
