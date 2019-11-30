@@ -1,11 +1,3 @@
-// window.onscroll = function() {
-// 	if ((window.innerHeight + Math.ceil(window.pageYOffset)) >= document.body.offsetHeight) {
-// 		alert('At the bottom!');
-// 		console.log("asd");
-// 		getPosts(0)
-// 	}
-// };
-
 var postCount = 0
 var canRefresh = false
 

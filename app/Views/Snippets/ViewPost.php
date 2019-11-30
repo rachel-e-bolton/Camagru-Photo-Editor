@@ -49,6 +49,7 @@
 </style>
 <script src="/js/actions/add-comment.js"></script>
 <script src="/js/actions/delete-comment.js"></script>
+<script src="/js/actions/delete-image.js"></script>
 <div class="is-hidden-desktop has-text-centered has-background-light" style="display: flex; flex-direction: row; justify-content: space-around; padding: .5rem;">
         <?php if ($user): ?>
 
@@ -64,7 +65,7 @@
 
         <?php if ($data["post"]["user_id"] == $user["id"]): ?>
             <div class="">
-            <img id="delete-image-mobile" data-id="<?= $data["post"]["id"] ?>" class="" src="/img/delete.svg" alt="" onclick="deleteImageMobile();" style="width: auto; height: 30px;">         
+                <img id="delete-image-mobile" data-id="<?= $data["post"]["id"] ?>" class="" src="/img/delete.svg" alt="" onclick="deleteImage(this);" style="width: auto; height: 30px;">         
             </div>
         <?php endif; ?>
 
@@ -86,7 +87,7 @@
             <?php endif; ?>
 
             <?php if ($data["post"]["user_id"] == $user["id"]): ?>
-                <div class="icon-delete"></div>
+                <div class="icon-delete" data-id="<?= $data["post"]["id"] ?>" onclick="deleteImage(this);"></div>
             <?php endif; ?>
 
         <?php endif; ?>
@@ -157,5 +158,6 @@
 }
 
 </style>
+
 
 <script src="/js/actions/scroll-to-post.js"></script>

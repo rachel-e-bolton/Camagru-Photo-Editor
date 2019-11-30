@@ -106,6 +106,20 @@ class PostModel extends BaseModel
 			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
+	}
 
+	public function deletePostById($id)
+	{
+		$sql = "DELETE FROM posts WHERE id=:id";
+		$stmt = $this->db->prepare($sql);
+		$stmt->bindValue(":id", (int)$id, PDO::PARAM_INT);
+		try
+		{    
+			return $stmt->execute();
+		}
+		catch (PDOException $e)
+		{
+			return false;
+		}
 	}
 }

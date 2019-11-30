@@ -85,5 +85,4 @@ function viewPost(event)
         <div id="post-info" class="post-info"></div>
         `)
     loadPostSnippet("post-info", id)
-
 }
