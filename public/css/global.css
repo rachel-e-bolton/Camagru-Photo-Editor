@@ -93,9 +93,17 @@ video {
 		border-radius: 0px;
 	}
 
+	.post-comments {
+		width: 100% !important;
+	}
+
 	.message {
 		margin-bottom: 0px !important;
 		border-bottom: 1px solid grey;
+	}
+
+	.main-container {
+		flex-direction: column !important;
 	}
 
 	#messages {

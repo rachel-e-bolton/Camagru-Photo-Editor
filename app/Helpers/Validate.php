@@ -13,7 +13,7 @@ class Validate
         if (strlen($password) < 8)
             return FALSE;
         
-        if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $password))
+        if (!preg_match('/[\'^£!$%&*()}{@#~?><>,|=_+¬-]/', $password))
             return FALSE;
 
         if (!preg_match('/[0-9]/', $password))

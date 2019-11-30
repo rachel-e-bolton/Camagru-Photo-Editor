@@ -30,7 +30,7 @@ class SignupController extends BaseController
 			if ($this->model->create($data))
 			{
 				$user = $this->model->getUserByEmail($data["email"]);
-				
+
 				$link = SERVER_ADDRESS . "users/verify/" . $user["id"] . "/" . hash("sha256", $data["email"] . SALT);
 				$name = $user["first_name"];
 				Email::send_verification_email($name, $user["email"], $link);
