@@ -89,7 +89,7 @@ class UsersController extends BaseController
         $data = $this->getJSON();
 
         if (!isset($_SESSION["valid_reset"]))
-            RenderView::json([], 400, "Password cannot be blank");
+            RenderView::json([], 401, "Unauthorized");
 
         if (isset($data["password"]))
         {

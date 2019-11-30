@@ -31,7 +31,8 @@ class DatabaseResponse
                     //$this->id = ($base->getDb())->lastInsertId();
                 }
             }
-            $this->rowCount = count($this->data);
+            if ($this->data)
+                $this->rowCount = count($this->data);
             $this->valid = TRUE;
 		}
 		catch (PDOException $e)
