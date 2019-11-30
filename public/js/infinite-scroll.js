@@ -12,9 +12,6 @@ var canRefresh = false
 window.addEventListener("DOMContentLoaded", e => {
 	var container = document.getElementById("posts-container")
 
-	Messages.info("loaded infiniter scroll")
-	Messages.info(overrideHandle)
-
 	ApiClient.getPosts(postCount, overrideHandle)
 		.then(json => {
 			Array.from(json).forEach(post => {
@@ -36,7 +33,6 @@ window.onscroll = function(event)
 		if (!canRefresh)
 			return false;
 		canRefresh = false
-		Messages.push("Fetching more shit")
 		var container = document.getElementById("posts-container")
 
 		if (endOfContent)

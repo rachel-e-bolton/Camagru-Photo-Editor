@@ -26,7 +26,7 @@ class CommentModel extends BaseModel
     public function getCommentById($id)
     {
         $sql = "
-        SELECT comments.id as id, user_id, handle, date, comment, email 
+        SELECT comments.id as id, user_id, handle, date, comment, email, notifications
             FROM comments 
         LEFT JOIN users on comments.user_id = users.id
         WHERE comments.id=:id";
@@ -51,8 +51,7 @@ class CommentModel extends BaseModel
         $sql = "
             SELECT comments.id as cid, users.id as uid, date, handle, comment, profile_img, first_name, last_name FROM comments 
                 LEFT JOIN users ON comments.user_id=users.id
-            WHERE post_id=:id
-        ";
+            WHERE post_id=:id";
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(":id", $id);

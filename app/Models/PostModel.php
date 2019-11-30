@@ -32,6 +32,7 @@ class PostModel extends BaseModel
 		SELECT
 			posts.id as id,
 			users.id as user_id,
+			notifications as notify,
 			first_name, 
 			last_name, 
 			handle, 

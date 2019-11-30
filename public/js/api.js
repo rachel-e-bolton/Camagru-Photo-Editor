@@ -73,9 +73,6 @@ class ApiClient
 		if (!handle)
 			handle = urlParams.get('handle');
 
-
-		Messages.info(`Loading posts for ${handle}`)
-
 		if (handle)
 			response = await fetch(`/posts/get?start=${start}&handle=${handle}`)
 		else

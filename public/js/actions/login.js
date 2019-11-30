@@ -13,14 +13,10 @@ function login(event)
             if (result.success)
                 return window.location.href='/';
             else
-                Messages.push(result.message)
-            //    errors.innerHTML = "Login Failed"
+                Messages.error(result.message)
         })
-
     }
-
     event.preventDefault()
-
 }
 
 document.getElementById("login-form").addEventListener("submit", login)

@@ -23,6 +23,15 @@ class CommentController extends BaseController
         if ($resp->isValid())
         {
             $comment = $this->model->getCommentById($resp->getId());
+            
+            $postModel = new PostModel();
+            $post = $postModel->getPostById($data["post_id"]);
+
+            if ($post["user_id"] !== $user["id"] && $post["notify"])
+            {
+                Email::send_comment_notify($post["first_name"], '@' . $comment["handle"], $comment["date"], $cmt, $post["email"]);
+            }
+
             RenderView::json($comment, 200, "Added comment");
         }
         RenderView::json([], 400, "Count not add comment");

@@ -20,7 +20,6 @@ function deleteComment(span)
 
             likesContainer.innerText = likesCount - 1;
 
-
             setTimeout(() => {
                 comment.parentNode.removeChild(comment)
             }, 500);

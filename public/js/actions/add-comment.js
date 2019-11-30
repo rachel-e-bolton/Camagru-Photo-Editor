@@ -42,8 +42,6 @@ function addComment(event)
         post_id: postId
     }
 
-    Messages.info("Posting a comment for you")
-
     Api.post("/comment/add", JSON.stringify(data))
     .then(resp => {
 
@@ -54,14 +52,11 @@ function addComment(event)
         let parent = document.getElementById("list-comments")
         comment.render(parent)
 
-        // increase posts counter
         let postThumb = document.getElementById(postId);
         let likesContainer = postThumb.querySelector(".comments > .counter")
         let likesCount = parseInt(likesContainer.innerText)
 
         likesContainer.innerText = likesCount + 1;
 
-
-        Messages.info("Added comment")
     })
 }
