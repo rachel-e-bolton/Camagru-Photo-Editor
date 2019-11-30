@@ -59,7 +59,7 @@ function createUser(formId)
 			window.location.href = "/login";
 	})
 	.catch(err => {
-		console.log(err)
+		Messages.error(err)
     })
 }
 

@@ -48,6 +48,7 @@ function addComment(event)
         if (!resp.success)
             return Messages.error(resp.message)
 
+        document.getElementById("comment-text").value = ""
         let comment = new Comment(resp.data);
         let parent = document.getElementById("list-comments")
         comment.render(parent)
@@ -57,6 +58,7 @@ function addComment(event)
         let likesCount = parseInt(likesContainer.innerText)
 
         likesContainer.innerText = likesCount + 1;
+        
 
     })
 }

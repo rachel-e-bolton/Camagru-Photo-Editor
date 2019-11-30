@@ -32,7 +32,7 @@ window.onscroll = function(event)
 			return false
 		ApiClient.getPosts(postCount, overrideHandle)
 			.then(json => {
-				console.log(json)
+
 				endOfContent = (json.length > 0) ? false : true
 				Array.from(json).forEach(post => {
 					let postEl = new Post(post)

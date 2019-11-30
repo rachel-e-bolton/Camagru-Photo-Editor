@@ -163,7 +163,6 @@ function snapshot()
 	if (webStream)
 	{	
 		var video = document.querySelector("video")
-		console.log(video)
 		removeBaseLayer()
 		newLayer(video, "base")
 		killVideo()
@@ -187,7 +186,6 @@ function webcam()
 		  })
 		  .then(function () {
 				document.getElementById("capture-button").disabled = false
-			  console.log("Webcam is now ready");
 		  })
 		  .catch(function (error) {
 			Messages.error(error);

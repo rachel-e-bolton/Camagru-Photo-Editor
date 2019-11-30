@@ -1,15 +1,3 @@
-console.log("hello");
-
-// const constraints = {
-// 	video: true
-// };
-
-// const video = document.querySelector('video');
-
-// navigator.mediaDevices.getUserMedia(constraints)
-// 	.then((stream) => {video.srcObject = stream});
-
-
 step_start = document.getElementById("step-start")
 step_file  = document.getElementById("step-file")
 step_webcam  = document.getElementById("step-webcam")
@@ -63,11 +51,3 @@ function clearCanvas(context, canvas) {
 	canvas.width = 1;
 	canvas.width = w;
 }
-
-
-
-
-// class CanvasImage
-// {
-
-// }
