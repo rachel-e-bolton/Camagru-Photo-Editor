@@ -10,9 +10,9 @@
 			<h1 class="title">
 				Create a new post.
 			</h1>
-			<pre>
-				<?php print_r($user);  ?>
-			</pre>
+			<h2 class="subtitle">
+            	Snap a moment and share it with the world...
+        	</h2>
         </div>
     </div>
 </section>
@@ -37,11 +37,11 @@
 			</div>
 
 			<div class="main-container">
-				<div class="layers-container">
+				<div class="view-spacer"></div>
+				<div id="view" class="media-view"></div>
+				<div class="layers-container is-hidden-touch">
 					<div id="layers"></div>
 				</div>
-				<div id="view" class="media-view"></div>
-				<div class="view-spacer"></div>
 			</div>
 
 			<div id="controls" class="media-controls columns is-vcentered">
