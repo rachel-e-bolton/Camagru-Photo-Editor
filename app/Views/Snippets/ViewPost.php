@@ -49,8 +49,29 @@
 </style>
 <script src="/js/actions/add-comment.js"></script>
 <script src="/js/actions/delete-comment.js"></script>
+<div class="is-hidden-desktop has-text-centered has-background-light" style="display: flex; flex-direction: row; justify-content: space-around; padding: .5rem;">
+        <?php if ($user): ?>
+
+        <?php if ($data["liked"]): ?>
+
+            <img id="like-image-mobile" data-id="<?= $data["post"]["id"] ?>" class="liked" src="/img/liked.png" alt="" onclick="likeImageMobile();" style="width: 32px; height: 32px;">
+
+        <?php else: ?>
+
+            <img id="like-image-mobile" data-id="<?= $data["post"]["id"] ?>" class="" src="/img/unliked.png" alt="" onclick="likeImageMobile();" style="width: 32px; height: 32px;">
+
+        <?php endif; ?>
+
+        <?php if ($data["post"]["user_id"] == $user["id"]): ?>
+            <div class="">
+            <img id="delete-image-mobile" data-id="<?= $data["post"]["id"] ?>" class="" src="/img/delete.svg" alt="" onclick="deleteImageMobile();" style="width: auto; height: 30px;">         
+            </div>
+        <?php endif; ?>
+
+        <?php endif; ?>
+</div>
 <div id="post-view" data-postid="<?= $data["post"]["id"] ?>" class="post-view has-background-light">
-    <div class="post-image">
+    <div class="post-image is-hidden-touch">
         <img src="<?= $data["post"]["image"] ?>" alt="">
         <?php if ($user): ?>
 
@@ -123,5 +144,18 @@
         </div>
     </div>
 </div>
+
+<style>
+
+@media only screen and (max-width: 768px) {
+    .post-view {
+        height: calc(100% - 50px);
+    }
+    .post-comments {
+        height: calc(100% - 32px);
+    }
+}
+
+</style>
 
 <script src="/js/actions/scroll-to-post.js"></script>
