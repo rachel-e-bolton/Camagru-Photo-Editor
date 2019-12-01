@@ -9,6 +9,10 @@ class BaseController
 	public $model;
 	protected $user = NULL;
 
+	public $allowedRoutes = [
+		"default"
+	];
+
 	public function __construct($name, $args)
 	{
 		$this->args = $args;

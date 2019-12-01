@@ -2,6 +2,11 @@
 
 class SnippetsController extends BaseController
 {
+	public $allowedRoutes = [
+        "load",
+		"post"
+	];
+
 	function load($kwargs)
 	{
 		if (count($kwargs["params"]) > 0)

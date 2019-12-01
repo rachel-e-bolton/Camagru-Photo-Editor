@@ -1,7 +1,17 @@
 <?php
 
-class AccountsController extends BaseProtectedController
+class AccountsController extends BaseController
 {
+	public $allowedRoutes = [
+		"default",
+		"edit",
+		"update_email",
+		"update_notifications",
+		"update_password",
+		"update_details",
+		"delete"
+	];
+
 	public function __construct($name, $args)
 	{
 		parent::__construct($name, $args);

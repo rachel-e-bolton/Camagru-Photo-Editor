@@ -2,9 +2,19 @@
 
 class UsersController extends BaseController
 {
+    public $allowedRoutes = [
+        "default",
+        "handleExists",
+        "logout",
+        "verify",
+        "send_reset",
+        "reset_password",
+        "update_password"
+	];
+
     public function default()
     {
-        include_once dirname(__DIR__) . "/Views/UserHome.php";
+        RenderView::redirect("/");
     }
 
     public function handleExists($handle)
@@ -39,9 +49,7 @@ class UsersController extends BaseController
             RenderView::file("404");
         }
         else
-        {
             RenderView::file("404");
-        }
     }
 
     public function send_reset()

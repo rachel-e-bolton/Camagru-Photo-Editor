@@ -2,6 +2,14 @@
 
 class PostsController extends BaseController
 {
+	public $allowedRoutes = [
+        "new_post",
+		"add",
+		"get",
+		"toggle_like",
+		"delete"
+	];
+
 	public function new_post()
 	{
 		RenderView::file("AddPost");

@@ -2,6 +2,12 @@
 
 class CommentController extends BaseController
 {
+    public $allowedRoutes = [
+        "default",
+        "add",
+        "delete"
+	];
+
     public function default()
     {
         RenderView::json([], 401, "Unauthorized");
