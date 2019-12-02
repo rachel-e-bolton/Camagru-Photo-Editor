@@ -4,11 +4,11 @@
 
 <style>
 .right-inner-addon {
-    position: relative;
+    position: relative !important;
 }
 
 .right-inner-addon img {
-    position: absolute;
+    position: absolute !important;
     right: 0px;
     padding: 10px 12px;
 	height: 100%;
@@ -120,9 +120,10 @@
                         <label class="label">Old Password</label>
                     </div>
                     <div class="field-body">
-                        <div class="field">
+                        <div class="field right-inner-addon">
                             <p class="control">
                                 <input id="old-password" name="old-password" class="input" type="password">
+                                <img id="old-password-show-hide" class="hidden" src="/img/icons8-show-password-48.png">
                             </p>
                         </div>
                     </div>
@@ -325,6 +326,7 @@
 
 <script src="/js/accounts/edit.js"></script>
 <script src="/js/useraccount-validation.js"></script>
+<script src="/js/password-show-hide.js"></script>
 
 <?php Component::load("Desktop/SignedInFooter-desktop") ?>
 </body>
