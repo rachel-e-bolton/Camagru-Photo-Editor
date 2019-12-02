@@ -2,6 +2,20 @@
 <body>
 <?php Component::load("Desktop/GenericHeader-desktop") ?>
 
+<style>
+.right-inner-addon {
+    position: relative !important;
+}
+
+.right-inner-addon img {
+    position: absolute !important;
+    right: 0px;
+    padding: 10px 12px;
+	height: 100%;
+	filter: opacity(50%);
+}
+</style>
+
 <div class="columns" style="margin-top: 3rem">
     <div  class="column is-offset-3 is-half box" style="padding: 1.5rem">
     <form id="reset-password-form">
@@ -12,8 +26,14 @@
             </div>
             <div class="field-body">
                 <div class="field">
-                    <p class="control is-expanded">
-                        <input name="password" class="input" type="password">
+                    <p class="control is-expanded right-inner-addon">
+                        <input id="password-field" 
+                                name="password" 
+                                class="input" 
+                                type="password"
+                                minlength="8"
+                                maxlength="32">
+                        <img id="password-show-hide" class="hidden" src="/img/icons8-show-password-48.png">
                     </p>
                 </div>
             </div>
@@ -61,6 +81,8 @@ function login(event)
 document.getElementById("reset-password-form").addEventListener("submit", login)
 
 </script>
+
+<script src="/js/password-show-hide.js"></script>
 
 <?php Component::load("Desktop/GenericFooter-desktop") ?>
 </body>
