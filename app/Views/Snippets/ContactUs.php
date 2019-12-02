@@ -86,11 +86,11 @@
             </div>
             </div> -->
         
-            <div class="field">
+            <!-- <div class="field">
             <label class="label">Email me a Copy of this Message</label>
             <div class="control">
                 <label class="radio">
-                <input type="radio" name="question" checked="checked">
+                <input type="radio" id="copy_mail" name="question" checked="checked">
                 Yes
                 </label>
                 <label class="radio">
@@ -98,8 +98,8 @@
                 No
                 </label>
             </div>
-            </div>
-
+            </div> -->
+            <input type="hidden" id="type" name="type" value="contact">
             
         </section>
         

@@ -12,6 +12,11 @@ class PostsController extends BaseController
 
 	public function new_post()
 	{
+		$user = $this->protectSelfHTML();
+
+		if (!$user)
+			RenderView::redirect("/login");
+
 		RenderView::file("AddPost");
 	}
 

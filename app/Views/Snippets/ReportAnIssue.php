@@ -62,7 +62,7 @@
             <label class="label">Subject</label>
             <div class="control level">
                 <div class="select level-item">
-                <select class="input" name="subject-prefix" id="subject-prefix" required type="select">
+                <select class="input" name="subject-prefix" id="subject" required type="select">
                     <option>Issue Area</option>
                     <option>User Account Issue</option>
                     <option>Gallery Issue</option>
@@ -70,14 +70,14 @@
                     <option>General Issue</option>
                 </select>
                 </div>
-                <input class="input level-item" 
+                <!-- <input class="input level-item" 
                         name="subject-suffix" 
                         id="subject-suffix" 
                         required type="text" 
                         placeholder="Short description here..." 
                         minlength="10" 
                         maxlength="60" 
-                        style="width: 60%; margin-left: .75rem;">
+                        style="width: 60%; margin-left: .75rem;"> -->
             </div>
             </div>
 
@@ -102,11 +102,11 @@
             </div>
             </div> -->
 
-            <div class="field">
+            <!-- <div class="field">
             <label class="label">Email me a Copy of this Message</label>
             <div class="control">
                 <label class="radio">
-                <input type="radio" name="question" checked="checked">
+                <input type="radio" id="copy_mail" name="question" checked="checked">
                 Yes
                 </label>
                 <label class="radio">
@@ -114,13 +114,14 @@
                 No
                 </label>
             </div>
-            </div>
+            </div> -->
+            <input type="hidden" id="type" name="type" value="issue">
 
         </section>
         <footer class="modal-card-foot">
             <div class="field is-grouped">
                 <div class="control">
-                    <button id="submit" class="button is-link">Submit</button>
+                    <button onclick="send_mail()" id="submit" class="button is-link">Submit</button>
                 </div>
             </div>
         </footer>

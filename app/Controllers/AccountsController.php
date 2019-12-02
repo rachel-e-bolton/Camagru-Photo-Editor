@@ -48,10 +48,10 @@ class AccountsController extends BaseController
 
 			if ($resp->isValid())
 			{
-				$link = SERVER_ADDRESS . "users/verify/" . $user["id"] . "/" . hash("sha256", $data["email"] . SALT);
+				$link = SERVER_ADDRESS . "users/verify/" . $user["id"] . "/" . hash("sha256", $data["new-email"] . SALT);
 				Email::send_verification_email($user["first_name"], $email, $link);
 				$_SESSION = array();
-				RenderView::redirect("/login");
+				RenderView::json([], 200, "Emali changed, please verify your new email address.");
 			}
 			else
 				RenderView::json([], 400, $resp->errorMessage());

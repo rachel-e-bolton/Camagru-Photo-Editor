@@ -63,23 +63,6 @@ function createUser(formId)
     })
 }
 
-// Starting front end validation... Not yet working
-// var emailInput = document.getElementById("email-field");
-// var passwordInput = document.getElementById("password-field");
-// var repeatPasswordInput = document.getElementById("repeat-password-field");
-
-// emailInput.onfocus = function () {
-// 	document.getElementById("email-message").display = "block"
-// }
-
-// emailInput.onblur = function() {
-// 	document.getElementById("email-message").display = "none"
-// }
-
-// emailInput.onkeyup = function() {
-// 	document.getElementById("email-message").innerHTML = "Something here..."
-// }
-
 var emailInput = document.getElementById("email-field")
 var emailMessage = document.getElementById("email-message")
 var passwordInput = document.getElementById("password-field")

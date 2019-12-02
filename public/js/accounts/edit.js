@@ -46,17 +46,21 @@ function updatePassword(event)
 
 function updateEmail(event)
 {
-    event.preventDefault()
-
     let form = JSON.stringify(Object.fromEntries(new FormData(this)))
 
     Api.post("/accounts/update_email", form)
         .then(resp => {
             if (!resp.success)
-                Messages.error(resp.message)
-            else
+                return Messages.error(resp.message)
+            
+            Messages.info(resp.message)
+
+            setTimeout(() => {
                 window.location.href = "/"
+            }, 1000);
         })
+
+    event.preventDefault()
 }
 
 function updateNotifications(event)

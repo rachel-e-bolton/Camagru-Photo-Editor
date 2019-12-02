@@ -161,7 +161,6 @@ fileInput.onchange = function(event)
 		// Enable post button
 		document.getElementById("save-post").disabled = false
 
-
 		killVideo()
 	}
 }

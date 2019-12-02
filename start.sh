@@ -8,6 +8,7 @@ fi
 
 ctl=~/Desktop/mampstack-7.3.11-0/ctlscript.sh
 
+
 mamp_dir=${ctl%/*}
 
 if lsof -Pi :3306 -sTCP:LISTEN -t >/dev/null ; then

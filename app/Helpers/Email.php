@@ -51,4 +51,15 @@ class Email
 
 		return mail($recipient, $subject, $message, $headers);
 	}
+
+	public static function send_mail($to, $subject, $content)
+	{
+		$message = file_get_contents(EMAIL_TEMPLATES . "generic_email.html");
+		$message = str_replace("[[CONTENT]]", $content, $message);
+		$headers = "MIME-Version: 1.0" . "\r\n"; 
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+		$headers .= 'From:' . ADMIN_EMAIL . "\r\n";
+
+		return mail($to, $subject, $message, $headers);
+	}
 }
