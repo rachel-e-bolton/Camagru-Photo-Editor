@@ -1,7 +1,5 @@
 <?php 
 
-include_once "../Config/Config.php";
-
 class Email
 {
 	public static function send_verification_email($name, $recipient, $link)

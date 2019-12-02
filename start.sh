@@ -6,8 +6,8 @@ then
     exit 1
 fi
 
-# mamp_dir=$(find /Applications -name ctlscript.sh)
-ctl="/Applications/mampstack-7.3.10-0/ctlscript.sh"
+ctl=~/Desktop/mampstack-7.3.11-0/ctlscript.sh
+
 mamp_dir=${ctl%/*}
 
 if lsof -Pi :3306 -sTCP:LISTEN -t >/dev/null ; then
@@ -15,7 +15,6 @@ if lsof -Pi :3306 -sTCP:LISTEN -t >/dev/null ; then
 else
     echo "Starting MySQL"
     $ctl start mysql
-    exit 1
 fi
 
 myphp="$mamp_dir/php/bin/php"
