@@ -38,4 +38,9 @@ class HomeController extends BaseController
 
 		RenderView::file("SiteGallery");
 	}
+
+	public function send_mail()
+	{
+		
+	}
 }

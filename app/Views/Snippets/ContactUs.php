@@ -106,7 +106,7 @@
         <footer class="modal-card-foot">
             <div class="field is-grouped">
                 <div class="control">
-                    <button id="submit" class="button is-link">Submit</button>
+                    <button onclick="send_mail()" id="submit" class="button is-link">Submit</button>
                 </div>
             </div>
         </footer>

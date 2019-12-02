@@ -146,6 +146,9 @@ function removeBaseLayer()
 	var base = document.getElementById("base")
 	if (base)
 		base.parentElement.removeChild(base)
+
+	// Disable post button
+	document.getElementById("save-post").disabled = true
 }
 
 fileInput.onchange = function(event)
@@ -154,6 +157,11 @@ fileInput.onchange = function(event)
 	{
 		removeBaseLayer()
 		newLayer(URL.createObjectURL(this.files[0]), "base")
+
+		// Enable post button
+		document.getElementById("save-post").disabled = false
+
+
 		killVideo()
 	}
 }

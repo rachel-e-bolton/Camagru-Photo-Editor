@@ -20,11 +20,13 @@ class AccountsController extends BaseController
 
 	public function default()
 	{
+		$this->protectSelfHTML();
 		RenderView::redirect("/accounts/edit");
 	}
 
 	public function edit()
 	{
+		$this->protectSelfHTML();
 		RenderView::file("UserAccount");
 	}
 
