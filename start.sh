@@ -6,6 +6,8 @@ then
     exit 1
 fi
 
+
+# Change this to the correct location
 ctl=~/Desktop/mampstack-7.3.11-0/ctlscript.sh
 
 
@@ -26,8 +28,13 @@ echo "Adding .db_pass file"
 touch .db_pass
 printf "$@" > .db_pass
 
+
+
+
 echo "Creating database"
 $myphp CreateDatabase.php
+
+
 
 echo "Creating tables"
 $myphp Setup.php
@@ -38,3 +45,5 @@ $myphp LoadStickers.php
 cd ../..
 
 $myphp -S 0.0.0.0:8080 -t public/
+
+exit 1
