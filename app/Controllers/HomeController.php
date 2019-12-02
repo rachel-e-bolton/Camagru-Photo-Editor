@@ -4,6 +4,11 @@
 
 class HomeController extends BaseController
 {
+	public $allowedRoutes = [
+        "default",
+        "gallery"
+	];
+
 	function default()
 	{
 		if (isset($_SESSION["logged_in_uid"]))

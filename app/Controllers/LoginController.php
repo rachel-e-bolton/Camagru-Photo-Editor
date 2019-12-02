@@ -3,6 +3,11 @@
 class LoginController extends BaseController
 {
 
+    public $allowedRoutes = [
+        "default",
+        "authenticate"
+	];
+
 	public function __construct($name, $args)
 	{
         parent::__construct($name, $args);

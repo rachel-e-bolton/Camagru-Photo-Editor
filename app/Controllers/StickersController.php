@@ -1,7 +1,12 @@
 <?php
 
-class StickersController extends BaseProtectedController
+class StickersController extends BaseController
 {
+	public $allowedRoutes = [
+        "default",
+		"get_all"
+	];
+
 	public function default()
 	{
 		RenderView::redirect("/");
@@ -9,6 +14,7 @@ class StickersController extends BaseProtectedController
 
 	public function get_all()
 	{
+		$this->protectSelfJSON();
 		$stickers = $this->model->getAll();
 
 		if ($stickers)

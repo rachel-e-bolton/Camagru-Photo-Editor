@@ -2,6 +2,10 @@
 
 class SignupController extends BaseController
 {
+	public $allowedRoutes = [
+        "default",
+		"create",
+	];
 
 	public function __construct($name, $args)
 	{

@@ -9,10 +9,13 @@ class BaseController
 	public $model;
 	protected $user = NULL;
 
+	public $allowedRoutes = [
+		"default"
+	];
+
 	public function __construct($name, $args)
 	{
 		$this->args = $args;
-		// Get Model here and assign to private? I dunno
 
 		$potentialModelName = ucwords(rtrim($name, "s")) . "Model";
 
@@ -31,7 +34,8 @@ class BaseController
 	{
 		$data = json_decode(file_get_contents('php://input'), true);
 
-		array_walk_recursive($data, "self::xssProtect");
+		if ($data)
+			array_walk_recursive($data, "self::xssProtect");
 
 		return $data;
 	}

@@ -48,9 +48,9 @@ class Router {
 		if (class_exists($controller))
 			$dispatch = new $controller($controller_name, $action);
 		else
-			$dispatch = null;
+			RenderView::file("404");
 
-		if (method_exists($dispatch, $action)) {
+		if (in_array($action, $dispatch->allowedRoutes) && method_exists($dispatch, $action)) {
 			call_user_func_array(array($dispatch, $action), array($arguments));
 		} else {
 			RenderView::file("404");
