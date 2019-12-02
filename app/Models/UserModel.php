@@ -42,7 +42,6 @@ class UserModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
-			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}
@@ -62,7 +61,6 @@ class UserModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
-			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}
@@ -82,7 +80,6 @@ class UserModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
-			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}
@@ -99,7 +96,6 @@ class UserModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
-			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}
@@ -115,7 +111,6 @@ class UserModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
-			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}
@@ -126,12 +121,11 @@ class UserModel extends BaseModel
 		$stmt->bindValue(":id", $id);
 
 		try
-		{    
+		{
 			return $stmt->execute();
 		}
 		catch (PDOException $e)
 		{
-			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}

@@ -21,7 +21,6 @@ class PostModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
-			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}
@@ -56,7 +55,6 @@ class PostModel extends BaseModel
 		}
 		catch (PDOException $e)
 		{
-			error_log("SQL Error: " . $e->getMessage(),0);
 			return false;
 		}
 	}
@@ -97,13 +95,10 @@ class PostModel extends BaseModel
 
 			$t = $stmt->rowCount();
 
-			error_log("Returned $t", 0);
-
 			return $data;
 		}
 		catch (PDOException $e)
-		{
-			error_log("SQL Error: " . $e->getMessage(),0);
+		{;
 			return false;
 		}
 	}

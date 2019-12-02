@@ -82,7 +82,7 @@ class AccountsController extends BaseController
 
 		if (isset($data["old-password"]) && isset($data["new-password"]))
 		{	
-			if ($this->model->authenticate($user["id"], $data["old-password"]))
+			if ($this->model->authenticate($user["email"], $data["old-password"]))
 			{
 				if (!Validate::password($data["new-password"]))
 					RenderView::json([], 400, "New password does not meet complexity requirements.");
@@ -91,7 +91,9 @@ class AccountsController extends BaseController
 				RenderView::json([], 200, "Password updated successfully.");
 			}
 			else
-				RenderView::json([], 400, "Password incorrect.");	
+			{
+				RenderView::json([], 400, "Password incorrect.");
+			}
 		}
 		else
 			RenderView::json([], 400, "Missing data, cannot complete request.");
