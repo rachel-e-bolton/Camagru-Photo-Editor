@@ -2,13 +2,13 @@
  
         <header class="modal-card-head">
             <p class="modal-card-title is-family-primary">Report an Issue</p>
-            <div class="field is-grouped is-hidden-desktop">
+            <!-- <div class="field is-grouped is-hidden-desktop">
             <div class="control">
                 <button id="submit" class="button is-link">Submit</button>
             </div>
-            </div>
+            </div> -->
         </header>
-        <form id="issue-form">
+        <!-- <form id="issue-form"> -->
         <section class="modal-card-body is-family-secondary">
         
             <div class="field">
@@ -116,14 +116,13 @@
             </div>
             </div>
 
-            <div class="field is-grouped is-hidden-touch">
-            <div class="control">
-                <button id="submit" class="button is-link">Submit</button>
-            </div>
-            </div>
-    
         </section>
         <footer class="modal-card-foot">
+            <div class="field is-grouped">
+                <div class="control">
+                    <button id="submit" class="button is-link">Submit</button>
+                </div>
+            </div>
         </footer>
-        </form>
+        <!-- </form> -->
 </div>-
